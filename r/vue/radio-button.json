@@ -1,5 +1,5 @@
 {
-  "$schema": "https://btech-ui-registry.vercel.app/schema/registry-item.json",
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
   "name": "radio-button",
   "type": "registry:ui",
   "title": "BTRadioButton",

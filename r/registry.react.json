@@ -1,5 +1,5 @@
 {
-  "$schema": "https://btech-ui-registry.vercel.app/schema/registry.json",
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry.json",
   "framework": "react",
   "version": "0.1.0",
   "items": [
