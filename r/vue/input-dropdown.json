@@ -5,7 +5,7 @@
   "title": "BTInputDropdown",
   "description": "Input-style trigger field that opens a BTDropdownList panel. Single-select with optional internal search filtering.",
   "framework": "vue",
-  "category": "molecule",
+  "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?m=auto&node-id=555-3041",
   "figmaNodeId": "555-3041",
   "dependencies": [

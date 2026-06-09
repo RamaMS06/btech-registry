@@ -156,14 +156,6 @@
       "url": "/r/vue/tooltip.json"
     },
     {
-      "name": "input-dropdown",
-      "type": "registry:ui",
-      "category": "molecule",
-      "title": "BTInputDropdown",
-      "description": "Input-style trigger field that opens a BTDropdownList panel. Single-select with optional internal search filtering.",
-      "url": "/r/vue/input-dropdown.json"
-    },
-    {
       "name": "accordion",
       "type": "registry:ui",
       "category": "molecules",
@@ -266,6 +258,14 @@
       "title": "BTInputDate",
       "description": "Click-to-open date / date-range picker. Shows a floating BTCalendar panel (via Teleport) beneath the field when clicked. Supports single-date and range modes, floating label, error/helper text, and external form validation via the exposed `validate()` method.",
       "url": "/r/vue/input-date.json"
+    },
+    {
+      "name": "input-dropdown",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputDropdown",
+      "description": "Input-style trigger field that opens a BTDropdownList panel. Single-select with optional internal search filtering.",
+      "url": "/r/vue/input-dropdown.json"
     },
     {
       "name": "input-field-unit",
