@@ -10,7 +10,7 @@
   "figmaNodeId": "3398-521",
   "dependencies": [
     "btech_tokens",
-    "fl_chart:0.67.0"
+    "fl_chart"
   ],
   "devDependencies": [],
   "registryDependencies": [
