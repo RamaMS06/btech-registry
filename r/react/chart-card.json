@@ -30,7 +30,13 @@
       "path": "BTChartCard.types.ts",
       "target": "@ui/BTChartCard.types.ts",
       "type": "registry:ui",
-      "content": "export type { BTChartLegendItem, BTChartSummaryItem } from '../../../molecules/Chart/internal/chart.types';\n"
+      "content": "export type { BTChartLegendItem, BTChartSummaryItem } from './internal/chart.types';\n"
+    },
+    {
+      "path": "internal/chart.types.ts",
+      "target": "@ui/internal/chart.types.ts",
+      "type": "registry:ui",
+      "content": "// Internal chart types — shared across BTBarChart, BTLineChart, BTCircleChart, BTChartCard.\n// Do NOT re-export from component barrels.\n\n/** Single bar datum for BTBarChart basic variant. */\nexport interface BTBarData {\n  value: number;\n  /** x-axis label */\n  label?: string;\n}\n\n/** One rod within a grouped or stacked bar. */\nexport interface BTBarItem {\n  value: number;\n  /** CSS color or var(--token) */\n  color: string;\n  /** Series name shown in tooltip */\n  label?: string;\n}\n\n/** One x-position group for BTBarChart grouped variant. */\nexport interface BTBarGroupData {\n  /** x-axis label */\n  label?: string;\n  bars: BTBarItem[];\n}\n\n/** One stacked bar for BTBarChart stacked variant. */\nexport interface BTStackedBarData {\n  /** x-axis label */\n  label?: string;\n  segments: BTBarItem[];\n}\n\n/** One (x, y) data point for BTLineChart. */\nexport interface BTLineSpot {\n  x: number;\n  y: number;\n}\n\n/** One series for BTLineChart. */\nexport interface BTLineSeries {\n  spots: BTLineSpot[];\n  /** CSS color or var(--token) */\n  color: string;\n  /** Series name shown in tooltip */\n  label?: string;\n}\n\n/** One section for BTCircleChart. */\nexport interface BTCircleSection {\n  value: number;\n  /** CSS color or var(--token) */\n  color: string;\n  /** Section label shown on badge and in tooltip */\n  label?: string;\n}\n\n/** Legend item shown in BTChartCard. */\nexport interface BTChartLegendItem {\n  label: string;\n  /** CSS color or var(--token) */\n  color: string;\n}\n\n/** Summary metric shown in BTChartCard header area. */\nexport interface BTChartSummaryItem {\n  label: string;\n  value: string;\n  unit?: string;\n}\n\n/** One row inside the chart tooltip balloon. */\nexport interface BTChartTooltipItem {\n  /** Swatch color */\n  color: string;\n  /** Series name — empty string hides the label column */\n  label: string;\n  /** Formatted value string */\n  value: string;\n}\n"
     }
   ]
 }
