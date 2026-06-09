@@ -1,5 +1,5 @@
 {
-  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "$schema": "https://ramams06.github.io/btech-registry/schema/registry-item.json",
   "name": "drawer",
   "type": "registry:ui",
   "title": "BTDrawer",
