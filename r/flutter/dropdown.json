@@ -13,7 +13,7 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "dropdown-list"
+    "dropdown_list"
   ],
   "files": [
     {

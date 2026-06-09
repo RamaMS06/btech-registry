@@ -13,7 +13,7 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "tooltip-step"
+    "tooltip_step"
   ],
   "files": [
     {
