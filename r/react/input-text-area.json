@@ -33,6 +33,12 @@
       "target": "@ui/BTInputTextArea.types.ts",
       "type": "registry:ui",
       "content": "export interface BTInputTextAreaHandle {\n  validate: () => boolean;\n}\n\nexport interface BTInputTextAreaProps {\n  /** Controlled value. */\n  value?: string;\n  label?: string;\n  placeholder?: string;\n  required?: boolean;\n  disabled?: boolean;\n  errorText?: string;\n  helperText?: string;\n  /** Hard caps input length. When set, a character counter is shown. */\n  maxLength?: number;\n  /** Kept for API compatibility — not used in rendering (auto-grow handles height). */\n  rows?: number;\n  /** Called on every keystroke. */\n  onChange?: (value: string) => void;\n  /** Called when the clear button is clicked. */\n  onClear?: () => void;\n  /** Return an error string to fail validation, null to pass. */\n  validator?: (value: string) => string | null;\n  className?: string;\n}\n"
+    },
+    {
+      "path": "icons/cancel-fill.svg",
+      "target": "@ui/icons/cancel-fill.svg",
+      "type": "registry:ui",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n  <path d=\"M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z\"/>\n</svg>\n"
     }
   ]
 }

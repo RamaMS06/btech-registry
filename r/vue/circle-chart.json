@@ -9,7 +9,9 @@
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3404-1813",
   "figmaNodeId": "3404:1813",
   "dependencies": [
-    "@btech/tokens"
+    "@btech/tokens",
+    "apexcharts@5.13.0",
+    "vue3-apexcharts@1.11.1"
   ],
   "devDependencies": [],
   "registryDependencies": [],

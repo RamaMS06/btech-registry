@@ -33,6 +33,18 @@
       "target": "@ui/BTInputTime.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTInputTime — masked time-input field (React).\n * Figma node 555-2975.\n *\n * @example\n * <BTInputTime label=\"Start time\" value={time} onChange={setTime} />\n * <BTInputTime label=\"Duration\" format=\"HH:mm:ss\" value={dur} onChange={setDur} />\n * <BTInputTime label=\"Meeting\" format=\"hh:mm a\" value={t} onChange={setT} />\n */\n\nexport type BTInputTimeFormat = 'HH:mm' | 'HH:mm:ss' | 'hh:mm a';\n\nexport type BTInputTimeSize = 'default' | 'small';\n\nexport interface BTInputTimeProps {\n  /** Current time value — string matching the active format.\n   *  e.g. \"17:58\" for HH:mm, \"17:58:30\" for HH:mm:ss, \"05:30 PM\" for hh:mm a.\n   *  Pass null to clear. */\n  value?: string | null;\n\n  /** Floating label text. */\n  label?: string;\n\n  /**\n   * Display and input format.\n   * - 'HH:mm'    → 24-hour, 4 digits (HHMM)\n   * - 'HH:mm:ss' → 24-hour with seconds, 6 digits (HHMMSS)\n   * - 'hh:mm a'  → 12-hour, 4 digits + AM/PM toggle\n   * @default 'HH:mm'\n   */\n  format?: BTInputTimeFormat;\n\n  /** Field height variant.\n   * - default: 48 px fixed height\n   * - small:   auto height with smaller padding\n   * @default 'default'\n   */\n  size?: BTInputTimeSize;\n\n  disabled?: boolean;\n  readOnly?: boolean;\n  required?: boolean;\n\n  /** External error message — overrides internal validator error. */\n  errorText?: string;\n\n  /** Helper text shown below the field. */\n  helperText?: string;\n\n  /** Override the generated `id` used for label association. */\n  id?: string;\n\n  /** Called when time value changes (null when cleared or incomplete). */\n  onChange?: (value: string | null) => void;\n\n  /** Called when the clear (×) button is clicked. */\n  onClear?: () => void;\n\n  /** Validator function — returns error string or null if valid. */\n  validator?: (value: string | null) => string | null;\n\n  /** Additional CSS class names applied to the field row. */\n  className?: string;\n}\n\nexport interface BTInputTimeHandle {\n  /** Runs the validator and shows an error message if invalid. Returns true if valid. */\n  validate: () => boolean;\n}\n"
+    },
+    {
+      "path": "icons/cancel.svg",
+      "target": "@ui/icons/cancel.svg",
+      "type": "registry:ui",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z\"/></svg>\n"
+    },
+    {
+      "path": "icons/schedule.svg",
+      "target": "@ui/icons/schedule.svg",
+      "type": "registry:ui",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n  <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z\"/>\n</svg>"
     }
   ]
 }

@@ -34,6 +34,18 @@
       "target": "@ui/BTInputDropdown.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTInputDropdown — input-family select (React).\n *\n * Figma node 555-3041.\n */\nimport type { BTDropdownItem } from './BTDropdownList.types.js';\n\nexport type BTInputDropdownSize = 'default' | 'small';\n\nexport interface BTInputDropdownProps<T = string> {\n  /** Currently selected value — must match one of items[n].value */\n  value?: T | null;\n  /** Floating label text */\n  label?: string;\n  /** Items to display in the panel */\n  items: BTDropdownItem<T>[];\n  /**\n   * Show a search input at the top of the panel.\n   * Filtering is done internally — parent does NOT need to filter items.\n   * @default false\n   */\n  hasSearch?: boolean;\n  /**\n   * Field height variant.\n   * - 'default' → 48px height\n   * - 'small'   → auto height, smaller padding\n   * @default 'default'\n   */\n  size?: BTInputDropdownSize;\n  /** @default false */\n  disabled?: boolean;\n  /** @default false */\n  readOnly?: boolean;\n  /** @default false */\n  required?: boolean;\n  /** External error message */\n  errorText?: string;\n  helperText?: string;\n  /** Used for label `for` / aria — auto-generated if omitted */\n  id?: string;\n  /**\n   * Text shown in the empty state (no items or no search match).\n   * @default 'No result found.'\n   */\n  emptyLabel?: string;\n  /**\n   * Convert a BTDropdownItem to a display string shown in the field.\n   * Defaults to `item.label ?? ''`.\n   */\n  getLabel?: (item: BTDropdownItem<T>) => string;\n  onChange?: (value: T | null) => void;\n  onClear?: () => void;\n  className?: string;\n}\n"
+    },
+    {
+      "path": "icons/cancel.svg",
+      "target": "@ui/icons/cancel.svg",
+      "type": "registry:ui",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z\"/></svg>\n"
+    },
+    {
+      "path": "icons/expand_more.svg",
+      "target": "@ui/icons/expand_more.svg",
+      "type": "registry:ui",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z\"/></svg>\n"
     }
   ]
 }
