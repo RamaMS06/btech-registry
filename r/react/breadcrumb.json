@@ -1,0 +1,72 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "breadcrumb",
+  "type": "registry:ui",
+  "title": "BTBreadcrumb",
+  "description": "Compositional breadcrumb system with 7 building-block components. Compose BTBreadcrumb > BTBreadcrumbList > BTBreadcrumbItem > (BTBreadcrumbLink | BTBreadcrumbPage | BTBreadcrumbEllipsis) with BTBreadcrumbSeparator between items.",
+  "framework": "react",
+  "category": "molecules",
+  "figmaUrl": "https://www.figma.com/design/EzBzMqvVfBfWRaYKOoZbGj?node-id=681-10168",
+  "figmaNodeId": "681:10168",
+  "dependencies": [
+    "@btech/tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "BTBreadcrumb.css",
+      "target": "@ui/BTBreadcrumb.css",
+      "type": "registry:ui",
+      "content": "/* BTBreadcrumb — Figma node 681:10168 (web D) */\n/* All CSS vars verified against packages/tokens/platforms/web/bspace/dist/styles.css */\n\n/* ── Nav wrapper ──────────────────────────────────────────────────────────── */\n\n.bt-breadcrumb {\n  display: flex;\n  align-items: center;\n}\n\n/* ── Ordered list ─────────────────────────────────────────────────────────── */\n\n.bt-breadcrumb-list {\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: var(--space-sm);\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/* ── Individual item (li) ─────────────────────────────────────────────────── */\n\n.bt-breadcrumb-item {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--space-xs);\n}\n\n/* ── Clickable link item ──────────────────────────────────────────────────── */\n\n.bt-breadcrumb-link {\n  font-size: var(--typography-font-size-sm);\n  font-weight: 500;\n  line-height: 1.14;\n  color: var(--text-secondary);\n  text-decoration: none;\n  cursor: pointer;\n  background: none;\n  border: none;\n  padding: 0;\n  font-family: inherit;\n  transition: color 0.15s ease;\n}\n\n.bt-breadcrumb-link:hover {\n  color: var(--text-primary);\n}\n\n/* ── Current (last) item — non-interactive ────────────────────────────────── */\n\n.bt-breadcrumb-page {\n  font-size: var(--typography-font-size-sm);\n  font-weight: 500;\n  line-height: 1.14;\n  color: var(--text-primary);\n}\n\n/* ── Separator icon ───────────────────────────────────────────────────────── */\n\n.bt-breadcrumb-separator {\n  display: inline-flex;\n  align-items: center;\n  color: var(--text-secondary);\n}\n\n.bt-breadcrumb-separator__icon {\n  width: 6px;\n  height: 10px;\n}\n\n/* ── Ellipsis trigger (···) ───────────────────────────────────────────────── */\n\n.bt-breadcrumb-ellipsis {\n  position: relative;\n  display: inline-flex;\n}\n\n.bt-breadcrumb-ellipsis__btn {\n  width: 24px;\n  height: 24px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: var(--radius-sm);\n  background: none;\n  border: none;\n  cursor: pointer;\n  color: var(--text-secondary);\n  padding: 0;\n  transition: background 0.15s ease;\n}\n\n.bt-breadcrumb-ellipsis__btn:hover,\n.bt-breadcrumb-ellipsis--open .bt-breadcrumb-ellipsis__btn {\n  background: var(--bg-secondary);\n}\n\n.bt-breadcrumb-ellipsis__icon {\n  width: 16px;\n  height: 4px;\n}\n\n/* ── Ellipsis dropdown portal — rendered at document.body via Teleport/createPortal ── */\n/* BTDropdownList provides border/shadow/background — this only handles positioning.    */\n\n.bt-breadcrumb-ellipsis__portal {\n  position: fixed;\n  transform: translateX(-50%);\n  z-index: 1000;\n}\n"
+    },
+    {
+      "path": "BTBreadcrumb.tsx",
+      "target": "@ui/BTBreadcrumb.tsx",
+      "type": "registry:ui",
+      "content": "/**\n * BTBreadcrumb — compositional breadcrumb root wrapper.\n * Figma: D node 681:10168.\n *\n * @example\n * ```tsx\n * <BTBreadcrumb>\n *   <BTBreadcrumbList>\n *     <BTBreadcrumbItem>\n *       <BTBreadcrumbLink href=\"/home\">Home</BTBreadcrumbLink>\n *     </BTBreadcrumbItem>\n *     <BTBreadcrumbSeparator />\n *     <BTBreadcrumbItem>\n *       <BTBreadcrumbPage>Detail</BTBreadcrumbPage>\n *     </BTBreadcrumbItem>\n *   </BTBreadcrumbList>\n * </BTBreadcrumb>\n * ```\n */\nimport './BTBreadcrumb.css';\nimport type { BTBreadcrumbProps } from './BTBreadcrumb.types';\n\nexport function BTBreadcrumb({ children, className }: BTBreadcrumbProps) {\n  return (\n    <nav\n      className={`bt-breadcrumb${className ? ` ${className}` : ''}`}\n      aria-label=\"Breadcrumb\"\n    >\n      {children}\n    </nav>\n  );\n}\n\nBTBreadcrumb.displayName = 'BTBreadcrumb';\n"
+    },
+    {
+      "path": "BTBreadcrumb.types.ts",
+      "target": "@ui/BTBreadcrumb.types.ts",
+      "type": "registry:ui",
+      "content": "// BTBreadcrumb compositional types — Figma node 681:10168 (web D).\n\nimport type { ReactNode } from 'react';\n\nexport interface BTBreadcrumbProps {\n  className?: string;\n  children?: ReactNode;\n}\n\nexport interface BTBreadcrumbListProps {\n  className?: string;\n  children?: ReactNode;\n}\n\nexport interface BTBreadcrumbItemProps {\n  className?: string;\n  children?: ReactNode;\n}\n\nexport interface BTBreadcrumbLinkProps {\n  /** URL to navigate to. When provided renders an <a> element. */\n  href?: string;\n  /** Programmatic press handler. When href is also set, prevents default navigation. */\n  onPress?: () => void;\n  className?: string;\n  children?: ReactNode;\n}\n\nexport interface BTBreadcrumbPageProps {\n  className?: string;\n  children?: ReactNode;\n}\n\nexport interface BTBreadcrumbSeparatorProps {\n  className?: string;\n}\n\n/** A single item shown inside the BTBreadcrumbEllipsis dropdown list. */\nexport interface BTBreadcrumbDropdownItem {\n  /** Display label shown in the list row. */\n  label: string;\n  /** Called when the user selects this item. */\n  onPress?: () => void;\n}\n\nexport interface BTBreadcrumbEllipsisProps {\n  /** Collapsed breadcrumb items shown inside the BTDropdownList dropdown. */\n  items: BTBreadcrumbDropdownItem[];\n  className?: string;\n}\n"
+    },
+    {
+      "path": "BTBreadcrumbEllipsis.tsx",
+      "target": "@ui/BTBreadcrumbEllipsis.tsx",
+      "type": "registry:ui",
+      "content": "import { useState, useRef, useMemo, useEffect } from 'react';\nimport { createPortal } from 'react-dom';\nimport moreHorizIcon from './icons/more_horiz.svg';\nimport type { BTBreadcrumbEllipsisProps } from './BTBreadcrumb.types';\nimport { BTDropdownList } from '../../atoms/DropdownList/index.js';\n\nexport function BTBreadcrumbEllipsis({ items = [], className }: BTBreadcrumbEllipsisProps) {\n  const [open, setOpen] = useState(false);\n  const [pos, setPos] = useState({ top: 0, left: 0 });\n  const btnRef = useRef<HTMLButtonElement>(null);\n  const portalRef = useRef<HTMLDivElement>(null);\n\n  const dropdownItems = useMemo(\n    () => items.map((item, i) => ({ value: i, label: item.label })),\n    [items],\n  );\n\n  function toggle() {\n    if (!open && btnRef.current) {\n      const r = btnRef.current.getBoundingClientRect();\n      setPos({ top: r.bottom + 4, left: r.left + r.width / 2 });\n    }\n    setOpen((v) => !v);\n  }\n\n  function handleSelect(index: number) {\n    setOpen(false);\n    items[index]?.onPress?.();\n  }\n\n  // Close on outside mousedown — but NOT when the mousedown is inside the portal.\n  // If we also closed on portal mousedown, the dropdown would unmount before the\n  // BTDropdownList item's click handler fires, swallowing the select event.\n  useEffect(() => {\n    if (!open) return;\n\n    function onDocClick(e: MouseEvent) {\n      const inBtn = btnRef.current?.contains(e.target as Node);\n      const inPortal = portalRef.current?.contains(e.target as Node);\n      if (!inBtn && !inPortal) {\n        setOpen(false);\n      }\n    }\n    function onScroll() {\n      setOpen(false);\n    }\n\n    document.addEventListener('mousedown', onDocClick);\n    window.addEventListener('scroll', onScroll, { passive: true });\n    return () => {\n      document.removeEventListener('mousedown', onDocClick);\n      window.removeEventListener('scroll', onScroll);\n    };\n  }, [open]);\n\n  return (\n    <span\n      className={`bt-breadcrumb-ellipsis${open ? ' bt-breadcrumb-ellipsis--open' : ''}${className ? ` ${className}` : ''}`}\n    >\n      <button\n        ref={btnRef}\n        type=\"button\"\n        className=\"bt-breadcrumb-ellipsis__btn\"\n        aria-expanded={open}\n        aria-label=\"Show more breadcrumb items\"\n        onClick={toggle}\n      >\n        <img src={moreHorizIcon} className=\"bt-breadcrumb-ellipsis__icon\" alt=\"\" />\n      </button>\n\n      {open &&\n        createPortal(\n          <div\n            ref={portalRef}\n            className=\"bt-breadcrumb-ellipsis__portal\"\n            style={{ top: pos.top, left: pos.left }}\n          >\n            <BTDropdownList variant=\"list\" items={dropdownItems} onSelect={handleSelect} />\n          </div>,\n          document.body,\n        )}\n    </span>\n  );\n}\n\nBTBreadcrumbEllipsis.displayName = 'BTBreadcrumbEllipsis';\n"
+    },
+    {
+      "path": "BTBreadcrumbItem.tsx",
+      "target": "@ui/BTBreadcrumbItem.tsx",
+      "type": "registry:ui",
+      "content": "import type { BTBreadcrumbItemProps } from './BTBreadcrumb.types';\n\nexport function BTBreadcrumbItem({ children, className }: BTBreadcrumbItemProps) {\n  return (\n    <li className={`bt-breadcrumb-item${className ? ` ${className}` : ''}`}>\n      {children}\n    </li>\n  );\n}\n\nBTBreadcrumbItem.displayName = 'BTBreadcrumbItem';\n"
+    },
+    {
+      "path": "BTBreadcrumbLink.tsx",
+      "target": "@ui/BTBreadcrumbLink.tsx",
+      "type": "registry:ui",
+      "content": "import type { BTBreadcrumbLinkProps } from './BTBreadcrumb.types';\n\nexport function BTBreadcrumbLink({ href, onPress, className, children }: BTBreadcrumbLinkProps) {\n  const cls = `bt-breadcrumb-link${className ? ` ${className}` : ''}`;\n\n  if (href) {\n    function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {\n      if (onPress) {\n        e.preventDefault();\n        onPress();\n      }\n    }\n    return (\n      <a href={href} className={cls} onClick={handleClick}>\n        {children}\n      </a>\n    );\n  }\n\n  return (\n    <button type=\"button\" className={cls} onClick={onPress}>\n      {children}\n    </button>\n  );\n}\n\nBTBreadcrumbLink.displayName = 'BTBreadcrumbLink';\n"
+    },
+    {
+      "path": "BTBreadcrumbList.tsx",
+      "target": "@ui/BTBreadcrumbList.tsx",
+      "type": "registry:ui",
+      "content": "import type { BTBreadcrumbListProps } from './BTBreadcrumb.types';\n\nexport function BTBreadcrumbList({ children, className }: BTBreadcrumbListProps) {\n  return (\n    <ol className={`bt-breadcrumb-list${className ? ` ${className}` : ''}`}>\n      {children}\n    </ol>\n  );\n}\n\nBTBreadcrumbList.displayName = 'BTBreadcrumbList';\n"
+    },
+    {
+      "path": "BTBreadcrumbPage.tsx",
+      "target": "@ui/BTBreadcrumbPage.tsx",
+      "type": "registry:ui",
+      "content": "import type { BTBreadcrumbPageProps } from './BTBreadcrumb.types';\n\nexport function BTBreadcrumbPage({ children, className }: BTBreadcrumbPageProps) {\n  return (\n    <span\n      className={`bt-breadcrumb-page${className ? ` ${className}` : ''}`}\n      aria-current=\"page\"\n    >\n      {children}\n    </span>\n  );\n}\n\nBTBreadcrumbPage.displayName = 'BTBreadcrumbPage';\n"
+    },
+    {
+      "path": "BTBreadcrumbSeparator.tsx",
+      "target": "@ui/BTBreadcrumbSeparator.tsx",
+      "type": "registry:ui",
+      "content": "import chevronRight from './icons/chevron_right.svg';\nimport type { BTBreadcrumbSeparatorProps } from './BTBreadcrumb.types';\n\nexport function BTBreadcrumbSeparator({ className }: BTBreadcrumbSeparatorProps) {\n  return (\n    <span\n      className={`bt-breadcrumb-separator${className ? ` ${className}` : ''}`}\n      aria-hidden=\"true\"\n    >\n      <img src={chevronRight} className=\"bt-breadcrumb-separator__icon\" alt=\"\" />\n    </span>\n  );\n}\n\nBTBreadcrumbSeparator.displayName = 'BTBreadcrumbSeparator';\n"
+    }
+  ]
+}

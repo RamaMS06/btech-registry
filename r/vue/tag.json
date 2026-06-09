@@ -1,0 +1,42 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "tag",
+  "type": "registry:ui",
+  "title": "BTTag",
+  "description": "Removable pill label atom. Supports default and outline variants, optional left icon slot, and close button for removal.",
+  "framework": "vue",
+  "category": "atoms",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3050-6361",
+  "figmaNodeId": "3050:6361",
+  "dependencies": [
+    "@btech/tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "BTTag.css",
+      "target": "@ui/BTTag.css",
+      "type": "registry:ui",
+      "content": "/* BTTag — removable pill label atom.\n   Figma nodes 3050-6361 / 3050-6644.\n   All colours via @btech/tokens CSS vars — no hex fallbacks. */\n\n.bt-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--space-xs);\n  padding: var(--space-2xs) var(--space-xs);\n  border-radius: var(--radius-sm);\n  font-family: var(--typography-font-family-sans);\n  font-size: var(--typography-font-size-xs);\n  font-weight: 500;\n  line-height: var(--typography-line-height-xs);\n  letter-spacing: 0;\n  white-space: nowrap;\n  color: var(--text-primary);\n  cursor: default;\n  user-select: none;\n}\n\n/* ── Default variant ── */\n.bt-tag--default {\n  background: var(--bg-subtler);\n  border: none;\n}\n.bt-tag--default:hover {\n  background: var(--bg-subtlest);\n}\n\n/* ── Outline variant ── */\n.bt-tag--outline {\n  background: transparent;\n  border: 1px solid var(--border-secondary);\n}\n.bt-tag--outline:hover {\n  background: var(--bg-subtle);\n}\n\n/* ── Close button ── */\n.bt-tag__close {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 16px;\n  height: 16px;\n  flex-shrink: 0;\n  cursor: pointer;\n  color: var(--text-primary);\n  background: none;\n  border: none;\n  padding: 0;\n  line-height: 1;\n}\n.bt-tag__close:hover {\n  opacity: 0.7;\n}\n\n/* ── Left icon slot ── */\n.bt-tag__icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 16px;\n  height: 16px;\n  flex-shrink: 0;\n}\n\n/* ── Tag Group ── */\n.bt-tag-group {\n  display: flex;\n  align-items: center;\n}\n.bt-tag-group--scroll {\n  overflow-x: auto;\n  flex-wrap: nowrap;\n}\n.bt-tag-group--wrap {\n  flex-wrap: wrap;\n}\n.bt-tag-group--gap-default {\n  gap: var(--space-xs);\n}\n.bt-tag-group--gap-loose {\n  gap: var(--space-sm);\n}\n"
+    },
+    {
+      "path": "BTTag.types.ts",
+      "target": "@ui/BTTag.types.ts",
+      "type": "registry:ui",
+      "content": "/**\n * Props for {@link BTTag}.\n *\n * @example\n * <BTTag label=\"Flutter\" />\n * <BTTag label=\"Vue\" variant=\"outline\" :onRemove=\"() => remove('Vue')\" />\n */\nexport interface BTTagProps {\n  /** Text label shown inside the tag. */\n  label: string;\n  /** Visual style. @default 'default' */\n  variant?: 'default' | 'outline';\n  /** When provided, renders a close × button. Caller removes tag from list. */\n  onRemove?: () => void;\n}\n\n/**\n * Props for {@link BTTagGroup}.\n */\nexport interface BTTagGroupProps {\n  /** List of tags to display. */\n  items: BTTagItem[];\n  /** Visual variant applied to all tags. @default 'default' */\n  variant?: 'default' | 'outline';\n  /** Gap between tags. @default 'default' (4px) */\n  spacing?: 'default' | 'loose';\n  /** Layout mode. @default 'scroll' */\n  type?: 'scroll' | 'wrap';\n  /** Called when user clicks close on a tag. Caller must update items. */\n  onRemove?: (item: BTTagItem, index: number) => void;\n}\n\nexport interface BTTagItem {\n  /** Display text. */\n  label: string;\n  /** Optional unique key; falls back to label. */\n  id?: string;\n}\n"
+    },
+    {
+      "path": "BTTag.vue",
+      "target": "@ui/BTTag.vue",
+      "type": "registry:ui",
+      "content": "<!-- BTTag — removable pill label atom.\n     Figma source: node 3050-6361.\n     Left icon: named slot `icon`. Close button: shown when onRemove prop is set.\n-->\n<script setup lang=\"ts\">\nimport { computed } from 'vue';\nimport './BTTag.css';\nimport type { BTTagProps } from './BTTag.types';\n\nconst props = withDefaults(defineProps<BTTagProps>(), {\n  variant: 'default',\n});\n\nconst tagClass = computed(() =>\n  ['bt-tag', `bt-tag--${props.variant}`].join(' '),\n);\n</script>\n\n<template>\n  <span :class=\"tagClass\" data-testid=\"bt-tag\">\n    <span v-if=\"$slots.icon\" class=\"bt-tag__icon\">\n      <slot name=\"icon\" />\n    </span>\n    <span class=\"bt-tag__label\">{{ label }}</span>\n    <button\n      v-if=\"onRemove\"\n      class=\"bt-tag__close\"\n      aria-label=\"Remove tag\"\n      type=\"button\"\n      @click.stop=\"onRemove\"\n    >\n      <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M8 1.5C4.41 1.5 1.5 4.41 1.5 8C1.5 11.59 4.41 14.5 8 14.5C11.59 14.5 14.5 11.59 14.5 8C14.5 4.41 11.59 1.5 8 1.5ZM11 10.29L10.29 11L8 8.71L5.71 11L5 10.29L7.29 8L5 5.71L5.71 5L8 7.29L10.29 5L11 5.71L8.71 8L11 10.29Z\" fill=\"currentColor\"/>\n      </svg>\n    </button>\n  </span>\n</template>\n"
+    },
+    {
+      "path": "BTTagGroup.vue",
+      "target": "@ui/BTTagGroup.vue",
+      "type": "registry:ui",
+      "content": "<!-- BTTagGroup — layout wrapper for BTTag items.\n     Figma source: node 3050-6644.\n-->\n<script setup lang=\"ts\">\nimport { computed } from 'vue';\nimport BTTag from './BTTag.vue';\nimport type { BTTagGroupProps } from './BTTag.types';\n\nconst props = withDefaults(defineProps<BTTagGroupProps>(), {\n  variant: 'default',\n  spacing: 'default',\n  type: 'scroll',\n});\n\nconst groupClass = computed(() =>\n  [\n    'bt-tag-group',\n    `bt-tag-group--${props.type}`,\n    `bt-tag-group--gap-${props.spacing}`,\n  ].join(' '),\n);\n</script>\n\n<template>\n  <div :class=\"groupClass\" data-testid=\"bt-tag-group\">\n    <BTTag\n      v-for=\"(item, index) in items\"\n      :key=\"item.id ?? item.label\"\n      :label=\"item.label\"\n      :variant=\"variant\"\n      :on-remove=\"onRemove ? () => onRemove!(item, index) : undefined\"\n    />\n  </div>\n</template>\n"
+    }
+  ]
+}

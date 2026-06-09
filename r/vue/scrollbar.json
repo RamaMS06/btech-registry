@@ -1,0 +1,36 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "scrollbar",
+  "type": "registry:ui",
+  "title": "BTScrollbar",
+  "description": "An overflow wrapper div that renders a thin, token-coloured scrollbar. Thumb: bg-subtlest (neutral-300), Track: bg-subtle (neutral-50), 4px wide.",
+  "framework": "vue",
+  "category": "atoms",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2037-4",
+  "figmaNodeId": "2037:4",
+  "dependencies": [
+    "@btech/tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "BTScrollbar.css",
+      "target": "@ui/BTScrollbar.css",
+      "type": "registry:ui",
+      "content": "/* BTScrollbar — custom scrollbar wrapper atom (Figma 2037:4)\n *\n * Applies btech-token scrollbar styling to an overflow container.\n * Thumb: bg-subtlest (neutral-300), Track: bg-subtle (neutral-50).\n * Width/height: 4px. Border-radius: radius-xs (4px).\n *\n * Usage:\n *   Wrap any overflowing content in <BTScrollbar direction=\"y\">.\n *   The wrapper is display:block by default; set an explicit height on\n *   the parent or the scrollbar itself for the scrollbar to appear.\n */\n\n.bt-scrollbar {\n  /* layout defaults — caller controls size */\n  display: block;\n  overflow: hidden;\n}\n\n/* ── Direction variants ──────────────────────────────────────────────────── */\n\n.bt-scrollbar--x {\n  overflow-x: auto;\n  overflow-y: hidden;\n}\n\n.bt-scrollbar--y {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.bt-scrollbar--both {\n  overflow: auto;\n}\n\n/* ── Firefox (scrollbar-width / scrollbar-color) ─────────────────────────── */\n\n.bt-scrollbar--x,\n.bt-scrollbar--y,\n.bt-scrollbar--both {\n  scrollbar-width: thin;\n  scrollbar-color: var(--bg-subtlest) var(--bg-subtle);\n}\n\n/* ── Webkit (Chrome / Safari / Edge) ─────────────────────────────────────── */\n\n/* Vertical scrollbar */\n.bt-scrollbar--y::-webkit-scrollbar,\n.bt-scrollbar--both::-webkit-scrollbar {\n  width: 4px;\n}\n\n/* Horizontal scrollbar */\n.bt-scrollbar--x::-webkit-scrollbar,\n.bt-scrollbar--both::-webkit-scrollbar {\n  height: 4px;\n}\n\n.bt-scrollbar--x::-webkit-scrollbar-track,\n.bt-scrollbar--y::-webkit-scrollbar-track,\n.bt-scrollbar--both::-webkit-scrollbar-track {\n  background: var(--bg-subtle);\n  border-radius: var(--radius-xs);\n}\n\n.bt-scrollbar--x::-webkit-scrollbar-thumb,\n.bt-scrollbar--y::-webkit-scrollbar-thumb,\n.bt-scrollbar--both::-webkit-scrollbar-thumb {\n  background: var(--bg-subtlest);\n  border-radius: var(--radius-xs);\n}\n\n.bt-scrollbar--x::-webkit-scrollbar-thumb:hover,\n.bt-scrollbar--y::-webkit-scrollbar-thumb:hover,\n.bt-scrollbar--both::-webkit-scrollbar-thumb:hover {\n  background: var(--text-disabled);\n}\n"
+    },
+    {
+      "path": "BTScrollbar.types.ts",
+      "target": "@ui/BTScrollbar.types.ts",
+      "type": "registry:ui",
+      "content": "/**\n * BTScrollbar — shared prop types (Vue + React).\n */\n\n/** Scroll axis shown with custom scrollbar styling. */\nexport type BTScrollbarDirection = 'x' | 'y' | 'both';\n\nexport interface BTScrollbarProps {\n  /**\n   * Which axis shows the custom scrollbar.\n   * @default 'y'\n   */\n  direction?: BTScrollbarDirection;\n  /** Additional CSS class names (Vue: `class`, React: `className`). */\n  class?: string;\n}\n"
+    },
+    {
+      "path": "BTScrollbar.vue",
+      "target": "@ui/BTScrollbar.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\n/**\n * BTScrollbar — overflow wrapper with btech token scrollbar styling (Figma 2037:4).\n *\n * Wraps any overflowing content and applies a thin, token-coloured scrollbar.\n * Set an explicit height (or max-height) on the host element for overflow to\n * take effect.\n *\n * @example\n * ```vue\n * // Vertical scroll (default)\n * <BTScrollbar style=\"height: 300px\">\n *   <ul>\n *     <li v-for=\"i in 100\" :key=\"i\">Item {{ i }}</li>\n *   </ul>\n * </BTScrollbar>\n *\n * // Horizontal scroll\n * <BTScrollbar direction=\"x\" style=\"width: 400px\">\n *   <div style=\"white-space: nowrap; width: 800px\">Wide content…</div>\n * </BTScrollbar>\n * ```\n */\nimport './BTScrollbar.css';\nimport { computed } from 'vue';\nimport type { BTScrollbarProps } from './BTScrollbar.types';\n\nconst props = withDefaults(defineProps<BTScrollbarProps>(), {\n  direction: 'y',\n});\n\nconst rootClass = computed(() => [\n  'bt-scrollbar',\n  `bt-scrollbar--${props.direction}`,\n  props.class,\n]);\n</script>\n\n<template>\n  <div :class=\"rootClass\">\n    <slot />\n  </div>\n</template>\n"
+    }
+  ]
+}

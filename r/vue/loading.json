@@ -1,0 +1,36 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "loading",
+  "type": "registry:ui",
+  "title": "BTLoading",
+  "description": "Multi-type loading indicator. Five types: spinner (Lottie), pulse (Lottie), skeleton (CSS shimmer), progressbar (CSS animated bar), logo (Lottie btech brand).",
+  "framework": "vue",
+  "category": "atoms",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3227-400",
+  "figmaNodeId": "3227:400",
+  "dependencies": [
+    "@btech/tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "BTLoading.css",
+      "target": "@ui/BTLoading.css",
+      "type": "registry:ui",
+      "content": "/* BTLoading — multi-type loading indicator atom (Figma 3227:400). */\n\n/* ── Lottie container (spinner / pulse / logo) ──────────────────────── */\n.bt-loading--lottie {\n  display: block;\n  flex-shrink: 0;\n}\n\n/* ── Skeleton shimmer block ──────────────────────────────────────────── */\n.bt-loading--skeleton {\n  background: var(--bg-subtle);\n  border-radius: var(--radius-md);\n  overflow: hidden;\n  position: relative;\n}\n\n/* Sweep gradient overlay — animates from left to right */\n.bt-loading--skeleton::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: linear-gradient(\n    90deg,\n    transparent 0%,\n    var(--bg-primary) 50%,\n    transparent 100%\n  );\n  transform: translateX(-100%);\n  animation: bt-loading-shimmer 1.5s ease-in-out infinite;\n}\n\n@keyframes bt-loading-shimmer {\n  to {\n    transform: translateX(200%);\n  }\n}\n\n/* ── Progress bar ────────────────────────────────────────────────────── */\n.bt-loading--progressbar {\n  position: relative;\n  width: 100%;\n  height: 4px;\n  background: color-mix(in srgb, var(--bt-loading-color, var(--color-brand-primary)) 10%, transparent);\n  border-radius: var(--radius-rd);\n  overflow: hidden;\n}\n\n.bt-loading__progressbar-bar {\n  position: absolute;\n  top: 0;\n  inset-inline-start: 0;\n  height: 100%;\n  border-radius: var(--radius-rd);\n  background: var(--bt-loading-color, var(--color-brand-primary));\n  transition: width 300ms ease;\n}\n\n/* Indeterminate: bar slides across the track */\n.bt-loading__progressbar-bar--indeterminate {\n  width: 35%;\n  animation: bt-loading-indeterminate 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;\n}\n\n@keyframes bt-loading-indeterminate {\n  0%   { transform: translateX(-100%); }\n  100% { transform: translateX(386%); }\n}\n"
+    },
+    {
+      "path": "BTLoading.types.ts",
+      "target": "@ui/BTLoading.types.ts",
+      "type": "registry:ui",
+      "content": "/**\n * Props for BTLoading.\n *\n * @example\n * <BTLoading />\n * <BTLoading type=\"pulse\" />\n * <BTLoading type=\"skeleton\" :width=\"200\" />\n * <BTLoading type=\"progressbar\" :value=\"0.6\" color=\"#e53e3e\" />\n * <BTLoading type=\"logo\" :size=\"64\" />\n */\nexport type BTLoadingType = 'spinner' | 'pulse' | 'skeleton' | 'progressbar' | 'logo';\n\nexport interface BTLoadingProps {\n  /**\n   * Which indicator to render.\n   * @default 'spinner'\n   */\n  type?: BTLoadingType;\n  /**\n   * CSS color string applied to progressbar bar + track.\n   * Has no effect on skeleton or logo.\n   * @default 'var(--color-brand-primary)'\n   */\n  color?: string;\n  /**\n   * Determinate progress for progressbar (0–1).\n   * Omit for indeterminate looping animation.\n   */\n  value?: number;\n  /**\n   * Width × height in px for spinner / pulse / logo.\n   * @default 48\n   */\n  size?: number;\n  /**\n   * Width of skeleton block. Accepts px number or CSS string ('200px', '50%').\n   * @default '100%'\n   */\n  width?: number | string;\n  /**\n   * Height of skeleton block. Accepts px number or CSS string ('80px', '100%').\n   * @default '40px'\n   */\n  height?: number | string;\n}\n"
+    },
+    {
+      "path": "BTLoading.vue",
+      "target": "@ui/BTLoading.vue",
+      "type": "registry:ui",
+      "content": "<!-- BTLoading — multi-type loading indicator atom.\n     Figma source: node 3227:400.\n     All visual values (sizes, colors, radii) come from Figma.\n-->\n<script setup lang=\"ts\">\nimport { computed } from 'vue';\nimport { Vue3Lottie } from 'vue3-lottie';\nimport './BTLoading.css';\nimport type { BTLoadingProps } from './BTLoading.types';\nimport spinnerData from './anim/load-spin-anim.json';\nimport pulseData from './anim/load-pulse-anim.json';\nimport logoData from './anim/load-btech-anim.json';\n\nconst props = withDefaults(defineProps<BTLoadingProps>(), {\n  type: 'spinner',\n  size: 48,\n  width: '100%',\n  height: '40px',\n});\n\nconst isLottie = computed(\n  () => props.type === 'spinner' || props.type === 'pulse' || props.type === 'logo',\n);\nconst isSkeleton = computed(() => props.type === 'skeleton');\nconst isProgressbar = computed(() => props.type === 'progressbar');\n\nconst animationData = computed(() => {\n  if (props.type === 'spinner') return spinnerData;\n  if (props.type === 'pulse') return pulseData;\n  if (props.type === 'logo') return logoData;\n  return null;\n});\n\nconst skeletonStyle = computed(() => ({\n  width: typeof props.width === 'number' ? `${props.width}px` : props.width,\n  height: typeof props.height === 'number' ? `${props.height}px` : (props.height ?? '40px'),\n}));\n\nconst progressbarStyle = computed(() => {\n  if (!props.color) return {};\n  return { '--bt-loading-color': props.color } as Record<string, string>;\n});\n\nconst isIndeterminate = computed(\n  () => props.type === 'progressbar' && props.value === undefined,\n);\n\nconst clampedValue = computed(() =>\n  props.value !== undefined ? Math.min(1, Math.max(0, props.value)) : undefined,\n);\n\nconst barWidth = computed(() => {\n  if (isIndeterminate.value) return undefined;\n  return `${(clampedValue.value ?? 0) * 100}%`;\n});\n</script>\n\n<template>\n  <!-- Lottie: spinner, pulse, logo -->\n  <Vue3Lottie\n    v-if=\"isLottie\"\n    class=\"bt-loading--lottie\"\n    :animation-data=\"animationData\"\n    :width=\"size\"\n    :height=\"size\"\n    :loop=\"true\"\n    :auto-play=\"true\"\n  />\n\n  <!-- Skeleton shimmer block -->\n  <div\n    v-else-if=\"isSkeleton\"\n    class=\"bt-loading--skeleton\"\n    :style=\"skeletonStyle\"\n    role=\"status\"\n    aria-label=\"Loading\"\n  />\n\n  <!-- Progress bar -->\n  <div\n    v-else-if=\"isProgressbar\"\n    class=\"bt-loading--progressbar\"\n    :style=\"progressbarStyle\"\n    role=\"progressbar\"\n    :aria-valuenow=\"clampedValue !== undefined ? Math.round(clampedValue * 100) : undefined\"\n    aria-valuemin=\"0\"\n    aria-valuemax=\"100\"\n  >\n    <div\n      class=\"bt-loading__progressbar-bar\"\n      :class=\"{ 'bt-loading__progressbar-bar--indeterminate': isIndeterminate }\"\n      :style=\"barWidth ? { width: barWidth } : {}\"\n    />\n  </div>\n</template>\n"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "scrollbar",
+  "type": "registry:ui",
+  "title": "BTScrollbar",
+  "description": "A token-styled scrollbar wrapper using RawScrollbar. Thumb: bg.subtlest (neutral-300), Track: bg.subtle (neutral-50), 5dp thick.",
+  "framework": "flutter",
+  "category": "atoms",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2037-4",
+  "figmaNodeId": "2037:4",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "scrollbar.dart",
+      "target": "@flutterBase/scrollbar/scrollbar.dart",
+      "type": "registry:ui",
+      "content": "export 'scrollbar.widget.dart';\nexport 'scrollbar.types.dart';\n"
+    },
+    {
+      "path": "scrollbar.types.dart",
+      "target": "@flutterBase/scrollbar/scrollbar.types.dart",
+      "type": "registry:ui",
+      "content": "/// Direction enum for [BTScrollbar].\nenum BTScrollbarDirection {\n  /// Vertical scroll axis.\n  vertical,\n\n  /// Horizontal scroll axis.\n  horizontal,\n}\n"
+    },
+    {
+      "path": "scrollbar.widget.dart",
+      "target": "@flutterBase/scrollbar/scrollbar.widget.dart",
+      "type": "registry:ui",
+      "content": "import 'package:btech_tokens/btech_tokens.dart';\nimport 'package:flutter/material.dart';\n\n/// BTScrollbar — token-styled scrollbar wrapper atom (Figma 2037:4).\n///\n/// Wraps [RawScrollbar] with btech design tokens:\n/// - Thumb: [btColor.bg.subtlest] (neutral-300)\n/// - Track: [btColor.bg.subtle] (neutral-50)\n/// - Track border: [btColor.bg.primary]\n/// - Thickness: 5dp, radius: 8dp\n///\n/// Example:\n/// ```dart\n/// BTScrollbar(\n///   child: ListView.builder(\n///     itemCount: 100,\n///     itemBuilder: (_, i) => ListTile(title: Text('Item $i')),\n///   ),\n/// )\n///\n/// // With explicit controller\n/// BTScrollbar(\n///   controller: _scrollController,\n///   thumbVisibility: true,\n///   child: SingleChildScrollView(\n///     controller: _scrollController,\n///     child: MyLongContent(),\n///   ),\n/// )\n/// ```\nclass BTScrollbar extends StatelessWidget {\n  const BTScrollbar({\n    required this.child,\n    this.controller,\n    this.thumbVisibility = true,\n    this.interactive = true,\n    this.padding,\n    super.key,\n  });\n\n  /// The widget that will be scrolled.\n  final Widget child;\n\n  /// Optional [ScrollController] to attach to the scrollbar.\n  final ScrollController? controller;\n\n  /// When true (default), the thumb is always visible.\n  /// When false, the thumb fades in only while scrolling.\n  final bool thumbVisibility;\n\n  /// When true (default), the user can drag the thumb to scroll.\n  final bool interactive;\n\n  /// Padding around the scrollbar thumb. Defaults to none.\n  final EdgeInsets? padding;\n\n  @override\n  Widget build(BuildContext context) {\n    final colors = context.btColor;\n\n    return RawScrollbar(\n      controller: controller,\n      thumbColor: colors.bg.subtlest,\n      trackColor: colors.bg.subtle,\n      trackBorderColor: colors.bg.primary,\n      thickness: 5,\n      radius: const Radius.circular(8),\n      thumbVisibility: thumbVisibility,\n      trackVisibility: true,\n      interactive: interactive,\n      padding: padding,\n      child: child,\n    );\n  }\n}\n"
+    }
+  ]
+}

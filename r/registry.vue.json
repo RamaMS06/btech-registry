@@ -4,6 +4,14 @@
   "version": "0.1.0",
   "items": [
     {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTAspectRatio",
+      "description": "Layout utility atom that constrains its children to a fixed aspect ratio with overflow clipping and rounded corners. Use as a wrapper for images, videos, or any content that must maintain a predictable proportion.",
+      "url": "/r/vue/aspect-ratio.json"
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "category": "atoms",
@@ -18,6 +26,14 @@
       "title": "BTButton",
       "description": "Interactive action button with 5 variants and 2 sizes. Supports left/right icon slots and icon-only mode.",
       "url": "/r/vue/button.json"
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTButtonGroup",
+      "description": "Horizontal group of related action buttons sharing borders. Supports 1–9+ items, 5 variants (default-light, default-white, primary, destructive, warning), 2 sizes, and per-item variant mixing.",
+      "url": "/r/vue/button-group.json"
     },
     {
       "name": "button-link",
@@ -36,6 +52,14 @@
       "url": "/r/vue/checkbox.json"
     },
     {
+      "name": "dropdown-list",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTDropdownList",
+      "description": "Presentational dropdown list. Four variants: list (plain text), combobox (avatar + name), checkbox (multi-select), radio (single-select). Filtering is caller-driven via update:searchQuery. Renders an empty state automatically when items is empty.",
+      "url": "/r/vue/dropdown-list.json"
+    },
+    {
       "name": "hint",
       "type": "registry:ui",
       "category": "atoms",
@@ -44,12 +68,36 @@
       "url": "/r/vue/hint.json"
     },
     {
+      "name": "kbd",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTKbd",
+      "description": "Keyboard key badge for displaying shortcut keys or hotkey combinations. Web-only (no Flutter equivalent — keyboard shortcuts are a desktop/web concept).",
+      "url": "/r/vue/kbd.json"
+    },
+    {
+      "name": "loading",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTLoading",
+      "description": "Multi-type loading indicator. Five types: spinner (Lottie), pulse (Lottie), skeleton (CSS shimmer), progressbar (CSS animated bar), logo (Lottie btech brand).",
+      "url": "/r/vue/loading.json"
+    },
+    {
       "name": "radio-button",
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTRadioButton",
       "description": "Radio button atom with 5 states: default, active, disable, disable-active, and error. Supports optional label and subtext. Uses native <input type=\"radio\"> with transparent overlay for full accessibility. Use multiple BTRadioButton with the same v-model to build a radio group.",
       "url": "/r/vue/radio-button.json"
+    },
+    {
+      "name": "scrollbar",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTScrollbar",
+      "description": "An overflow wrapper div that renders a thin, token-coloured scrollbar. Thumb: bg-subtlest (neutral-300), Track: bg-subtle (neutral-50), 4px wide.",
+      "url": "/r/vue/scrollbar.json"
     },
     {
       "name": "separator",
@@ -68,12 +116,60 @@
       "url": "/r/vue/slider.json"
     },
     {
+      "name": "switch-field",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTSwitchField",
+      "description": "A toggle switch atom with track + thumb animation. Supports on/off, disabled, and error states. Labels and subtext can appear on the left side, right side, or both simultaneously. An inner text variant shows a short label inside the pill track.",
+      "url": "/r/vue/switch-field.json"
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTTag",
+      "description": "Removable pill label atom. Supports default and outline variants, optional left icon slot, and close button for removal.",
+      "url": "/r/vue/tag.json"
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTToggle",
+      "description": "Pressable pill toggle atom. Caller controls `pressed` state; component fires change(!pressed) on click. Supports default and outline variants, default and small sizes, optional left/right icon slots.",
+      "url": "/r/vue/toggle.json"
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTToggleGroup",
+      "description": "Generic selection container that renders a row of BTToggle items. Manages single or multiple selection state internally and exposes it via controlled value + change event. Forwards variant, size, and disabled to all children.",
+      "url": "/r/vue/toggle-group.json"
+    },
+    {
       "name": "tooltip",
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTTooltip",
       "description": "Hover / focus tooltip wrapping a trigger element. Renders a dark-background balloon via Teleport/portal with a rounded-tip arrow caret. Supports plain text or rich content slot.",
       "url": "/r/vue/tooltip.json"
+    },
+    {
+      "name": "input-dropdown",
+      "type": "registry:ui",
+      "category": "molecule",
+      "title": "BTInputDropdown",
+      "description": "Input-style trigger field that opens a BTDropdownList panel. Single-select with optional internal search filtering.",
+      "url": "/r/vue/input-dropdown.json"
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTAccordion",
+      "description": "Three-component accordion system. BTAccordion is the group wrapper that manages open state (type=single/multiple). BTAccordionItem is the individual collapsible panel (separator-based, no card chrome). BTAccordionCard is a self-contained expandable card with its own header (title + subtext + chevron).",
+      "url": "/r/vue/accordion.json"
     },
     {
       "name": "alert",
@@ -84,12 +180,188 @@
       "url": "/r/vue/alert.json"
     },
     {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTAlertDialog",
+      "description": "Modal confirmation/information dialog with icon, title, description, and action buttons. Web (D) design — 500px wide, horizontal button layout.",
+      "url": "/r/vue/alert-dialog.json"
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTAvatar",
       "description": "Circular badge displaying a user's profile image or auto-derived initials. Supports skeleton loading state. Used standalone or inside BTAvatarGroup (organism) for stacked group displays.",
       "url": "/r/vue/avatar.json"
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTBarChart",
+      "description": "Bar chart molecule wrapping ApexCharts. Supports three variants inferred from props: basic single-series (data), grouped multi-series (groups), and stacked multi-segment (stackedBars). Renders with custom BT tooltip styling and design-system color palette.",
+      "url": "/r/vue/bar-chart.json"
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTBreadcrumb",
+      "description": "Compositional breadcrumb system with 7 building-block components. Compose BTBreadcrumb > BTBreadcrumbList > BTBreadcrumbItem > (BTBreadcrumbLink | BTBreadcrumbPage | BTBreadcrumbEllipsis) with BTBreadcrumbSeparator between items.",
+      "url": "/r/vue/breadcrumb.json"
+    },
+    {
+      "name": "circle-chart",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTCircleChart",
+      "description": "Pie / donut / donut-rounded chart molecule wrapping ApexCharts. Renders coloured sections with external badge labels showing the section letter and percentage. Three visual variants selectable via the `variant` prop.",
+      "url": "/r/vue/circle-chart.json"
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTCommand",
+      "description": "Command palette / search menu (web only). Compound component: BTCommand · BTCommandInput · BTCommandList · BTCommandEmpty · BTCommandGroup · BTCommandItem · BTCommandSeparator · BTCommandShortcut · BTCommandDialog.",
+      "url": "/r/vue/command.json"
+    },
+    {
+      "name": "dropdown",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTDropdown",
+      "description": "Composable dropdown molecule — a trigger button paired with BTDropdownList in an overlay. Supports single-select (list/combobox/radio) and multi-select (checkbox) variants, optional search, and a custom trigger slot.",
+      "url": "/r/vue/dropdown.json"
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTDropdownMenu",
+      "description": "Action menu that opens a floating panel of labelled items, group headers, separators, and optional keyboard shortcuts. Trigger via scoped slot; items via data array (BTDropdownMenuEntry[]).",
+      "url": "/r/vue/dropdown-menu.json"
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTHoverCard",
+      "description": "Hover-triggered floating card that appears after a configurable delay when the user hovers over a trigger element. Supports four-direction positioning (top/bottom/left/right) with auto-flip and alignment control. Web only (Vue + React).",
+      "url": "/r/vue/hover-card.json"
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInput",
+      "description": "Pixel-perfect Figma 85-2484 outlined input. 50px height, 8px horizontal padding, floating label (14px→12px/weight-500), clear button shown only when focused+non-empty, no suffix icon in error state (only red border + helper text). Supports validator prop + validate() for programmatic form validation.",
+      "url": "/r/vue/input.json"
+    },
+    {
+      "name": "input-date",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputDate",
+      "description": "Click-to-open date / date-range picker. Shows a floating BTCalendar panel (via Teleport) beneath the field when clicked. Supports single-date and range modes, floating label, error/helper text, and external form validation via the exposed `validate()` method.",
+      "url": "/r/vue/input-date.json"
+    },
+    {
+      "name": "input-field-unit",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputFieldUnit",
+      "description": "Split input combining a unit selector dropdown (left, dynamic width) with a floating-label text field (right). Each panel has an independent border that activates on interaction — left activates on dropdown open, right activates on field focus. Supports sanitizer (raw value), formatter (display-only), clearable button, hasSearch in unit dropdown, error, and disabled states.",
+      "url": "/r/vue/input-field-unit.json"
+    },
+    {
+      "name": "input-multi-options",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputMultiOptions",
+      "description": "Labeled checkbox group with wrapping flex layout (multi-select). Supports required indicator, disabled state, error state with validation text, and external validator function (expose validate()).",
+      "url": "/r/vue/input-multi-options.json"
+    },
+    {
+      "name": "input-multiple-field",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputMultipleField",
+      "description": "Multi-value tag input. Supports free-text tags (Enter to commit) and predefined items via checkbox dropdown. Wrap and scroll layout types.",
+      "url": "/r/vue/input-multiple-field.json"
+    },
+    {
+      "name": "input-rich-editor",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputRichEditor",
+      "description": "Rich text input field with a floating label, Quill-powered toolbar (bold, italic, underline, strikethrough, font-size, ordered/unordered list, text alignment, link, image, attach, emoji, undo, redo), character counter, and full validation / error / disabled / helper-text states.",
+      "url": "/r/vue/input-rich-editor.json"
+    },
+    {
+      "name": "input-search",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputSearch",
+      "description": "Standalone search input field (does not wrap BTInput). Matches Figma node 750-2949 exactly: 12px×8px padding, 8px gap, radius-sm border, 12px/500/16px typography. Includes search icon (left), animated clear/cancel button (right, shown when focused + non-empty), error state (red border + red text), helper/validation text below, and optional validator function.",
+      "url": "/r/vue/input-search.json"
+    },
+    {
+      "name": "input-single-options",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputSingleOptions",
+      "description": "Labeled radio button group with wrapping flex layout. Supports required indicator, disabled state, error state with validation text, and external validator function (expose validate()).",
+      "url": "/r/vue/input-single-options.json"
+    },
+    {
+      "name": "input-text-area",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputTextArea",
+      "description": "Standalone multiline text input. Auto-grows height from 80px to 160px as the user types, then shows a scrollbar when content exceeds the maximum height. Supports floating label, top-right clear button (visible when focused and non-empty), character counter when maxLength is set, and a validator prop for inline form validation.",
+      "url": "/r/vue/input-text-area.json"
+    },
+    {
+      "name": "input-time",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputTime",
+      "description": "Masked time text-input field. Accepts digits and auto-formats them into HH:mm, HH:mm:ss, or hh:mm a. No popup — user types directly into the field.",
+      "url": "/r/vue/input-time.json"
+    },
+    {
+      "name": "line-chart",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTLineChart",
+      "description": "Line / area chart molecule wrapping ApexCharts. Renders one or more smooth line series. Supports Figma variants `line` and `area`. Legacy `area` prop is still supported for backward compatibility. Shared tooltip shows all series values at the hovered point.",
+      "url": "/r/vue/line-chart.json"
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTPagination",
+      "description": "Data pagination molecule. Three variants: 'number' (first/prev/pages/next/ last), 'display' (rows-per-page selector + prev/next), and 'step' (Step N of M + Prev/Next).",
+      "url": "/r/vue/pagination.json"
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTPopover",
+      "description": "Floating content panel triggered by any element. Composes three sub-components — BTPopover (root), BTPopoverTrigger (click target), BTPopoverContent (panel) — mirroring the shadcn/Radix composition pattern. Supports align start/center/end and side top/bottom/left/right. Portal-rendered via Vue Teleport.",
+      "url": "/r/vue/popover.json"
+    },
+    {
+      "name": "step-number",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTStepNumber",
+      "description": "Step / page pill. Five states: default (bordered), hover, active (subtle bg + brand border), disabled (no border), and ellipsis (⋯ icon, non-interactive).",
+      "url": "/r/vue/step-number.json"
     },
     {
       "name": "tabs",
@@ -104,8 +376,24 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTTooltipStep",
-      "description": "Coachmark / onboarding step balloon with navigation buttons. Standalone and presentational — positioning is the caller's responsibility.",
+      "description": "PaginationStep / onboarding step balloon with navigation buttons. Standalone and presentational — positioning is the caller's responsibility.",
       "url": "/r/vue/tooltip-step.json"
+    },
+    {
+      "name": "tree",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTTree",
+      "description": "Recursive data-driven tree component. Pass a list of BTTreeNode objects — nesting depth is inferred from children arrays, expand/collapse state is managed internally with a CSS grid-template-rows animation, and level-based background tinting is applied automatically.",
+      "url": "/r/vue/tree.json"
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "category": "Molecules",
+      "title": "BTItem",
+      "description": "Generic list item row with optional left media (icon/avatar/image), title+description, and optional right action (button/label/icon). Three container types: default, outline, muted.",
+      "url": "/r/vue/item.json"
     },
     {
       "name": "avatar-group",
@@ -116,12 +404,108 @@
       "url": "/r/vue/avatar-group.json"
     },
     {
+      "name": "calendar",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTCalendar",
+      "description": "Calendar date picker supporting single-date, date-range, and preset selection modes. Composes BTButton for navigation and footer, BTCalendarGrid for the day grid.",
+      "url": "/r/vue/calendar.json"
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTCard",
+      "description": "Flexible card organism with three visual variants: default (full card with optional body + Cancel/Submit footer), small (compact, no footer), and image (top image + default structure). Footer uses BTButton atoms.",
+      "url": "/r/vue/card.json"
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTCarousel",
+      "description": "Horizontal or vertical sliding carousel with animated transitions, touch/swipe support, mouse-wheel scroll, navigation buttons, and dot indicators. Compose BTCarouselItem children inside for individual slides.",
+      "url": "/r/vue/carousel.json"
+    },
+    {
+      "name": "chart-card",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTChartCard",
+      "description": "Wrapper organism that adds a title header, optional summary stats row, and optional legend row above any chart child (BTBarChart, BTLineChart, BTCircleChart). Toggling `hasCard` wraps everything in a bordered card container.",
+      "url": "/r/vue/chart-card.json"
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTDataTable",
+      "description": "Data table organism with toolbar, filter tags, table title, rows, fixed-column variants, horizontal scroll indicator, and display pagination.",
+      "url": "/r/vue/data-table.json"
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTDirection",
+      "description": "Form panel organism with a white header (title + optional subtext + optional top-right link), a flexible content slot, and a grey footer with a primary action button and optional secondary button. Stateless — caller owns all interaction logic.",
+      "url": "/r/vue/direction.json"
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTDrawer",
+      "description": "Right-side sliding panel (D-Drawer). Teleports to <body> via Vue Teleport. 400 px wide, full viewport height, rounded left corners, shadow cast leftward. Footer has two equal-width buttons (secondary left, primary right).",
+      "url": "/r/vue/drawer.json"
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTEmptyState",
+      "description": "Empty/error state organism with 7 variants. Error variants (400/401/404/500/under-maintenance) show a large illustration, title, subtext, error message, and an optional action button. Simple variants (no-data/no-result) show a small illustration and a single label line.",
+      "url": "/r/vue/empty-state.json"
+    },
+    {
       "name": "modal",
       "type": "registry:ui",
       "category": "organisms",
       "title": "BTModal",
       "description": "Centred modal dialog with header (title + optional subtext + optional close button), optional content slot, and optional footer with checkbox plus secondary/primary action buttons. Backdrop click dismisses when `dismissable` is true. Three width presets: sm (500px), md (720px), lg (1042px).",
       "url": "/r/vue/modal.json"
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTNavigationMenu",
+      "description": "Horizontal top navigation bar for desktop layouts. Two types: menu (logo + text nav items + search + profile) and tab-style (logo + BTTabs or segmented pills + optional search). Web only — no Flutter implementation.",
+      "url": "/r/vue/navigation-menu.json"
+    },
+    {
+      "name": "pagination-step",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTPaginationStep",
+      "description": "Guided tour organism (BTPaginationStepTour). Renders a darkened backdrop with a spotlight cutout around the active step's target and a positioned BTTooltipStep balloon. Drive the active index with v-model:step.",
+      "url": "/r/vue/pagination-step.json"
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTSidebar",
+      "description": "Collapsible navigation sidebar for desktop layouts. Supports two widths (258 px expanded / 64 px collapsed), a four-level item hierarchy (Main → Submenu → Sub Submenu, Sub Title, Divider), header branding, search input, and a footer user profile. Web-only (D-prefix Figma frame).",
+      "url": "/r/vue/sidebar.json"
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTToast",
+      "description": "Toast notification system with imperative API. BTToaster is mounted once at the app root; BTToast renders individual cards. 6 types (default, success, error, warning, info, description) and 9 positions.",
+      "url": "/r/vue/toast.json"
     }
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "line-chart",
+  "type": "registry:ui",
+  "title": "BTLineChart",
+  "description": "Line / area chart molecule wrapping ApexCharts. Renders one or more smooth line series. Supports Figma variants `line` and `area`. Legacy `area` prop is still supported for backward compatibility. Shared tooltip shows all series values at the hovered point.",
+  "framework": "vue",
+  "category": "molecules",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3398-1486",
+  "figmaNodeId": "3398:1486",
+  "dependencies": [
+    "@btech/tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "BTLineChart.css",
+      "target": "@ui/BTLineChart.css",
+      "type": "registry:ui",
+      "content": "/* BTLineChart — line/area chart wrapper */\n\n.bt-line-chart {\n  width: 100%;\n}\n\n.bt-line-chart .apexcharts-tooltip {\n  background: transparent !important;\n  border: none !important;\n  box-shadow: none !important;\n  overflow: visible !important;\n}\n\n.bt-line-chart .apexcharts-xaxistooltip,\n.bt-line-chart .apexcharts-yaxistooltip {\n  display: none !important;\n}\n"
+    },
+    {
+      "path": "BTLineChart.types.ts",
+      "target": "@ui/BTLineChart.types.ts",
+      "type": "registry:ui",
+      "content": "export type { BTLineSeries, BTLineSpot } from '../internal/chart.types';\n"
+    },
+    {
+      "path": "BTLineChart.vue",
+      "target": "@ui/BTLineChart.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\n/**\n * BTLineChart — line / area chart molecule (ApexCharts wrapper).\n *\n * Figma node 3398:1486 · M - LineChart\n *\n * @example\n * ```ts\n * // Line (no fill)\n * <BTLineChart :series=\"[{spots:[{x:0,y:40},{x:1,y:60}],color:'#0EA5E9',label:'Revenue'}]\" />\n *\n * // Area (translucent fill)\n * <BTLineChart :series=\"lineSeries\" :area=\"true\" />\n * ```\n */\nimport './BTLineChart.css';\nimport '../internal/chart-tooltip.css';\nimport { computed } from 'vue';\nimport VueApexCharts from 'vue3-apexcharts';\nimport type { ApexOptions, ApexAxisChartSeries } from 'apexcharts';\nimport type { BTLineSeries } from './BTLineChart.types';\nimport { buildTooltipHtml } from '../internal/chart-tooltip';\nimport { btAxisLabelStyle, btGridOptions, btChartBase, inferMaxY } from '../internal/chart-apex.utils';\n\nexport type BTLineChartVariant = 'line' | 'area';\n\nconst props = withDefaults(\n  defineProps<{\n    /** Series data */\n    series: BTLineSeries[];\n    /** Figma variants: line | area */\n    variant?: BTLineChartVariant;\n    /** Show translucent fill below each line */\n    area?: boolean;\n    /** Y-axis maximum */\n    maxY?: number;\n    /** Chart height in px */\n    height?: number;\n    /** Optional x-axis labels override */\n    xLabels?: string[];\n  }>(),\n  {\n    variant: 'line',\n    area: false,\n    height: 188,\n  },\n);\n\nconst resolvedVariant = computed<BTLineChartVariant>(() =>\n  props.area ? 'area' : props.variant,\n);\n\nconst isArea = computed(() => resolvedVariant.value === 'area');\n\nconst effectiveMaxY = computed<number>(() => {\n  if (props.maxY !== undefined) return props.maxY;\n  const all = props.series.flatMap((s) => s.spots.map((p) => p.y));\n  return inferMaxY(all);\n});\n\n// Category labels — \"Label\" for every x point (matching Figma spec)\nconst xCount = computed<number>(() => props.series[0]?.spots?.length ?? 0);\nconst categories = computed<string[]>(() =>\n  props.xLabels && props.xLabels.length > 0\n    ? props.xLabels\n    : Array.from({ length: xCount.value }, (_, index) => `L${index + 1}`),\n);\n\n// Series data: y-values only (category axis handles x positioning)\nconst apexSeries = computed<ApexAxisChartSeries>(() =>\n  props.series.map((s) => ({\n    name: s.label ?? '',\n    data: s.spots.map((p) => p.y),\n  })),\n);\n\nfunction getTooltipPlacement(dataPointIndex: number, w: any): 'left' | 'right' {\n  const gridWidth = Number(w?.globals?.gridWidth ?? 0);\n  const count = Math.max(categories.value.length, 1);\n  const slotWidth = gridWidth > 0 ? gridWidth / count : 0;\n  const pointX = slotWidth > 0 ? slotWidth * (dataPointIndex + 0.5) : 0;\n  return pointX <= gridWidth / 2 ? 'right' : 'left';\n}\n\nconst options = computed<ApexOptions>(() => {\n  const axisStyle = btAxisLabelStyle();\n  return {\n    chart: {\n      ...btChartBase(),\n      type: isArea.value ? 'area' : 'line',\n      height: props.height,\n    },\n    // Colors array drives multi-series coloring for line/area charts\n    colors: props.series.map((s) => s.color),\n    stroke: {\n      curve: 'smooth',\n      width: 3,\n      lineCap: 'round',\n    },\n    ...(isArea.value\n      ? {\n          fill: {\n            type: 'solid',\n            opacity: props.series.map((_item, index) => Math.max(0.14, 0.28 - (index * 0.03))),\n          },\n        }\n      : {}),\n    markers: {\n      size: 0,\n      hover: { size: 4 },\n    },\n    dataLabels: { enabled: false },\n    grid: btGridOptions(),\n    xaxis: {\n      type: 'category',\n      categories: categories.value,\n      labels: {\n        style: axisStyle,\n        offsetY: 4,\n      },\n      axisBorder: { show: false },\n      axisTicks: { show: false },\n      crosshairs: {\n        show: true,\n        stroke: { color: 'var(--text-primary)', dashArray: 4, width: 1 },\n      },\n    },\n    yaxis: {\n      max: effectiveMaxY.value,\n      min: 0,\n      tickAmount: 5,\n      forceNiceScale: true,\n      labels: { style: axisStyle, align: 'right', padding: 4 },\n    },\n    legend: { show: false },\n    tooltip: {\n      shared: true,\n      intersect: false,\n      custom({ dataPointIndex, w }: { dataPointIndex: number; w: any }) {\n        const xIdx = dataPointIndex;\n        const title = `L${xIdx + 1}`;\n        const items = props.series.map((s) => ({\n          color: s.color,\n          label: s.label ?? '',\n          value: String(s.spots[xIdx]?.y ?? 0),\n        }));\n        return buildTooltipHtml(title, items, {\n          placement: getTooltipPlacement(dataPointIndex, w),\n        });\n      },\n    },\n  };\n});\n</script>\n\n<template>\n  <div class=\"bt-line-chart\">\n    <VueApexCharts\n      :type=\"isArea ? 'area' : 'line'\"\n      :height=\"height\"\n      :options=\"options\"\n      :series=\"apexSeries\"\n    />\n  </div>\n</template>\n"
+    }
+  ]
+}

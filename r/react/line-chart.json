@@ -1,0 +1,36 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "line-chart",
+  "type": "registry:ui",
+  "title": "BTLineChart",
+  "description": "Line / area chart molecule wrapping ApexCharts. Renders one or more smooth line series. Supports Figma variants `line` and `area`. Legacy `area` prop is still supported for backward compatibility. Shared tooltip shows all series values at the hovered point.",
+  "framework": "react",
+  "category": "molecules",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3398-1486",
+  "figmaNodeId": "3398:1486",
+  "dependencies": [
+    "@btech/tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "BTLineChart.css",
+      "target": "@ui/BTLineChart.css",
+      "type": "registry:ui",
+      "content": "/* BTLineChart — line/area chart wrapper */\n\n.bt-line-chart {\n  width: 100%;\n}\n\n.bt-line-chart .apexcharts-tooltip {\n  background: transparent !important;\n  border: none !important;\n  box-shadow: none !important;\n  overflow: visible !important;\n}\n\n.bt-line-chart .apexcharts-xaxistooltip,\n.bt-line-chart .apexcharts-yaxistooltip {\n  display: none !important;\n}\n"
+    },
+    {
+      "path": "BTLineChart.tsx",
+      "target": "@ui/BTLineChart.tsx",
+      "type": "registry:ui",
+      "content": "/**\n * BTLineChart — line / area chart molecule (ApexCharts wrapper).\n *\n * Figma node 3398:1486 · M - LineChart\n *\n * @example\n * ```tsx\n * // Line\n * <BTLineChart series={[{spots:[{x:0,y:40},{x:1,y:60}],color:'#0EA5E9',label:'Revenue'}]} />\n *\n * // Area\n * <BTLineChart series={lineSeries} area />\n * ```\n */\nimport './BTLineChart.css';\nimport '../internal/chart-tooltip.css';\nimport { useMemo } from 'react';\nimport ReactApexChart from 'react-apexcharts';\nimport type { ApexOptions, ApexAxisChartSeries } from 'apexcharts';\nimport type { BTLineSeries } from './BTLineChart.types';\nimport { buildTooltipHtml } from '../internal/chart-tooltip';\nimport { btAxisLabelStyle, btGridOptions, btChartBase, inferMaxY } from '../internal/chart-apex.utils';\n\nexport type BTLineChartVariant = 'line' | 'area';\n\nexport interface BTLineChartProps {\n  series: BTLineSeries[];\n  variant?: BTLineChartVariant;\n  area?: boolean;\n  maxY?: number;\n  height?: number;\n  xLabels?: string[];\n}\n\nexport function BTLineChart({\n  series,\n  variant = 'line',\n  area = false,\n  maxY,\n  height = 188,\n  xLabels,\n}: BTLineChartProps) {\n  const resolvedVariant: BTLineChartVariant = area ? 'area' : variant;\n  const isArea = resolvedVariant === 'area';\n\n  const effectiveMaxY = useMemo<number>(() => {\n    if (maxY !== undefined) return maxY;\n    return inferMaxY(series.flatMap((s) => s.spots.map((p) => p.y)));\n  }, [series, maxY]);\n\n  const xCount = series.length > 0 ? (series[0]?.spots?.length ?? 0) : 0;\n\n  // Category labels — \"Label\" for every x point (matching Figma spec)\n  const categories = useMemo<string[]>(\n    () => xLabels && xLabels.length > 0\n      ? xLabels\n      : Array.from({ length: xCount }, (_, index) => `L${index + 1}`),\n    [xCount, xLabels],\n  );\n\n  // Series data: y-values only (category axis handles x positioning)\n  const apexSeries = useMemo<ApexAxisChartSeries>(() =>\n    series.map((s) => ({\n      name: s.label ?? '',\n      data: s.spots.map((p) => p.y),\n    })),\n  [series]);\n\n  const getTooltipPlacement = (dataPointIndex: number, w: any): 'left' | 'right' => {\n    const gridWidth = Number(w?.globals?.gridWidth ?? 0);\n    const count = Math.max(categories.length, 1);\n    const slotWidth = gridWidth > 0 ? gridWidth / count : 0;\n    const pointX = slotWidth > 0 ? slotWidth * (dataPointIndex + 0.5) : 0;\n    return pointX <= gridWidth / 2 ? 'right' : 'left';\n  };\n\n  const options = useMemo<ApexOptions>(() => {\n    const axisStyle = btAxisLabelStyle();\n    return {\n      chart: {\n        ...btChartBase(),\n        type: isArea ? 'area' : 'line',\n        height,\n      },\n      // Colors array drives multi-series coloring for line/area charts\n      colors: series.map((s) => s.color),\n      stroke: { curve: 'smooth', width: 3, lineCap: 'round' },\n      ...(isArea\n        ? {\n            fill: {\n              type: 'solid',\n              opacity: series.map((_item, index) => Math.max(0.14, 0.28 - (index * 0.03))),\n            },\n          }\n        : {}),\n      markers: { size: 0, hover: { size: 4 } },\n      dataLabels: { enabled: false },\n      grid: btGridOptions(),\n      xaxis: {\n        type: 'category',\n        categories,\n        labels: {\n          style: axisStyle,\n          offsetY: 4,\n        },\n        axisBorder: { show: false },\n        axisTicks: { show: false },\n        crosshairs: {\n          show: true,\n          stroke: { color: 'var(--text-primary)', dashArray: 4, width: 1 },\n        },\n      },\n      yaxis: {\n        max: effectiveMaxY,\n        min: 0,\n        tickAmount: 5,\n        forceNiceScale: true,\n        labels: { style: axisStyle, align: 'right', padding: 4 },\n      },\n      legend: { show: false },\n      tooltip: {\n        shared: true,\n        intersect: false,\n        custom({ dataPointIndex, w }: { dataPointIndex: number; w: any }) {\n          const xIdx  = dataPointIndex;\n          const title = `L${xIdx + 1}`;\n          const items = series.map((s) => ({\n            color: s.color,\n            label: s.label ?? '',\n            value: String(s.spots[xIdx]?.y ?? 0),\n          }));\n          return buildTooltipHtml(title, items, {\n            placement: getTooltipPlacement(dataPointIndex, w),\n          });\n        },\n      },\n    };\n  }, [series, isArea, effectiveMaxY, height, categories]);\n\n  return (\n    <div className=\"bt-line-chart\">\n      <ReactApexChart\n        type={isArea ? 'area' : 'line'}\n        height={height}\n        options={options}\n        series={apexSeries}\n      />\n    </div>\n  );\n}\n"
+    },
+    {
+      "path": "BTLineChart.types.ts",
+      "target": "@ui/BTLineChart.types.ts",
+      "type": "registry:ui",
+      "content": "export type { BTLineSeries, BTLineSpot } from '../internal/chart.types';\n"
+    }
+  ]
+}

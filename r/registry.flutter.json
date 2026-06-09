@@ -4,6 +4,14 @@
   "version": "0.1.0",
   "items": [
     {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTAspectRatio",
+      "description": "Layout utility atom that constrains its child to a fixed aspect ratio with overflow clipping and rounded corners. Use as a wrapper for images, videos, or any content that must maintain a predictable proportion.",
+      "url": "/r/flutter/aspect-ratio.json"
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "category": "atoms",
@@ -36,6 +44,54 @@
       "url": "/r/flutter/checkbox.json"
     },
     {
+      "name": "dropdown-list",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTDropdownList",
+      "description": "Floating option list atom — purely presentational; caller handles positioning, filtering, and toggling visibility. Supports list, combobox, checkbox, and radio variants.",
+      "url": "/r/flutter/dropdown-list.json"
+    },
+    {
+      "name": "hint",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTHint",
+      "description": "Notification indicator atom — renders as a solid red dot when count is null, or as a red badge showing the count; values above 99 display as \"99+\".",
+      "url": "/r/flutter/hint.json"
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTKbd",
+      "description": "Keyboard key badge for displaying shortcut keys or hotkey combinations.",
+      "url": "/r/flutter/kbd.json"
+    },
+    {
+      "name": "loading",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTLoading",
+      "description": "Multi-type loading indicator. Five named constructors: spinner (Lottie rotating rings), pulse (Lottie pulsing dots), skeleton (shimmer block via BTLoadingSkeleton), progressbar (LinearProgressIndicator with brand colors), logo (Lottie btech brand animation).",
+      "url": "/r/flutter/loading.json"
+    },
+    {
+      "name": "radio-button",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTRadioButton",
+      "description": "Radio selection atom — use multiple BTRadioButton<T> with the same groupValue and onChanged to form a radio group, mirroring Flutter's native Radio pattern.",
+      "url": "/r/flutter/radio-button.json"
+    },
+    {
+      "name": "scrollbar",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTScrollbar",
+      "description": "A token-styled scrollbar wrapper using RawScrollbar. Thumb: bg.subtlest (neutral-300), Track: bg.subtle (neutral-50), 5dp thick.",
+      "url": "/r/flutter/scrollbar.json"
+    },
+    {
       "name": "separator",
       "type": "registry:ui",
       "category": "atoms",
@@ -52,12 +108,52 @@
       "url": "/r/flutter/slider.json"
     },
     {
+      "name": "switch-field",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTSwitchField",
+      "description": "A toggle switch atom with animated track + thumb. Supports on/off, disabled, and error states. Labels and subtext can appear on the left side, right side, or both simultaneously. An inner text variant shows a short label inside the pill track.",
+      "url": "/r/flutter/switch-field.json"
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTTag",
+      "description": "Removable pill label atom. Supports default and outline variants, optional left icon, and an optional remove (×) callback. Use BTTagGroup to render multiple tags in a scrollable row or wrapping layout.",
+      "url": "/r/flutter/tag.json"
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTToggle",
+      "description": "Pressable pill toggle atom — caller controls pressed state; component fires onChanged(!pressed) on tap. Pass onChanged: null to disable.",
+      "url": "/r/flutter/toggle.json"
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTToggleGroup",
+      "description": "Selection-state container for BTToggle items — owns selection state internally. Supports single-selection and multiple-selection modes via separate named constructors.",
+      "url": "/r/flutter/toggle-group.json"
+    },
+    {
       "name": "tooltip",
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTTooltip",
       "description": "Hover / tap tooltip that wraps a trigger widget and displays a dark-background floating balloon with a rounded-tip arrow caret. Supports plain text or rich widget content via the content/children slot.",
       "url": "/r/flutter/tooltip.json"
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "category": "Atoms",
+      "title": "BTButtonGroup",
+      "description": "Horizontal group of related action buttons sharing borders. Supports 1–9+ items, 5 variants (default-light, default-white, primary, destructive, warning), 2 sizes, and per-item variant mixing.",
+      "url": "/r/flutter/button-group.json"
     },
     {
       "name": "alert",
@@ -68,12 +164,100 @@
       "url": "/r/flutter/alert.json"
     },
     {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTAlertDialog",
+      "description": "Modal confirmation/information dialog. Mobile (M) design — 296px wide, vertical button stack.",
+      "url": "/r/flutter/alert-dialog.json"
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTAvatar",
       "description": "Circular badge displaying a user's profile image or auto-derived initials. Supports skeleton loading state. Used standalone or inside BTAvatarGroup (organism) for stacked group displays.",
       "url": "/r/flutter/avatar.json"
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTBreadcrumb",
+      "description": "Compositional breadcrumb system with 6 building-block widgets. Compose BTBreadcrumb > BTBreadcrumbItem > (BTBreadcrumbLink | BTBreadcrumbPage | BTBreadcrumbEllipsis) with BTBreadcrumbSeparator between items.",
+      "url": "/r/flutter/breadcrumb.json"
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTChart",
+      "description": "Chart molecule family for Flutter. Bundles three public widgets — BTBarChart (basic / grouped / stacked), BTLineChart (line / area), and BTCircleChart (donut) — plus the BTChartColors palette and shared data models. Painted natively with custom BT tooltip + legend styling.",
+      "url": "/r/flutter/chart.json"
+    },
+    {
+      "name": "dropdown",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTDropdown",
+      "description": "Composable dropdown molecule — handles overlay positioning internally using OverlayPortal. Supports single and multi-select, optional search, and a custom trigger builder. Composes BTDropdownList internally.",
+      "url": "/r/flutter/dropdown.json"
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTDropdownMenu",
+      "description": "Action menu that opens a floating panel of labelled items, group headers, separators, and optional keyboard shortcuts. Trigger via builder function; items via flat BTDropdownMenuEntry<T>[] list.",
+      "url": "/r/flutter/dropdown-menu.json"
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInput",
+      "description": "Material M3 outlined-style text input. The foundation of the btech input family — all composites (date, time, dropdown, multi-field, unit) wrap this atom internally.",
+      "url": "/r/flutter/input.json"
+    },
+    {
+      "name": "input-search",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputSearch",
+      "description": "Search input preset of BTInput — magnifying-glass prefix + clear button + onSearch callback on Enter.",
+      "url": "/r/flutter/input-search.json"
+    },
+    {
+      "name": "input-text-area",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTInputTextArea",
+      "description": "Multiline text input preset of BTInput. Forces multiline=true, defaults showCharCount=true when maxLength is set, and defaults minLines=5.",
+      "url": "/r/flutter/input-text-area.json"
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTNavigationMenu",
+      "description": "Bottom navigation bar with two variants: default (standard tab row, 2–5 items) and centerButton (notched bar + floating gradient action button, 0/2/4 items). Fully composable icon slots accept any Widget. Colors configurable via selectedColor / unselectedColor props with context.btColor defaults.",
+      "url": "/r/flutter/navigation-menu.json"
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTPagination",
+      "description": "Data pagination molecule — three factory variants: full numbered page pills, rows-per-page display with dropdown, and a simple Step N of M navigator.",
+      "url": "/r/flutter/pagination.json"
+    },
+    {
+      "name": "step-number",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTStepNumber",
+      "description": "Reusable step/page pill widget — a 32×32 page-pill button with five visual states: Default, Hover, Active, Disabled, Ellipsis. Used internally by BTPagination; can also be used standalone.",
+      "url": "/r/flutter/step-number.json"
     },
     {
       "name": "tabs",
@@ -88,8 +272,32 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTTooltipStep",
-      "description": "Coachmark / onboarding step balloon with navigation buttons. Standalone and presentational — positioning relative to the target element is the caller's responsibility (Flutter: Positioned + Stack; web: absolute/fixed container).",
+      "description": "PaginationStep / onboarding step balloon with navigation buttons. Standalone and presentational — positioning relative to the target element is the caller's responsibility (Flutter: Positioned + Stack; web: absolute/fixed container).",
       "url": "/r/flutter/tooltip-step.json"
+    },
+    {
+      "name": "tree",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTTree",
+      "description": "Recursive data-driven tree component. Pass a list of BTTreeNode objects — nesting depth is inferred from children lists, expand/collapse is animated via AnimatedSize, and level-based background tinting is applied automatically.",
+      "url": "/r/flutter/tree.json"
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "category": "Molecules",
+      "title": "BTItem",
+      "description": "Generic list item row with optional left media (icon/avatar/image), title+description, and optional right action (button/label/icon). Three container types: default, outline, muted.",
+      "url": "/r/flutter/item.json"
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTAccordion",
+      "description": "Three-component accordion system. BTAccordion is the group wrapper managing open state. BTAccordionItem is the individual collapsible panel (default visual: separator-based). BTAccordionCard is a self-contained expandable card with its own header (title + chevron).",
+      "url": "/r/flutter/accordion.json"
     },
     {
       "name": "avatar-group",
@@ -98,6 +306,102 @@
       "title": "BTAvatarGroup",
       "description": "Stacked group of BTAvatar widgets with horizontal negative-margin overlap. Renders a \"+N\" overflow counter when items exceed `max`. Stacking offsets match Figma 504:705 specs.",
       "url": "/r/flutter/avatar-group.json"
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTCalendar",
+      "description": "Calendar date picker for Flutter. Supports single date, date range, time-only, and date+time selection. Provides static show*() factory methods for modal-dialog or bottom-sheet drawer presentation.",
+      "url": "/r/flutter/calendar.json"
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTCard",
+      "description": "Flexible card organism with three visual variants: default (full card with optional body + Cancel/Submit footer), small (compact, no footer), and image (top image + default structure). Footer uses BTButton atoms.",
+      "url": "/r/flutter/card.json"
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTCarousel",
+      "description": "Horizontal or vertical sliding carousel with native swipe physics, animated dot indicators, and optional navigation buttons. Uses PageView.builder internally for smooth scroll on mobile.",
+      "url": "/r/flutter/carousel.json"
+    },
+    {
+      "name": "chart-card",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTChartCard",
+      "description": "Card wrapper for a chart. Header (title + optional subtext), an arbitrary chart widget body, and optional summary + legend areas. Card chrome can be toggled off via hasCard.",
+      "url": "/r/flutter/chart-card.json"
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTDataTable",
+      "description": "Full-featured data table — sticky/fixed columns, checkbox selection, expandable rows, an optional toolbar (search + filters + actions) and built-in pagination.",
+      "url": "/r/flutter/data-table.json"
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTDirection",
+      "description": "Form panel organism with a header (title + optional subtext + optional link), a content slot, and a footer with primary and optional secondary action buttons.",
+      "url": "/r/flutter/direction.json"
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTDrawer",
+      "description": "Bottom-sheet drawer (M-Drawer). The inline BTDrawer widget renders the panel itself (drag handle + header + scrollable body + stacked footer). Use BTDrawerSheet.show() to display it as a modal bottom sheet with a scrim barrier.",
+      "url": "/r/flutter/drawer.json"
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTEmptyState",
+      "description": "Empty / error placeholder with an illustration, title, subtext and an optional action button. The illustration is chosen by the variant.",
+      "url": "/r/flutter/empty-state.json"
+    },
+    {
+      "name": "modal",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTModal",
+      "description": "Centred dialog panel with header, optional content, and footer — the widget itself is the panel (328 dp wide), not a full route. Use BTModal.show() to display with a barrier and backdrop dismissal.",
+      "url": "/r/flutter/modal.json"
+    },
+    {
+      "name": "pagination-step",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTPaginationStep",
+      "description": "Guided tour organism — a step-by-step tooltip balloon sequence anchored to target widgets via GlobalKey. BTPaginationStep describes one step; BTPaginationStepController manages the full tour sequence.",
+      "url": "/r/flutter/pagination-step.json"
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTSidebar",
+      "description": "Collapsible navigation sidebar. 258 px open → 64 px collapsed. Supports three-level nav hierarchy (Main → Submenu → Sub Submenu), section subtitles, dividers, optional search, header, and footer.",
+      "url": "/r/flutter/sidebar.json"
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTToast",
+      "description": "Toast notification system. BTToast renders the card; BTToastController is the imperative API that inserts toasts into the nearest Overlay. 6 types (default, success, error, warning, info, description) and 2 positions (top, bottom).",
+      "url": "/r/flutter/toast.json"
     }
   ]
 }

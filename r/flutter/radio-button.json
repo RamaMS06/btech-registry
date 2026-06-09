@@ -1,0 +1,42 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "radio-button",
+  "type": "registry:ui",
+  "title": "BTRadioButton",
+  "description": "Radio selection atom — use multiple BTRadioButton<T> with the same groupValue and onChanged to form a radio group, mirroring Flutter's native Radio pattern.",
+  "framework": "flutter",
+  "category": "atoms",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=555-3529",
+  "figmaNodeId": "555:3529",
+  "dependencies": [
+    "btech_tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "internal/radio_button.constants.dart",
+      "target": "@flutterBase/radio-button/internal/radio_button.constants.dart",
+      "type": "registry:ui",
+      "content": "/// Size constants for BTRadioButton (Figma 555:3529).\nconst double kBTRadioCircleSize = 16;\nconst double kBTRadioDotSize = 8;\nconst double kBTRadioGap = 8;\nconst double kBTRadioPadding = 4;\nconst double kBTRadioBorderWidth = 1.5;\n"
+    },
+    {
+      "path": "radio_button.dart",
+      "target": "@flutterBase/radio-button/radio_button.dart",
+      "type": "registry:ui",
+      "content": "export 'radio_button.widget.dart';\n"
+    },
+    {
+      "path": "radio_button.types.dart",
+      "target": "@flutterBase/radio-button/radio_button.types.dart",
+      "type": "registry:ui",
+      "content": "// No enums needed — BTRadioButton is generic on value type T.\n// State is derived from: disabled flag + (groupValue == value).\n"
+    },
+    {
+      "path": "radio_button.widget.dart",
+      "target": "@flutterBase/radio-button/radio_button.widget.dart",
+      "type": "registry:ui",
+      "content": "import 'package:btech_tokens/btech_tokens.dart';\nimport 'package:btech_ui/src/components/atoms/radio_button/internal/radio_button.constants.dart';\nimport 'package:flutter/material.dart';\n\n/// BTRadioButton — radio selection atom (Figma 555:3529).\n///\n/// Use multiple BTRadioButton<T> with the same [groupValue] and [onChanged]\n/// to form a radio group — mirrors Flutter's native [Radio] pattern.\n///\n/// Five derived states:\n///   default       → unchecked, enabled\n///   active        → checked, enabled\n///   disable       → unchecked, disabled\n///   disable-active → checked, disabled\n///   error         → unchecked, error border (+ error subtext colour)\n///\n/// Example:\n/// ```dart\n/// String _selected = 'a';\n///\n/// BTRadioButton<String>(\n///   groupValue: _selected,\n///   value: 'a',\n///   label: 'Option A',\n///   onChanged: (v) => setState(() => _selected = v),\n/// )\n/// BTRadioButton<String>(\n///   groupValue: _selected,\n///   value: 'b',\n///   label: 'Option B',\n///   subtext: 'Helper text',\n///   onChanged: (v) => setState(() => _selected = v),\n/// )\n/// BTRadioButton<String>(\n///   groupValue: _selected,\n///   value: 'c',\n///   label: 'Disabled',\n///   disabled: true,\n///   onChanged: (v) => setState(() => _selected = v),\n/// )\n/// ```\nclass BTRadioButton<T> extends StatelessWidget {\n  const BTRadioButton({\n    required this.groupValue,\n    required this.value,\n    required this.onChanged,\n    this.label,\n    this.subtext,\n    this.disabled = false,\n    this.error = false,\n    super.key,\n  });\n\n  /// The group's currently selected value. Active when [groupValue] == [value].\n  final T groupValue;\n\n  /// This radio button's unique value in the group.\n  final T value;\n\n  /// Called with [value] when the user taps this button (unless [disabled]).\n  final ValueChanged<T> onChanged;\n\n  /// Optional label text.\n  final String? label;\n\n  /// Optional helper / error text below the label.\n  final String? subtext;\n\n  /// Disables tapping.\n  final bool disabled;\n\n  /// Shows error border; subtext renders in error colour.\n  final bool error;\n\n  bool get _isActive => groupValue == value;\n\n  bool get _hasPadding => label != null || subtext != null;\n\n  @override\n  Widget build(BuildContext context) {\n    final colors = context.btColor;\n\n    // ── Circle border colour ──────────────────────────────────────────────\n    final Color borderColor;\n    if (error && !disabled) {\n      borderColor = colors.ext.error;\n    } else if (disabled && _isActive) {\n      borderColor = colors.border.disabled;\n    } else if (_isActive) {\n      borderColor = colors.brand.primary;\n    } else {\n      borderColor = colors.border.primary;\n    }\n\n    // ── Circle fill colour ────────────────────────────────────────────────\n    final circleFill = disabled ? colors.bg.secondary : colors.bg.primary;\n\n    // ── Dot colour (shown when active) ────────────────────────────────────\n    final dotColor = disabled\n        ? colors.text.disabled\n        : (error && _isActive)\n            ? colors.ext.error\n            : colors.brand.primary;\n\n    // ── Text colours ──────────────────────────────────────────────────────\n    final labelColor = disabled ? colors.text.disabled : colors.text.primary;\n    final subtextColor = disabled\n        ? colors.text.disabled\n        : error\n            ? colors.text.error\n            : colors.text.secondary;\n\n    return GestureDetector(\n      onTap: disabled ? null : () => onChanged(value),\n      child: Padding(\n        padding: _hasPadding\n            ? const EdgeInsets.all(kBTRadioPadding)\n            : EdgeInsets.zero,\n        child: Row(\n          crossAxisAlignment: CrossAxisAlignment.start,\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            // ── Visual circle ─────────────────────────────────────────────\n            Padding(\n              padding: const EdgeInsets.only(top: 1),\n              child: AnimatedContainer(\n                duration: const Duration(milliseconds: 150),\n                width: kBTRadioCircleSize,\n                height: kBTRadioCircleSize,\n                decoration: BoxDecoration(\n                  shape: BoxShape.circle,\n                  color: circleFill,\n                  border: Border.all(\n                    color: borderColor,\n                    width: kBTRadioBorderWidth,\n                  ),\n                ),\n                child: _isActive\n                    ? Center(\n                        child: Container(\n                          width: kBTRadioDotSize,\n                          height: kBTRadioDotSize,\n                          decoration: BoxDecoration(\n                            shape: BoxShape.circle,\n                            color: dotColor,\n                          ),\n                        ),\n                      )\n                    : null,\n              ),\n            ),\n\n            // ── Label + subtext ───────────────────────────────────────────\n            if (label != null || subtext != null) ...[\n              const SizedBox(width: kBTRadioGap),\n              Column(\n                crossAxisAlignment: CrossAxisAlignment.start,\n                mainAxisSize: MainAxisSize.min,\n                children: [\n                  if (label != null)\n                    Text(\n                      label!,\n                      style: TextStyle(\n                        fontFamily: BTTypography.fontFamily,\n                        fontSize: 14.0,\n                        fontWeight: FontWeight.w500,\n                        height: 16 / 14,\n                        color: labelColor,\n                      ),\n                    ),\n                  if (subtext != null) ...[\n                    SizedBox(height: 4.0),\n                    Text(\n                      subtext!,\n                      style: TextStyle(\n                        fontFamily: BTTypography.fontFamily,\n                        fontSize: 14.0,\n                        fontWeight: FontWeight.w500,\n                        height: 16 / 14,\n                        color: subtextColor,\n                      ),\n                    ),\n                  ],\n                ],\n              ),\n            ],\n          ],\n        ),\n      ),\n    );\n  }\n}\n"
+    }
+  ]
+}

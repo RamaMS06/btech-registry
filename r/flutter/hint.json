@@ -1,0 +1,42 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "hint",
+  "type": "registry:ui",
+  "title": "BTHint",
+  "description": "Notification indicator atom — renders as a solid red dot when count is null, or as a red badge showing the count; values above 99 display as \"99+\".",
+  "framework": "flutter",
+  "category": "atoms",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=658-1960",
+  "figmaNodeId": "658:1960",
+  "dependencies": [
+    "btech_tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "hint.dart",
+      "target": "@flutterBase/hint/hint.dart",
+      "type": "registry:ui",
+      "content": "export 'hint.types.dart';\nexport 'hint.widget.dart';\n"
+    },
+    {
+      "path": "hint.types.dart",
+      "target": "@flutterBase/hint/hint.types.dart",
+      "type": "registry:ui",
+      "content": "/// Visual size of [BTHint].\nenum BTHintSize {\n  /// Dot: 16 px · Count badge: 24 px height.\n  lg,\n\n  /// Dot: 10 px · Count badge: 16 px height.\n  md,\n\n  /// Dot: 8 px · Count badge: 16 px height (smaller font).\n  sm,\n}\n"
+    },
+    {
+      "path": "hint.widget.dart",
+      "target": "@flutterBase/hint/hint.widget.dart",
+      "type": "registry:ui",
+      "content": "import 'package:btech_tokens/btech_tokens.dart';\nimport 'package:btech_ui/src/components/atoms/hint/hint.types.dart';\nimport 'package:btech_ui/src/components/atoms/hint/internal/hint.constants.dart';\nimport 'package:flutter/material.dart';\n\n/// BTHint — notification indicator atom (Figma 658:1960).\n///\n/// Renders as a solid red dot when [count] is null, or as a red badge\n/// containing the count value. Values above 99 display as \"99+\".\n///\n/// Example:\n/// ```dart\n/// // Dot indicator\n/// const BTHint()\n/// const BTHint(size: BTHintSize.sm)\n///\n/// // Count badge\n/// const BTHint(count: 5)\n/// const BTHint(count: 22, size: BTHintSize.md)\n/// BTHint(count: 150)  // displays \"99+\"\n/// ```\nclass BTHint extends StatelessWidget {\n  const BTHint({\n    this.count,\n    this.size = BTHintSize.lg,\n    super.key,\n  });\n\n  /// Count to display. Null renders a dot. Values > 99 show \"99+\".\n  final int? count;\n\n  /// Visual size of the hint.\n  final BTHintSize size;\n\n  String get _sizeKey => size.name;\n\n  String? get _displayText {\n    if (count == null) return null;\n    return count! > 99 ? '99+' : '$count';\n  }\n\n  bool get _isDot => _displayText == null;\n  bool get _isOverflow => _displayText == '99+';\n  bool get _isSingle =>\n      _displayText != null && _displayText!.length == 1;\n\n  EdgeInsets get _padding {\n    if (_isOverflow) {\n      return kBTHintOverflowPadding[_sizeKey] ?? EdgeInsets.zero;\n    }\n    if (_isSingle) {\n      return kBTHintSinglePadding[_sizeKey] ?? EdgeInsets.zero;\n    }\n    return kBTHintMultiPadding[_sizeKey] ?? EdgeInsets.zero;\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    final color = context.btColor.ext.error;\n\n    if (_isDot) {\n      final dotSize = kBTHintDotSize[_sizeKey] ?? 16;\n      return Container(\n        width: dotSize,\n        height: dotSize,\n        decoration: BoxDecoration(\n          color: color,\n          shape: BoxShape.circle,\n        ),\n      );\n    }\n\n    final height = kBTHintBadgeHeight[_sizeKey] ?? 24;\n    final minWidth = kBTHintBadgeMinWidth[_sizeKey] ?? 24;\n    final fontSize = kBTHintFontSize[_sizeKey] ?? 14;\n\n    return ConstrainedBox(\n      constraints: BoxConstraints(\n        minWidth: minWidth,\n        minHeight: height,\n        maxHeight: height,\n      ),\n      child: Container(\n        padding: _padding,\n        decoration: BoxDecoration(\n          color: color,\n          borderRadius: BorderRadius.circular(9999),\n        ),\n        alignment: Alignment.center,\n        child: Text(\n          _displayText!,\n          style: TextStyle(\n            fontFamily: BTTypography.fontFamily,\n            fontSize: fontSize,\n            fontWeight: FontWeight.w500,\n            color: Colors.white,\n            height: 16 / fontSize, // line-height-xs = 16px\n            leadingDistribution: TextLeadingDistribution.even,\n          ),\n        ),\n      ),\n    );\n  }\n}\n"
+    },
+    {
+      "path": "internal/hint.constants.dart",
+      "target": "@flutterBase/hint/internal/hint.constants.dart",
+      "type": "registry:ui",
+      "content": "import 'package:flutter/material.dart';\n\n/// Dot diameter per size.\nconst Map<Object, double> kBTHintDotSize = {\n  'lg': 16,\n  'md': 10,\n  'sm': 8,\n};\n\n/// Badge height per size.\nconst Map<Object, double> kBTHintBadgeHeight = {\n  'lg': 24,\n  'md': 16,\n  'sm': 16,\n};\n\n/// Minimum badge width per size.\nconst Map<Object, double> kBTHintBadgeMinWidth = {\n  'lg': 24,\n  'md': 16,\n  'sm': 16,\n};\n\n/// Font size for count text per size.\nconst Map<Object, double> kBTHintFontSize = {\n  'lg': 14, // typography-font-size-sm\n  'md': 14, // typography-font-size-sm\n  'sm': 10, // typography-font-size-2xs\n};\n\n/// Single-digit (1 char) horizontal padding per size.\nconst Map<Object, EdgeInsets> kBTHintSinglePadding = {\n  'lg': EdgeInsets.all(4),\n  'md': EdgeInsets.zero,\n  'sm': EdgeInsets.zero,\n};\n\n/// Multi-digit (2 chars) horizontal padding per size.\nconst Map<Object, EdgeInsets> kBTHintMultiPadding = {\n  'lg': EdgeInsets.all(4),\n  'md': EdgeInsets.symmetric(horizontal: 4),\n  'sm': EdgeInsets.symmetric(horizontal: 4),\n};\n\n/// Overflow (99+) horizontal padding per size.\nconst Map<Object, EdgeInsets> kBTHintOverflowPadding = {\n  'lg': EdgeInsets.symmetric(horizontal: 8, vertical: 4),\n  'md': EdgeInsets.symmetric(horizontal: 4),\n  'sm': EdgeInsets.symmetric(horizontal: 4),\n};\n"
+    }
+  ]
+}

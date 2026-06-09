@@ -1,0 +1,30 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "step-number",
+  "type": "registry:ui",
+  "title": "BTStepNumber",
+  "description": "Reusable step/page pill widget — a 32×32 page-pill button with five visual states: Default, Hover, Active, Disabled, Ellipsis. Used internally by BTPagination; can also be used standalone.",
+  "framework": "flutter",
+  "category": "molecules",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3007-2442",
+  "figmaNodeId": "3007-2442",
+  "dependencies": [
+    "btech_tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "step_number.dart",
+      "target": "@flutterBase/step-number/step_number.dart",
+      "type": "registry:ui",
+      "content": "export 'step_number.widget.dart';\n"
+    },
+    {
+      "path": "step_number.widget.dart",
+      "target": "@flutterBase/step-number/step_number.widget.dart",
+      "type": "registry:ui",
+      "content": "/// BTStepNumber — reusable step/page pill widget.\n/// Figma: node 3007-2442.\n///\n/// ## Usage\n/// ```dart\n/// // Normal page pill\n/// BTStepNumber(\n///   page: 3,\n///   isActive: currentPage == 3,\n///   onTap: () => setState(() => currentPage = 3),\n///   colors: context.btColor,\n/// )\n///\n/// // Ellipsis placeholder\n/// BTStepNumber.ellipsis(colors: context.btColor)\n/// ```\nlibrary;\n\nimport 'package:btech_tokens/btech_tokens.dart';\nimport 'package:flutter/material.dart';\nimport 'package:flutter_svg/flutter_svg.dart';\n\n/// A 32×32 page-pill button with five visual states:\n/// Default, Hover, Active, Disabled, Ellipsis (more_horiz icon).\nclass BTStepNumber extends StatefulWidget {\n  const BTStepNumber({\n    required this.page,\n    required this.colors,\n    this.isActive = false,\n    this.isDisabled = false,\n    this.onTap,\n    super.key,\n  }) : _isEllipsis = false;\n\n  /// Ellipsis / More state — shows the ⋯ icon; non-interactive.\n  const BTStepNumber.ellipsis({\n    required this.colors,\n    super.key,\n  })  : page = 0,\n        isActive = false,\n        isDisabled = false,\n        onTap = null,\n        _isEllipsis = true;\n\n  final int page;\n  final BTColorTheme colors;\n  final bool isActive;\n  final bool isDisabled;\n  final VoidCallback? onTap;\n  final bool _isEllipsis;\n\n  @override\n  State<BTStepNumber> createState() => _BTStepNumberState();\n}\n\nclass _BTStepNumberState extends State<BTStepNumber> {\n  bool _isHovered = false;\n  bool _isPressed = false;\n\n  bool get _isInteractive => !widget.isDisabled && !widget._isEllipsis;\n\n  Color get _bgColor {\n    if (widget._isEllipsis || widget.isDisabled) return Colors.transparent;\n    if (widget.isActive || _isPressed || _isHovered) return widget.colors.bg.subtle;\n    return Colors.transparent;\n  }\n\n  Color get _borderColor {\n    if (widget._isEllipsis || widget.isDisabled) return Colors.transparent;\n    if (widget.isActive) return BTColor.brand.primary;\n    return widget.colors.border.primary;\n  }\n\n  Color get _textColor {\n    if (widget.isDisabled) return widget.colors.text.disabled;\n    if (widget._isEllipsis) return widget.colors.text.secondary;\n    return widget.colors.text.primary;\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    Widget content;\n\n    if (widget._isEllipsis) {\n      content = SvgPicture.asset(\n        'packages/btech_ui/assets/icons/pagination/more_horiz.svg',\n        width: 16.0,\n        height: 16.0,\n        colorFilter: ColorFilter.mode(_textColor, BlendMode.srcIn),\n      );\n    } else {\n      content = Text(\n        '${widget.page}',\n        style: TextStyle(\n          fontSize: 12.0,\n          fontWeight: FontWeight.w500,\n          color: _textColor,\n        ),\n      );\n    }\n\n    final pill = MouseRegion(\n      cursor: _isInteractive\n          ? SystemMouseCursors.click\n          : SystemMouseCursors.basic,\n      onEnter: _isInteractive ? (_) => setState(() => _isHovered = true) : null,\n      onExit:  _isInteractive ? (_) => setState(() => _isHovered = false) : null,\n      child: GestureDetector(\n        onTap: _isInteractive ? widget.onTap : null,\n        onTapDown:   _isInteractive ? (_) => setState(() => _isPressed = true)  : null,\n        onTapUp:     _isInteractive ? (_) => setState(() => _isPressed = false) : null,\n        onTapCancel: _isInteractive ? ()  => setState(() => _isPressed = false) : null,\n        child: Container(\n          width: 32.0,\n          height: 32.0,\n          decoration: BoxDecoration(\n            color: _bgColor,\n            border: widget._isEllipsis || widget.isDisabled\n                ? null\n                : Border.all(color: _borderColor),\n            borderRadius: BorderRadius.circular(BTRadius.sm),\n          ),\n          alignment: Alignment.center,\n          child: content,\n        ),\n      ),\n    );\n\n    if (!widget._isEllipsis && !widget.isDisabled) {\n      return Semantics(\n        button: true,\n        label: 'Page ${widget.page}',\n        selected: widget.isActive,\n        child: pill,\n      );\n    }\n    return pill;\n  }\n}\n"
+    }
+  ]
+}

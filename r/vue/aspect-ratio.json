@@ -1,0 +1,36 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "type": "registry:ui",
+  "title": "BTAspectRatio",
+  "description": "Layout utility atom that constrains its children to a fixed aspect ratio with overflow clipping and rounded corners. Use as a wrapper for images, videos, or any content that must maintain a predictable proportion.",
+  "framework": "vue",
+  "category": "atoms",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?m=dev&node-id=820-3124",
+  "figmaNodeId": "820:3124",
+  "dependencies": [
+    "@btech/tokens"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "BTAspectRatio.css",
+      "target": "@ui/BTAspectRatio.css",
+      "type": "registry:ui",
+      "content": "/* BTAspectRatio styles — Figma 820:3124.\n   All colours/radii via @btech/tokens CSS vars — no hex fallbacks. */\n\n/* ── Root container ─────────────────────────────────────────── */\n\n.bt-aspect-ratio {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n  border-radius: var(--radius-md);\n  background: var(--bg-secondary);\n}\n\n/* ── Ratio modifiers ────────────────────────────────────────── */\n\n.bt-aspect-ratio--16-9 { aspect-ratio: 16 / 9; }\n.bt-aspect-ratio--9-16 { aspect-ratio: 9 / 16; }\n.bt-aspect-ratio--1-1  { aspect-ratio: 1 / 1;  }\n.bt-aspect-ratio--4-5  { aspect-ratio: 4 / 5;  }\n.bt-aspect-ratio--5-4  { aspect-ratio: 5 / 4;  }\n\n/* ── Slot — fills the container absolutely ──────────────────── */\n\n.bt-aspect-ratio__slot {\n  position: absolute;\n  inset: 0;\n  width: 100%;\n  height: 100%;\n}\n"
+    },
+    {
+      "path": "BTAspectRatio.types.ts",
+      "target": "@ui/BTAspectRatio.types.ts",
+      "type": "registry:ui",
+      "content": "// BTAspectRatio types — Figma source: node 820:3124.\n\n/**\n * Supported aspect ratios.\n * Maps to standard media / photography proportions.\n */\nexport type BTAspectRatioRatio = '16:9' | '9:16' | '1:1' | '4:5' | '5:4';\n\nexport interface BTAspectRatioProps {\n  /**\n   * Aspect ratio constraint applied to the container.\n   * @default '16:9'\n   */\n  ratio?: BTAspectRatioRatio;\n  /** Additional CSS class names. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "BTAspectRatio.vue",
+      "target": "@ui/BTAspectRatio.vue",
+      "type": "registry:ui",
+      "content": "<script setup lang=\"ts\">\n/**\n * BTAspectRatio — layout utility atom (Figma 820:3124).\n *\n * Constrains its children to a fixed aspect ratio with overflow clipping.\n * Use as a wrapper for images, videos, maps, or any content that must\n * maintain a predictable proportion.\n *\n * @example\n * ```vue\n * <BTAspectRatio ratio=\"16:9\">\n *   <img src=\"...\" style=\"width:100%;height:100%;object-fit:cover\" />\n * </BTAspectRatio>\n *\n * <BTAspectRatio ratio=\"1:1\">\n *   <img src=\"...\" style=\"width:100%;height:100%;object-fit:cover\" />\n * </BTAspectRatio>\n * ```\n */\nimport './BTAspectRatio.css';\nimport type { BTAspectRatioProps } from './BTAspectRatio.types';\n\nconst props = withDefaults(defineProps<BTAspectRatioProps>(), {\n  ratio: '16:9',\n});\n\nconst RATIO_CLASS: Record<NonNullable<BTAspectRatioProps['ratio']>, string> = {\n  '16:9': 'bt-aspect-ratio--16-9',\n  '9:16': 'bt-aspect-ratio--9-16',\n  '1:1':  'bt-aspect-ratio--1-1',\n  '4:5':  'bt-aspect-ratio--4-5',\n  '5:4':  'bt-aspect-ratio--5-4',\n};\n</script>\n\n<template>\n  <div\n    class=\"bt-aspect-ratio\"\n    :class=\"[RATIO_CLASS[props.ratio], props.className]\"\n  >\n    <div class=\"bt-aspect-ratio__slot\">\n      <slot />\n    </div>\n  </div>\n</template>\n"
+    }
+  ]
+}

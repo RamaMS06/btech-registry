@@ -1,0 +1,34 @@
+{
+  "$schema": "https://btech-registry-6u3r.vercel.app/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "type": "registry:ui",
+  "title": "BTAspectRatio",
+  "description": "Layout utility atom that constrains its child to a fixed aspect ratio with overflow clipping and rounded corners. Use as a wrapper for images, videos, or any content that must maintain a predictable proportion.",
+  "framework": "flutter",
+  "category": "atoms",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?m=dev&node-id=820-3124",
+  "figmaNodeId": "820:3124",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "aspect_ratio.dart",
+      "target": "@flutterBase/aspect-ratio/aspect_ratio.dart",
+      "type": "registry:ui",
+      "content": "export 'aspect_ratio.types.dart';\nexport 'aspect_ratio.widget.dart';\n"
+    },
+    {
+      "path": "aspect_ratio.types.dart",
+      "target": "@flutterBase/aspect-ratio/aspect_ratio.types.dart",
+      "type": "registry:ui",
+      "content": "// BTAspectRatio types — Figma source: node 820:3124.\n\n/// Supported aspect ratios for [BTAspectRatio].\nenum BTAspectRatioRatio {\n  /// 16:9 — landscape widescreen (default).\n  r16x9(16 / 9),\n\n  /// 9:16 — portrait / vertical video.\n  r9x16(9 / 16),\n\n  /// 1:1 — square.\n  r1x1(1 / 1),\n\n  /// 4:5 — portrait photo (Instagram-style).\n  r4x5(4 / 5),\n\n  /// 5:4 — landscape photo.\n  r5x4(5 / 4);\n\n  const BTAspectRatioRatio(this.value);\n\n  /// Numeric aspect ratio passed to Flutter's [AspectRatio] widget.\n  final double value;\n}\n"
+    },
+    {
+      "path": "aspect_ratio.widget.dart",
+      "target": "@flutterBase/aspect-ratio/aspect_ratio.widget.dart",
+      "type": "registry:ui",
+      "content": "import 'package:btech_tokens/btech_tokens.dart';\nimport 'package:flutter/material.dart';\n\nimport 'aspect_ratio.types.dart';\n\n/// BTAspectRatio — layout utility atom (Figma 820:3124).\n///\n/// Constrains [child] to a fixed aspect ratio with rounded corners and\n/// overflow clipping. The background uses [context.btColor.bg.secondary]\n/// so it's visible as a placeholder when no child is provided.\n///\n/// ```dart\n/// // 16:9 image (default ratio)\n/// BTAspectRatio(\n///   ratio: BTAspectRatioRatio.r16x9,\n///   child: Image.network(url, fit: BoxFit.cover),\n/// )\n///\n/// // Square thumbnail\n/// BTAspectRatio(\n///   ratio: BTAspectRatioRatio.r1x1,\n///   child: Image.network(url, fit: BoxFit.cover),\n/// )\n///\n/// // Portrait placeholder (no child)\n/// const BTAspectRatio(ratio: BTAspectRatioRatio.r9x16)\n/// ```\nclass BTAspectRatio extends StatelessWidget {\n  const BTAspectRatio({\n    this.ratio = BTAspectRatioRatio.r16x9,\n    this.child,\n    super.key,\n  });\n\n  /// Aspect ratio constraint applied to the container.\n  ///\n  /// Defaults to [BTAspectRatioRatio.r16x9].\n  final BTAspectRatioRatio ratio;\n\n  /// Optional content to display inside the constrained container.\n  /// Should typically be an [Image] or [Widget] that fills its bounds.\n  final Widget? child;\n\n  @override\n  Widget build(BuildContext context) {\n    final colors = context.btColor;\n    final radii = context.btRadius;\n\n    return AspectRatio(\n      aspectRatio: ratio.value,\n      child: ClipRRect(\n        borderRadius: BorderRadius.circular(radii.md),\n        child: ColoredBox(\n          color: colors.bg.secondary,\n          child: child,\n        ),\n      ),\n    );\n  }\n}\n"
+    }
+  ]
+}
