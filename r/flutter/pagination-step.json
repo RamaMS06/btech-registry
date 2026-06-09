@@ -6,7 +6,6 @@
   "description": "Guided tour organism — a step-by-step tooltip balloon sequence anchored to target widgets via GlobalKey. BTPaginationStep describes one step; BTPaginationStepController manages the full tour sequence.",
   "framework": "flutter",
   "category": "organisms",
-  "figmaUrl": "",
   "figmaNodeId": "",
   "dependencies": [
     "btech_tokens"
@@ -26,7 +25,7 @@
       "path": "pagination_step.dart",
       "target": "@flutterBase/pagination-step/pagination_step.dart",
       "type": "registry:ui",
-      "content": "// Barrel for the BTPaginationStepTour organism.\n\nexport '../pagination_step/pagination_step_controller.dart';\nexport '../pagination_step/pagination_step_widget.dart';\n"
+      "content": "// Barrel for the BTPaginationStepTour organism.\n\nexport './pagination_step_controller.dart';\nexport './pagination_step_widget.dart';\n"
     },
     {
       "path": "pagination_step_controller.dart",

@@ -6,7 +6,6 @@
   "description": "Guided tour organism (BTPaginationStepTour). Renders a darkened backdrop with a spotlight cutout around the active step's target and a positioned BTTooltipStep balloon. Drive the active index with the step prop + onStepChange.",
   "framework": "react",
   "category": "organisms",
-  "figmaUrl": "",
   "figmaNodeId": "",
   "dependencies": [
     "@btech/tokens"

@@ -5,7 +5,7 @@
   "title": "BTButtonGroup",
   "description": "Horizontal group of related action buttons sharing borders. Supports 1–9+ items, 5 variants (default-light, default-white, primary, destructive, warning), 2 sizes, and per-item variant mixing.",
   "framework": "flutter",
-  "category": "Atoms",
+  "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=749-4513",
   "figmaNodeId": "749-4513",
   "dependencies": [],

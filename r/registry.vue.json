@@ -332,6 +332,14 @@
       "url": "/r/vue/input-time.json"
     },
     {
+      "name": "item",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTItem",
+      "description": "Generic list item row with optional left media (icon/avatar/image), title+description, and optional right action (button/label/icon). Three container types: default, outline, muted.",
+      "url": "/r/vue/item.json"
+    },
+    {
       "name": "line-chart",
       "type": "registry:ui",
       "category": "molecules",
@@ -386,14 +394,6 @@
       "title": "BTTree",
       "description": "Recursive data-driven tree component. Pass a list of BTTreeNode objects — nesting depth is inferred from children arrays, expand/collapse state is managed internally with a CSS grid-template-rows animation, and level-based background tinting is applied automatically.",
       "url": "/r/vue/tree.json"
-    },
-    {
-      "name": "item",
-      "type": "registry:ui",
-      "category": "Molecules",
-      "title": "BTItem",
-      "description": "Generic list item row with optional left media (icon/avatar/image), title+description, and optional right action (button/label/icon). Three container types: default, outline, muted.",
-      "url": "/r/vue/item.json"
     },
     {
       "name": "avatar-group",

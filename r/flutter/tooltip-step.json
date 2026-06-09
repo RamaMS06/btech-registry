@@ -26,7 +26,7 @@
       "path": "tooltip_step.types.dart",
       "target": "@flutterBase/tooltip-step/tooltip_step.types.dart",
       "type": "registry:ui",
-      "content": "// BTTooltipStep — type definitions.\n//\n// Figma: node 478-2463 (Pagination Step variants).\n// https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=478-2463\n\nexport 'package:btech_ui/src/components/atoms/tooltip/tooltip.types.dart'\n    show BTTooltipArrowPosition, BTTooltipPosition;\n\n/// Navigation button style shown in the step footer.\nenum BTTooltipStepVariant {\n  /// Secondary rounded buttons (Prev / Next). Default.\n  button,\n\n  /// Text-link buttons — grey Prev, blue Next.\n  link,\n\n  /// Icon-only chevron buttons flanking the step label. Centred.\n  centered,\n}\n"
+      "content": "// BTTooltipStep — type definitions.\n//\n// Figma: node 478-2463 (Pagination Step variants).\n// https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=478-2463\n\nexport '../tooltip/tooltip.types.dart'\n    show BTTooltipArrowPosition, BTTooltipPosition;\n\n/// Navigation button style shown in the step footer.\nenum BTTooltipStepVariant {\n  /// Secondary rounded buttons (Prev / Next). Default.\n  button,\n\n  /// Text-link buttons — grey Prev, blue Next.\n  link,\n\n  /// Icon-only chevron buttons flanking the step label. Centred.\n  centered,\n}\n"
     },
     {
       "path": "tooltip_step.widget.dart",

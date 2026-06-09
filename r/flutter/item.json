@@ -5,7 +5,7 @@
   "title": "BTItem",
   "description": "Generic list item row with optional left media (icon/avatar/image), title+description, and optional right action (button/label/icon). Three container types: default, outline, muted.",
   "framework": "flutter",
-  "category": "Molecules",
+  "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2056-48",
   "figmaNodeId": "2056-48",
   "dependencies": [],

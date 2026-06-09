@@ -28,6 +28,14 @@
       "url": "/r/flutter/button.json"
     },
     {
+      "name": "button-group",
+      "type": "registry:ui",
+      "category": "atoms",
+      "title": "BTButtonGroup",
+      "description": "Horizontal group of related action buttons sharing borders. Supports 1–9+ items, 5 variants (default-light, default-white, primary, destructive, warning), 2 sizes, and per-item variant mixing.",
+      "url": "/r/flutter/button-group.json"
+    },
+    {
       "name": "button-link",
       "type": "registry:ui",
       "category": "atoms",
@@ -148,14 +156,6 @@
       "url": "/r/flutter/tooltip.json"
     },
     {
-      "name": "button-group",
-      "type": "registry:ui",
-      "category": "Atoms",
-      "title": "BTButtonGroup",
-      "description": "Horizontal group of related action buttons sharing borders. Supports 1–9+ items, 5 variants (default-light, default-white, primary, destructive, warning), 2 sizes, and per-item variant mixing.",
-      "url": "/r/flutter/button-group.json"
-    },
-    {
       "name": "alert",
       "type": "registry:ui",
       "category": "molecules",
@@ -236,6 +236,14 @@
       "url": "/r/flutter/input-text-area.json"
     },
     {
+      "name": "item",
+      "type": "registry:ui",
+      "category": "molecules",
+      "title": "BTItem",
+      "description": "Generic list item row with optional left media (icon/avatar/image), title+description, and optional right action (button/label/icon). Three container types: default, outline, muted.",
+      "url": "/r/flutter/item.json"
+    },
+    {
       "name": "navigation-menu",
       "type": "registry:ui",
       "category": "molecules",
@@ -282,14 +290,6 @@
       "title": "BTTree",
       "description": "Recursive data-driven tree component. Pass a list of BTTreeNode objects — nesting depth is inferred from children lists, expand/collapse is animated via AnimatedSize, and level-based background tinting is applied automatically.",
       "url": "/r/flutter/tree.json"
-    },
-    {
-      "name": "item",
-      "type": "registry:ui",
-      "category": "Molecules",
-      "title": "BTItem",
-      "description": "Generic list item row with optional left media (icon/avatar/image), title+description, and optional right action (button/label/icon). Three container types: default, outline, muted.",
-      "url": "/r/flutter/item.json"
     },
     {
       "name": "accordion",
