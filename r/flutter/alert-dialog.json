@@ -10,7 +10,7 @@
   "figmaNodeId": "2519-2209",
   "dependencies": [
     "btech_tokens",
-    "flutter_svg"
+    "flutter_svg:^2.0.10+1"
   ],
   "devDependencies": [],
   "registryDependencies": [

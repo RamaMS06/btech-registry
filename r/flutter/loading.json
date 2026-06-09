@@ -10,8 +10,8 @@
   "figmaNodeId": "3227:400",
   "dependencies": [
     "btech_tokens",
-    "lottie",
-    "skeletonizer"
+    "lottie:^3.1.0",
+    "skeletonizer:1.4.3"
   ],
   "devDependencies": [],
   "registryDependencies": [],
