@@ -8,7 +8,9 @@
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=478-2463",
   "figmaNodeId": "478-2463",
-  "dependencies": [],
+  "dependencies": [
+    "btech_tokens"
+  ],
   "devDependencies": [],
   "registryDependencies": [
     "button",

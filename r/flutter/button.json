@@ -9,7 +9,8 @@
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=114-2645",
   "figmaNodeId": "114:2645",
   "dependencies": [
-    "@btech/tokens"
+    "@btech/tokens",
+    "btech_tokens"
   ],
   "devDependencies": [],
   "registryDependencies": [],

@@ -8,7 +8,9 @@
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2056-48",
   "figmaNodeId": "2056-48",
-  "dependencies": [],
+  "dependencies": [
+    "btech_tokens"
+  ],
   "devDependencies": [],
   "registryDependencies": [
     "avatar",

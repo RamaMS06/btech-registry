@@ -8,7 +8,10 @@
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2519-2209",
   "figmaNodeId": "2519-2209",
-  "dependencies": [],
+  "dependencies": [
+    "btech_tokens",
+    "flutter_svg"
+  ],
   "devDependencies": [],
   "registryDependencies": [
     "button"

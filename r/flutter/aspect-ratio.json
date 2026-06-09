@@ -8,7 +8,9 @@
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?m=dev&node-id=820-3124",
   "figmaNodeId": "820:3124",
-  "dependencies": [],
+  "dependencies": [
+    "btech_tokens"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

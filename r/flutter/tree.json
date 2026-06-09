@@ -8,7 +8,9 @@
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/placeholder/?node-id=2481-7383",
   "figmaNodeId": "2481:7383",
-  "dependencies": [],
+  "dependencies": [
+    "btech_tokens"
+  ],
   "devDependencies": [],
   "registryDependencies": [
     "checkbox"

@@ -8,7 +8,9 @@
   "category": "organisms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=2616-13119",
   "figmaNodeId": "2616:13119",
-  "dependencies": [],
+  "dependencies": [
+    "btech_tokens"
+  ],
   "devDependencies": [],
   "registryDependencies": [
     "button"

@@ -8,7 +8,11 @@
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=3227-400",
   "figmaNodeId": "3227:400",
-  "dependencies": [],
+  "dependencies": [
+    "btech_tokens",
+    "lottie",
+    "skeletonizer"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

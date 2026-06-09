@@ -8,7 +8,9 @@
   "category": "organisms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=95-101",
   "figmaNodeId": "95:101",
-  "dependencies": [],
+  "dependencies": [
+    "btech_tokens"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

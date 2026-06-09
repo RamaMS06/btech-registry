@@ -9,7 +9,8 @@
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=668-8852",
   "figmaNodeId": "668-8852",
   "dependencies": [
-    "btech_tokens"
+    "btech_tokens",
+    "flutter_svg"
   ],
   "devDependencies": [],
   "registryDependencies": [
