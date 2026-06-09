@@ -9,6 +9,7 @@
   "figmaUrl": "https://www.figma.com/design/EzBzMqvVfBfWRaYKOoZbGj?node-id=681-10168",
   "figmaNodeId": "681:10168",
   "dependencies": [
+    "btech_assets",
     "btech_tokens"
   ],
   "devDependencies": [],
@@ -38,7 +39,7 @@
       "path": "internal/breadcrumb.constants.dart",
       "target": "@flutterBase/breadcrumb/internal/breadcrumb.constants.dart",
       "type": "registry:ui",
-      "content": "// Internal constants for BTBreadcrumb — Figma node 681:10168.\n\nconst String kBreadcrumbChevronAsset =\n    'packages/btech_ui/assets/icons/breadcrumb/chevron_right.svg';\n\nconst String kBreadcrumbMoreAsset =\n    'packages/btech_ui/assets/icons/breadcrumb/more_horiz.svg';\n\n/// Height of each item in the ellipsis popup.\nconst double kBreadcrumbDropdownItemHeight = 24;\n\n/// Horizontal padding inside each dropdown item.\nconst double kBreadcrumbDropdownItemPaddingH = 12;\n\n/// Vertical padding inside the dropdown container.\nconst double kBreadcrumbDropdownPaddingV = 4;\n\n/// Gap between breadcrumb items (separator + text).\nconst double kBreadcrumbGap = 4;\n\n/// Icon size for chevron separator.\nconst double kBreadcrumbChevronWidth = 8;\nconst double kBreadcrumbChevronHeight = 14;\n\n/// Icon size for more_horiz ellipsis button.\nconst double kBreadcrumbMoreSize = 16;\n"
+      "content": "// Internal constants for BTBreadcrumb — Figma node 681:10168.\n\nconst String kBreadcrumbChevronAsset =\n    'packages/btech_assets/assets/icons/breadcrumb/chevron_right.svg';\n\nconst String kBreadcrumbMoreAsset =\n    'packages/btech_assets/assets/icons/breadcrumb/more_horiz.svg';\n\n/// Height of each item in the ellipsis popup.\nconst double kBreadcrumbDropdownItemHeight = 24;\n\n/// Horizontal padding inside each dropdown item.\nconst double kBreadcrumbDropdownItemPaddingH = 12;\n\n/// Vertical padding inside the dropdown container.\nconst double kBreadcrumbDropdownPaddingV = 4;\n\n/// Gap between breadcrumb items (separator + text).\nconst double kBreadcrumbGap = 4;\n\n/// Icon size for chevron separator.\nconst double kBreadcrumbChevronWidth = 8;\nconst double kBreadcrumbChevronHeight = 14;\n\n/// Icon size for more_horiz ellipsis button.\nconst double kBreadcrumbMoreSize = 16;\n"
     }
   ]
 }
