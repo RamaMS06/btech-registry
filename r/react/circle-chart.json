@@ -38,7 +38,7 @@
       "path": "index.ts",
       "target": "@ui/circle-chart/index.ts",
       "type": "registry:ui",
-      "content": "export { BTCircleChart } from './BTCircleChart.js';\nexport type { BTCircleChartProps } from './BTCircleChart.js';\nexport type { BTCircleSection, BTCircleChartVariant } from './BTCircleChart.types';\n"
+      "content": "export { BTCircleChart } from './BTCircleChart';\nexport type { BTCircleChartProps } from './BTCircleChart';\nexport type { BTCircleSection, BTCircleChartVariant } from './BTCircleChart.types';\n"
     },
     {
       "path": "internal/chart-tooltip.css",

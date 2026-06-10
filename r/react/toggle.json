@@ -36,7 +36,7 @@
       "path": "index.ts",
       "target": "@ui/toggle/index.ts",
       "type": "registry:ui",
-      "content": "export { BTToggle } from './BTToggle.js';\nexport type { BTToggleProps, BTToggleVariant, BTToggleSize } from './BTToggle.types.js';\n"
+      "content": "export { BTToggle } from './BTToggle';\nexport type { BTToggleProps, BTToggleVariant, BTToggleSize } from './BTToggle.types';\n"
     }
   ]
 }

@@ -38,7 +38,7 @@
       "path": "index.ts",
       "target": "@ui/bar-chart/index.ts",
       "type": "registry:ui",
-      "content": "export { BTBarChart } from './BTBarChart.js';\nexport type { BTBarChartProps } from './BTBarChart.js';\nexport type { BTBarData, BTBarItem, BTBarGroupData, BTStackedBarData } from './BTBarChart.types';\nexport { BTChartColors } from './internal/chart-colors';\n"
+      "content": "export { BTBarChart } from './BTBarChart';\nexport type { BTBarChartProps } from './BTBarChart';\nexport type { BTBarData, BTBarItem, BTBarGroupData, BTStackedBarData } from './BTBarChart.types';\nexport { BTChartColors } from './internal/chart-colors';\n"
     },
     {
       "path": "internal/chart-tooltip.css",

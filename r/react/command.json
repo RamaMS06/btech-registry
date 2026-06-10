@@ -30,7 +30,7 @@
       "path": "index.ts",
       "target": "@ui/command/index.ts",
       "type": "registry:ui",
-      "content": "export {\n  BTCommand,\n  BTCommandInput,\n  BTCommandList,\n  BTCommandEmpty,\n  BTCommandGroup,\n  BTCommandItem,\n  BTCommandSeparator,\n  BTCommandShortcut,\n  BTCommandDialog,\n} from './BTCommand.js';\nexport type {\n  BTCommandProps,\n  BTCommandInputProps,\n  BTCommandListProps,\n  BTCommandEmptyProps,\n  BTCommandGroupProps,\n  BTCommandItemProps,\n  BTCommandShortcutProps,\n  BTCommandDialogProps,\n} from './BTCommand.js';\n"
+      "content": "export {\n  BTCommand,\n  BTCommandInput,\n  BTCommandList,\n  BTCommandEmpty,\n  BTCommandGroup,\n  BTCommandItem,\n  BTCommandSeparator,\n  BTCommandShortcut,\n  BTCommandDialog,\n} from './BTCommand';\nexport type {\n  BTCommandProps,\n  BTCommandInputProps,\n  BTCommandListProps,\n  BTCommandEmptyProps,\n  BTCommandGroupProps,\n  BTCommandItemProps,\n  BTCommandShortcutProps,\n  BTCommandDialogProps,\n} from './BTCommand';\n"
     }
   ]
 }

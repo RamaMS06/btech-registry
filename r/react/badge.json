@@ -24,7 +24,7 @@
       "path": "BTBadge.tsx",
       "target": "@ui/badge/BTBadge.tsx",
       "type": "registry:ui",
-      "content": "/**\n * BTBadge — status label atom.\n * Sliced from Figma `Badge` (node 72:1516). Mirrors @btech/ui-vue BTBadge\n * one-to-one (same prop names, same variant logic, same render priority).\n *\n * ## Usage:\n * ```tsx\n * // Normal\n * <BTBadge label=\"Approved\" variant=\"success\" />\n *\n * // With left icon\n * <BTBadge label=\"Waiting\" variant=\"waiting\" leftIcon={<ClockIcon size={16} />} />\n *\n * // Reverse (solid bg + white text)\n * <BTBadge label=\"Rejected\" variant=\"reject\" reverseColors />\n * ```\n */\nimport * as React from 'react';\nimport type { BTBadgeProps } from './BTBadge.types.js';\nimport './BTBadge.css';\n\n/**\n * Status label pill. See file header for usage examples.\n */\nexport const BTBadge = React.forwardRef<HTMLSpanElement, BTBadgeProps>(\n  (\n    {\n      label = 'Badge',\n      variant = 'success',\n      reverseColors = false,\n      leftIcon,\n      rightIcon,\n      className,\n      ...rest\n    },\n    ref,\n  ) => {\n    const classes = [\n      'bt-badge',\n      `bt-badge--${variant}`,\n      reverseColors ? 'bt-badge--reverse' : '',\n      className ?? '',\n    ]\n      .filter(Boolean)\n      .join(' ');\n\n    return (\n      <span ref={ref} className={classes} data-testid=\"bt-badge\" {...rest}>\n        {leftIcon}\n        <span className=\"bt-badge__label\">{label}</span>\n        {rightIcon}\n      </span>\n    );\n  },\n);\n\nBTBadge.displayName = 'BTBadge';\n"
+      "content": "/**\n * BTBadge — status label atom.\n * Sliced from Figma `Badge` (node 72:1516). Mirrors @btech/ui-vue BTBadge\n * one-to-one (same prop names, same variant logic, same render priority).\n *\n * ## Usage:\n * ```tsx\n * // Normal\n * <BTBadge label=\"Approved\" variant=\"success\" />\n *\n * // With left icon\n * <BTBadge label=\"Waiting\" variant=\"waiting\" leftIcon={<ClockIcon size={16} />} />\n *\n * // Reverse (solid bg + white text)\n * <BTBadge label=\"Rejected\" variant=\"reject\" reverseColors />\n * ```\n */\nimport * as React from 'react';\nimport type { BTBadgeProps } from './BTBadge.types';\nimport './BTBadge.css';\n\n/**\n * Status label pill. See file header for usage examples.\n */\nexport const BTBadge = React.forwardRef<HTMLSpanElement, BTBadgeProps>(\n  (\n    {\n      label = 'Badge',\n      variant = 'success',\n      reverseColors = false,\n      leftIcon,\n      rightIcon,\n      className,\n      ...rest\n    },\n    ref,\n  ) => {\n    const classes = [\n      'bt-badge',\n      `bt-badge--${variant}`,\n      reverseColors ? 'bt-badge--reverse' : '',\n      className ?? '',\n    ]\n      .filter(Boolean)\n      .join(' ');\n\n    return (\n      <span ref={ref} className={classes} data-testid=\"bt-badge\" {...rest}>\n        {leftIcon}\n        <span className=\"bt-badge__label\">{label}</span>\n        {rightIcon}\n      </span>\n    );\n  },\n);\n\nBTBadge.displayName = 'BTBadge';\n"
     },
     {
       "path": "BTBadge.types.ts",
@@ -36,7 +36,7 @@
       "path": "index.ts",
       "target": "@ui/badge/index.ts",
       "type": "registry:ui",
-      "content": "export { BTBadge } from './BTBadge.js';\nexport type { BTBadgeProps } from './BTBadge.types.js';\n"
+      "content": "export { BTBadge } from './BTBadge';\nexport type { BTBadgeProps } from './BTBadge.types';\n"
     }
   ]
 }

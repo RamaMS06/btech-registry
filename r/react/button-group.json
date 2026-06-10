@@ -36,7 +36,7 @@
       "path": "index.ts",
       "target": "@ui/button-group/index.ts",
       "type": "registry:ui",
-      "content": "export { BTButtonGroup } from './BTButtonGroup.js';\nexport type {\n  BTButtonGroupVariant,\n  BTButtonGroupSize,\n  BTButtonGroupItemDef,\n  BTButtonGroupProps,\n} from './BTButtonGroup.types';\n"
+      "content": "export { BTButtonGroup } from './BTButtonGroup';\nexport type {\n  BTButtonGroupVariant,\n  BTButtonGroupSize,\n  BTButtonGroupItemDef,\n  BTButtonGroupProps,\n} from './BTButtonGroup.types';\n"
     }
   ]
 }

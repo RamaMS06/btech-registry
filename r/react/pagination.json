@@ -41,7 +41,7 @@
       "path": "index.ts",
       "target": "@ui/pagination/index.ts",
       "type": "registry:ui",
-      "content": "export { BTPagination } from './BTPagination.js';\nexport type { BTPaginationReactProps } from './BTPagination.js';\nexport type { BTPaginationProps, BTPaginationVariant } from './BTPagination.types.js';\n"
+      "content": "export { BTPagination } from './BTPagination';\nexport type { BTPaginationReactProps } from './BTPagination';\nexport type { BTPaginationProps, BTPaginationVariant } from './BTPagination.types';\n"
     }
   ]
 }

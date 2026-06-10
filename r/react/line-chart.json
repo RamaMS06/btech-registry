@@ -38,7 +38,7 @@
       "path": "index.ts",
       "target": "@ui/line-chart/index.ts",
       "type": "registry:ui",
-      "content": "export { BTLineChart } from './BTLineChart.js';\nexport type { BTLineChartProps } from './BTLineChart.js';\nexport type { BTLineSeries, BTLineSpot } from './BTLineChart.types';\n"
+      "content": "export { BTLineChart } from './BTLineChart';\nexport type { BTLineChartProps } from './BTLineChart';\nexport type { BTLineSeries, BTLineSpot } from './BTLineChart.types';\n"
     },
     {
       "path": "internal/chart-tooltip.css",

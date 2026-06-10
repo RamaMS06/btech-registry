@@ -36,7 +36,7 @@
       "path": "index.ts",
       "target": "@ui/step-number/index.ts",
       "type": "registry:ui",
-      "content": "export { BTStepNumber } from './BTStepNumber.js';\nexport type { BTStepNumberProps } from './BTStepNumber.types.js';\n"
+      "content": "export { BTStepNumber } from './BTStepNumber';\nexport type { BTStepNumberProps } from './BTStepNumber.types';\n"
     }
   ]
 }
