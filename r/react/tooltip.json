@@ -31,6 +31,12 @@
       "target": "@ui/tooltip/BTTooltip.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTTooltip — type definitions shared between Vue and React.\n * Figma: https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=479-2624\n */\n\n/** Which side of the trigger the tooltip balloon appears on. */\nexport type BTTooltipPosition = 'top' | 'bottom' | 'left' | 'right';\n\n/**\n * Where the arrow sits along its axis.\n * - `left` / `right`: ~17 px from the respective edge (Figma L / R positions).\n * - `left-mid` / `right-mid`: 25% / 75% along the axis.\n * - `mid` (default): 50% — centred.\n */\nexport type BTTooltipArrowPosition =\n  | 'left'\n  | 'left-mid'\n  | 'mid'\n  | 'right-mid'\n  | 'right';\n\nexport interface BTTooltipProps {\n  /** Plain-text content shown in the balloon. Use the `content` slot for rich content. */\n  text?: string;\n  /** Preferred placement relative to the trigger element. @default 'top' */\n  position?: BTTooltipPosition;\n  /** Arrow offset along the axis. @default 'mid' */\n  arrowPosition?: BTTooltipArrowPosition;\n  /** Disable the tooltip entirely (no show on hover). @default false */\n  disabled?: boolean;\n  /** Delay before the balloon appears (ms). @default 0 */\n  showDelay?: number;\n  /** Delay before the balloon hides (ms). @default 0 */\n  hideDelay?: number;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/tooltip/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTTooltip } from './BTTooltip';\nexport type {\n  BTTooltipReactProps,\n} from './BTTooltip';\nexport type {\n  BTTooltipProps,\n  BTTooltipPosition,\n  BTTooltipArrowPosition,\n} from './BTTooltip.types';\n"
     }
   ]
 }

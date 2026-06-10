@@ -79,6 +79,12 @@
       "target": "@ui/command/BTCommandShortcut.vue",
       "type": "registry:ui",
       "content": "<script setup lang=\"ts\">\n/**\n * BTCommandShortcut — renders keyboard shortcut badges (⌘ K style).\n *\n * Pass a single string of keys; each character becomes its own Kbd badge.\n * Or pass an array of strings for multi-char key names (e.g. ['⇧', '⌘', 'N']).\n *\n * @example\n * ```vue\n * <BTCommandShortcut keys=\"⌘K\" />\n * <BTCommandShortcut :keys=\"['⇧', '⌘', 'N']\" />\n * ```\n */\nconst props = defineProps<{\n  /** Shortcut string or array of key labels. */\n  keys: string | string[];\n}>();\n\nconst keyList = Array.isArray(props.keys)\n  ? props.keys\n  : props.keys.split('');\n</script>\n\n<template>\n  <span class=\"bt-command__shortcut\" aria-label=\"keyboard shortcut\">\n    <kbd v-for=\"(k, i) in keyList\" :key=\"i\" class=\"bt-command__kbd\">{{ k }}</kbd>\n  </span>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/command/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTCommand } from './BTCommand.vue';\nexport { default as BTCommandInput } from './BTCommandInput.vue';\nexport { default as BTCommandList } from './BTCommandList.vue';\nexport { default as BTCommandEmpty } from './BTCommandEmpty.vue';\nexport { default as BTCommandGroup } from './BTCommandGroup.vue';\nexport { default as BTCommandItem } from './BTCommandItem.vue';\nexport { default as BTCommandSeparator } from './BTCommandSeparator.vue';\nexport { default as BTCommandShortcut } from './BTCommandShortcut.vue';\nexport { default as BTCommandDialog } from './BTCommandDialog.vue';\nexport type {\n  BTCommandProps,\n  BTCommandInputProps,\n  BTCommandGroupProps,\n  BTCommandItemProps,\n  BTCommandDialogProps,\n} from './BTCommand.types';\n"
     }
   ]
 }

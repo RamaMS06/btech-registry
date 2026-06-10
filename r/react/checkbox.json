@@ -31,6 +31,12 @@
       "target": "@ui/checkbox/BTCheckbox.types.ts",
       "type": "registry:ui",
       "content": "export interface BTCheckboxProps {\n  /** Controlled checked state. */\n  checked?: boolean;\n  /** Puts the checkbox into the indeterminate (dash) state. */\n  indeterminate?: boolean;\n  /** Disables all interaction. */\n  disabled?: boolean;\n  /** Applies the error style to the box border and subtext. */\n  error?: boolean;\n  /** Optional text label beside the checkbox. */\n  label?: string;\n  /** Optional helper / error text below the label. */\n  subtext?: string;\n  /** Called when the user toggles the checkbox. */\n  onChange?: (checked: boolean) => void;\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/checkbox/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTCheckbox } from './BTCheckbox';\nexport type { BTCheckboxProps } from './BTCheckbox.types';\n"
     }
   ]
 }

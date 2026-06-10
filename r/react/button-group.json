@@ -31,6 +31,12 @@
       "target": "@ui/button-group/BTButtonGroup.types.ts",
       "type": "registry:ui",
       "content": "// BTButtonGroup.types.ts — shared between Vue and React\n\nexport type BTButtonGroupVariant =\n  | 'default-light'   // --bg-secondary bg\n  | 'default-white'   // --bg-primary (white) bg\n  | 'primary'         // --color-brand-primary bg, text-inverse text\n  | 'destructive'     // --color-ext-error bg, text-inverse text\n  | 'warning';        // --color-ext-warning bg, text-primary text\n\nexport type BTButtonGroupSize = 'small' | 'large';\n\nexport interface BTButtonGroupItemDef {\n  /** Button label text. */\n  label?: string;\n  /**\n   * Left icon.\n   * React: ReactNode\n   */\n  leftIcon?: React.ReactNode;\n  /**\n   * Right icon (e.g. chevron-down for split buttons).\n   * React: ReactNode.\n   */\n  rightIcon?: React.ReactNode;\n  /** Renders icon(s) only — no label. Square padding. @default false */\n  iconOnly?: boolean;\n  /** Override the group's default variant for this item only. */\n  variant?: BTButtonGroupVariant;\n  disabled?: boolean;\n  onClick?: () => void;\n}\n\nexport interface BTButtonGroupProps {\n  /** List of button items. Minimum 2 recommended; supports 1 (single pill). */\n  items: BTButtonGroupItemDef[];\n  /** Height size — 'large' (40px) or 'small' (32px). @default 'large' */\n  size?: BTButtonGroupSize;\n  /** Default variant for all items. Per-item variant overrides this. @default 'default-light' */\n  variant?: BTButtonGroupVariant;\n  /** aria-label on the group container for accessibility. */\n  ariaLabel?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/button-group/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTButtonGroup } from './BTButtonGroup.js';\nexport type {\n  BTButtonGroupVariant,\n  BTButtonGroupSize,\n  BTButtonGroupItemDef,\n  BTButtonGroupProps,\n} from './BTButtonGroup.types';\n"
     }
   ]
 }

@@ -31,6 +31,12 @@
       "target": "@ui/slider/BTSlider.types.ts",
       "type": "registry:ui",
       "content": "// BTSlider types — Figma source: node 434:7617.\n\n/** Layout and thumb count. */\nexport type BTSliderType = 'default' | 'range' | 'vertical';\n\n/**\n * Color variant of the active track + thumb.\n * - primary     → brand blue  (#145bc3)\n * - secondary   → neutral     (#64748b)\n * - destructive → error red   (#991515)\n */\nexport type BTSliderVariant = 'primary' | 'secondary' | 'destructive';\n\nexport interface BTSliderProps {\n  /**\n   * Layout type.\n   * - 'default'  → horizontal, single thumb\n   * - 'range'    → horizontal, two thumbs (start + end)\n   * - 'vertical' → vertical, single thumb\n   * @default 'default'\n   */\n  type?: BTSliderType;\n  /**\n   * Color variant for active track and thumb.\n   * @default 'primary'\n   */\n  variant?: BTSliderVariant;\n  /** Controlled value for default / vertical types. */\n  value?: number;\n  /** Controlled start value for range type. */\n  startValue?: number;\n  /** Controlled end value for range type. */\n  endValue?: number;\n  /** Minimum selectable value. @default 0 */\n  min?: number;\n  /** Maximum selectable value. @default 100 */\n  max?: number;\n  /** Increment step. @default 1 */\n  step?: number;\n  /** Show value tooltip above (or beside for vertical) the thumb. @default true */\n  showTooltip?: boolean;\n  /**\n   * When `true` the tooltip is always visible (default).\n   * When `false` the tooltip only appears on hover / keyboard focus.\n   * Has no effect when `showTooltip` is `false`.\n   * @default true\n   */\n  alwaysShown?: boolean;\n  /** Disables all interaction. @default false */\n  disabled?: boolean;\n  /** Called when the single value changes. */\n  onValueChange?: (value: number) => void;\n  /** Called when the range start value changes. */\n  onStartValueChange?: (value: number) => void;\n  /** Called when the range end value changes. */\n  onEndValueChange?: (value: number) => void;\n  /** Additional CSS class names. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/slider/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTSlider } from './BTSlider';\nexport type { BTSliderProps, BTSliderType, BTSliderVariant } from './BTSlider.types';\n"
     }
   ]
 }

@@ -43,6 +43,12 @@
       "target": "@ui/popover/BTPopoverTrigger.tsx",
       "type": "registry:ui",
       "content": "/**\n * BTPopoverTrigger — click target for the popover.\n *\n * Default: wraps its children in a layout-transparent <span> (display: contents).\n * With asChild: clones the single child element and injects onClick + ref directly,\n *              so no wrapper element is added to the DOM.\n *\n * @example\n * // Default wrapper\n * <BTPopoverTrigger>\n *   <BTButton label=\"Open\" />\n * </BTPopoverTrigger>\n *\n * @example\n * // asChild — zero extra DOM nodes\n * <BTPopoverTrigger asChild>\n *   <BTButton label=\"Open\" />\n * </BTPopoverTrigger>\n */\nimport { cloneElement, isValidElement } from 'react';\nimport { useBTPopoverContext } from './BTPopover';\nimport type { BTPopoverTriggerProps } from './BTPopover.types';\n\nexport function BTPopoverTrigger({ children, asChild = false }: BTPopoverTriggerProps) {\n  const ctx = useBTPopoverContext();\n\n  if (asChild && isValidElement(children)) {\n    // Merge ref + onClick onto the child element directly.\n    const child = children as React.ReactElement<{\n      onClick?: (e: React.MouseEvent) => void;\n      ref?: React.RefCallback<HTMLElement>;\n    }>;\n    return cloneElement(child, {\n      ref: (el: HTMLElement | null) => { ctx.triggerRef.current = el; },\n      onClick: (e: React.MouseEvent) => {\n        child.props.onClick?.(e);\n        ctx.toggle();\n      },\n    });\n  }\n\n  return (\n    <span\n      ref={ctx.triggerRef as React.MutableRefObject<HTMLSpanElement | null>}\n      className=\"bt-popover-trigger\"\n      onClick={ctx.toggle}\n    >\n      {children}\n    </span>\n  );\n}\n\nBTPopoverTrigger.displayName = 'BTPopoverTrigger';\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/popover/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTPopover, useBTPopoverContext }   from './BTPopover';\nexport { BTPopoverTrigger }                 from './BTPopoverTrigger';\nexport { BTPopoverContent }                 from './BTPopoverContent';\nexport type {\n  BTPopoverProps,\n  BTPopoverTriggerProps,\n  BTPopoverContentProps,\n  BTPopoverSide,\n  BTPopoverAlign,\n} from './BTPopover.types';\n"
     }
   ]
 }

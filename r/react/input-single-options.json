@@ -33,6 +33,12 @@
       "target": "@ui/input-single-options/BTInputSingleOptions.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTInputSingleOptions — labeled radio button group types.\n *\n * Figma node 702-3422.\n */\n\n/** A single option in the radio group. */\nexport interface BTInputSingleOptionsItem<T = string> {\n  /** Unique value emitted when this option is selected. */\n  value: T;\n  /** Visible label beside the radio circle. */\n  label?: string;\n  /** Secondary helper text below the label. */\n  subtext?: string;\n  /** Disables only this option while the group remains active. */\n  disabled?: boolean;\n}\n\nexport interface BTInputSingleOptionsProps<T = string> {\n  /** Currently selected value. */\n  value?: T | null;\n  /** Called when the user selects a new option. */\n  onChange?: (value: T | null) => void;\n  /** Group label shown above the radio list. */\n  label?: string;\n  /** Shows a red `*` after the label when true. */\n  required?: boolean;\n  /** Radio options to render. */\n  items: BTInputSingleOptionsItem<T>[];\n  /** Disables the entire group. */\n  disabled?: boolean;\n  /**\n   * External error message. When set, all radio circles show the error border\n   * and the text is displayed below the group in error colour.\n   * Overrides any internal validator error.\n   */\n  errorText?: string;\n  /** Helper text shown below the group in the default state. */\n  helperText?: string;\n  /** Native `name` attribute shared by all radio inputs for form grouping. */\n  name?: string;\n  /**\n   * Validation function called by `validate()` (via ref handle).\n   * Return an error string or null.\n   */\n  validator?: (value: T | null) => string | null;\n  /** Additional CSS class names. */\n  className?: string;\n}\n\nexport interface BTInputSingleOptionsHandle {\n  /** Runs the validator and shows the error message. Returns true when valid. */\n  validate(): boolean;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/input-single-options/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputSingleOptions } from './BTInputSingleOptions.js';\nexport type {\n  BTInputSingleOptionsHandle,\n  BTInputSingleOptionsItem,\n  BTInputSingleOptionsProps,\n} from './BTInputSingleOptions.types.js';\n"
     }
   ]
 }

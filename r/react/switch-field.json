@@ -31,6 +31,12 @@
       "target": "@ui/switch-field/BTSwitchField.types.ts",
       "type": "registry:ui",
       "content": "export interface BTSwitchFieldProps {\n  checked?: boolean;\n  disabled?: boolean;\n  error?: boolean;\n  /** Visual size of the track. 'md' = Default (40×20px); 'sm' = Small (24×12px). Default: 'md'. */\n  size?: 'md' | 'sm';\n  labelLeft?: string;\n  subtextLeft?: string;\n  labelRight?: string;\n  subtextRight?: string;\n  /** Short text inside the track pill (e.g. \"ON\"). Width becomes content-sized; thumb swaps sides. */\n  innerText?: string;\n  onChange?: (checked: boolean) => void;\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/switch-field/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTSwitchField } from './BTSwitchField';\nexport type { BTSwitchFieldProps } from './BTSwitchField.types';\n"
     }
   ]
 }

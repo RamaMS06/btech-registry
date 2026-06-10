@@ -31,6 +31,12 @@
       "target": "@ui/scrollbar/BTScrollbar.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTScrollbar — shared prop types (Vue + React).\n */\n\n/** Scroll axis shown with custom scrollbar styling. */\nexport type BTScrollbarDirection = 'x' | 'y' | 'both';\n\nexport interface BTScrollbarProps {\n  /**\n   * Which axis shows the custom scrollbar.\n   * @default 'y'\n   */\n  direction?: BTScrollbarDirection;\n  /** Additional CSS class names. */\n  className?: string;\n  /** Child content rendered inside the scrollable container. */\n  children?: React.ReactNode;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/scrollbar/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTScrollbar } from './BTScrollbar';\nexport type { BTScrollbarProps, BTScrollbarDirection } from './BTScrollbar.types';\n"
     }
   ]
 }

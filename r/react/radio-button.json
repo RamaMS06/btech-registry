@@ -31,6 +31,12 @@
       "target": "@ui/radio-button/BTRadioButton.types.ts",
       "type": "registry:ui",
       "content": "export type BTRadioButtonValue = string | number | boolean;\n\nexport interface BTRadioButtonProps {\n  /** The group's currently selected value. Active when modelValue === value. */\n  modelValue: BTRadioButtonValue;\n  /** This radio button's unique value within the group. */\n  value: BTRadioButtonValue;\n  /** Called with this button's value when clicked. */\n  onChange: (value: BTRadioButtonValue) => void;\n  /** Optional label text beside the radio circle. */\n  label?: string;\n  /** Optional helper text below the label. */\n  subtext?: string;\n  /** Disables interaction. */\n  disabled?: boolean;\n  /** Error border on circle; subtext turns error colour. */\n  error?: boolean;\n  /** Native name attribute for form grouping. */\n  name?: string;\n  /** Additional CSS class names. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/radio-button/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTRadioButton } from './BTRadioButton';\nexport type { BTRadioButtonProps, BTRadioButtonValue } from './BTRadioButton.types';\n"
     }
   ]
 }

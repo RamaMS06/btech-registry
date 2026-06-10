@@ -31,6 +31,12 @@
       "target": "@ui/button/BTButton.types.ts",
       "type": "registry:ui",
       "content": "export type BTButtonVariant =\n  | 'primary'\n  | 'secondary-light'\n  | 'secondary-white'\n  | 'destructive'\n  | 'outline'\n  | 'ghost';\n\nexport type BTButtonSize = 'default' | 'small';\n\nexport interface BTButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  /**\n   * Visual style — default: 'primary'.\n   * - `secondary-light` — neutral grey background (bg.secondary)\n   * - `secondary-white` — white background with border\n   */\n  variant?: BTButtonVariant;\n  /** Padding scale — 'default' (12×16 px regular, 40×40 icon-only) or 'small' (8 px regular, 32×32 icon-only). */\n  size?: BTButtonSize;\n  /** Renders only `children` (icon) without a label — square padding. */\n  iconOnly?: boolean;\n  /** Text label shown inside the button. */\n  label?: string;\n  /** Icon rendered before the label. */\n  leftIcon?: React.ReactNode;\n  /** Icon rendered after the label. */\n  rightIcon?: React.ReactNode;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/button/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTButton } from './BTButton';\nexport type { BTButtonProps, BTButtonVariant, BTButtonSize } from './BTButton.types';\n"
     }
   ]
 }

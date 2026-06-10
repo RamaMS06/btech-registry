@@ -37,6 +37,12 @@
       "target": "@ui/tag/BTTagGroup.vue",
       "type": "registry:ui",
       "content": "<!-- BTTagGroup — layout wrapper for BTTag items.\n     Figma source: node 3050-6644.\n-->\n<script setup lang=\"ts\">\nimport { computed } from 'vue';\nimport BTTag from './BTTag.vue';\nimport type { BTTagGroupProps } from './BTTag.types';\n\nconst props = withDefaults(defineProps<BTTagGroupProps>(), {\n  variant: 'default',\n  spacing: 'default',\n  type: 'scroll',\n});\n\nconst groupClass = computed(() =>\n  [\n    'bt-tag-group',\n    `bt-tag-group--${props.type}`,\n    `bt-tag-group--gap-${props.spacing}`,\n  ].join(' '),\n);\n</script>\n\n<template>\n  <div :class=\"groupClass\" data-testid=\"bt-tag-group\">\n    <BTTag\n      v-for=\"(item, index) in items\"\n      :key=\"item.id ?? item.label\"\n      :label=\"item.label\"\n      :variant=\"variant\"\n      :on-remove=\"onRemove ? () => onRemove!(item, index) : undefined\"\n    />\n  </div>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/tag/index.ts",
+      "type": "registry:ui",
+      "content": "export * from './BTTag.types';\nexport { default as BTTag } from './BTTag.vue';\nexport { default as BTTagGroup } from './BTTagGroup.vue';\n"
     }
   ]
 }

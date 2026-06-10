@@ -34,6 +34,12 @@
       "target": "@ui/item/BTItem.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTItem — generic list item / row display molecule.\n * Figma: node 2056-48.\n *\n * Three container variants (default / outline / muted) with optional\n * left media (icon slot, avatar, image) and optional right content\n * (label, button, icon slot).\n */\nimport type { BTAvatarItem } from '../avatar/BTAvatar.types';\n\nexport type BTItemType = 'default' | 'outline' | 'muted';\n\nexport interface BTItemProps {\n  /** Main title text. Required. */\n  title: string;\n  /** Optional subtitle / description text below the title. */\n  description?: string;\n  /** Container style variant. @default 'default' */\n  type?: BTItemType;\n  /** Avatar payload — renders BTAvatar size=\"sm\" (32px) on the left. */\n  leftAvatar?: BTAvatarItem;\n  /** Image URL — renders 32×32 rounded image on the left. */\n  leftImage?: string;\n  /** Right side text label (text-secondary, 12px). Ignored when rightButton is set. */\n  rightLabel?: string;\n  /** Right side button label — renders BTButton outline small. Takes precedence over rightLabel. */\n  rightButton?: string;\n  /** 16×16 icon element rendered on the left (lowest left media precedence). */\n  leftIcon?: React.ReactNode;\n  /** 16×16 icon element rendered on the right side. */\n  rightIcon?: React.ReactNode;\n  /** Called when the right button is clicked. */\n  onButtonClick?: () => void;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/item/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTItem } from './BTItem.js';\nexport type { BTItemProps, BTItemType } from './BTItem.types.js';\n"
     }
   ]
 }

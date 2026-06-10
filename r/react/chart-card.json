@@ -33,6 +33,12 @@
       "content": "export type { BTChartLegendItem, BTChartSummaryItem } from './internal/chart.types';\n"
     },
     {
+      "path": "index.ts",
+      "target": "@ui/chart-card/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTChartCard } from './BTChartCard.js';\nexport type { BTChartCardProps } from './BTChartCard.js';\nexport type { BTChartLegendItem, BTChartSummaryItem } from './BTChartCard.types';\n"
+    },
+    {
       "path": "internal/chart.types.ts",
       "target": "@ui/chart-card/internal/chart.types.ts",
       "type": "registry:ui",

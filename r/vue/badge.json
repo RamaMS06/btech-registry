@@ -31,6 +31,12 @@
       "target": "@ui/badge/BTBadge.vue",
       "type": "registry:ui",
       "content": "<!-- BTBadge — status label atom.\n     Figma source: node 72:1516.\n     All visual values come from Figma. Reference repo (buma-ui Vue) used for\n     code pattern (withDefaults, script setup, named slots) only.\n-->\n<script setup lang=\"ts\">\nimport { computed } from 'vue';\nimport './BTBadge.css';\nimport type { BTBadgeProps } from './BTBadge.types';\n\nconst props = withDefaults(defineProps<BTBadgeProps>(), {\n  label: 'Badge',\n  variant: 'success',\n  reverseColors: false,\n});\n\nconst badgeClass = computed(() =>\n  [\n    'bt-badge',\n    `bt-badge--${props.variant}`,\n    props.reverseColors ? 'bt-badge--reverse' : '',\n  ]\n    .filter(Boolean)\n    .join(' '),\n);\n</script>\n\n<template>\n  <span :class=\"badgeClass\" data-testid=\"bt-badge\">\n    <slot name=\"leftIcon\" />\n    <span class=\"bt-badge__label\">{{ label }}</span>\n    <slot name=\"rightIcon\" />\n  </span>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/badge/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTBadge } from './BTBadge.vue'\nexport type { BTBadgeProps } from './BTBadge.types'\n"
     }
   ]
 }

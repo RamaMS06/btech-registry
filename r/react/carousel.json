@@ -39,6 +39,12 @@
       "target": "@ui/carousel/BTCarouselItem.tsx",
       "type": "registry:ui",
       "content": "/**\n * BTCarouselItem — individual slide wrapper for BTCarousel.\n *\n * Must be a direct child of BTCarousel.\n *\n * @example\n * ```tsx\n * <BTCarouselItem>\n *   <img src=\"/photo.jpg\" alt=\"Photo\" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />\n * </BTCarouselItem>\n * ```\n */\nimport type { BTCarouselItemProps } from './BTCarousel.types.js';\n\nexport function BTCarouselItem({ children, className }: BTCarouselItemProps) {\n  return (\n    <div className={['bt-carousel__slide', className].filter(Boolean).join(' ')}>\n      {children}\n    </div>\n  );\n}\n\nBTCarouselItem.displayName = 'BTCarouselItem';\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/carousel/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTCarousel } from './BTCarousel.js';\nexport { BTCarouselItem } from './BTCarouselItem.js';\nexport type {\n  BTCarouselProps,\n  BTCarouselItemProps,\n  BTCarouselVariant,\n} from './BTCarousel.types.js';\n"
     }
   ]
 }

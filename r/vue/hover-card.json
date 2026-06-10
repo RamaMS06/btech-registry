@@ -51,6 +51,12 @@
       "content": "<!--\n  BTHoverCardTrigger — hover wrapper.\n\n  Wraps its slot in a display:contents span (layout-transparent).\n  Registers itself as the trigger element in the shared context so\n  BTHoverCardContent knows where to position the panel.\n\n  Listens to mouseenter/mouseleave and delegates to the context timers.\n-->\n<script setup lang=\"ts\">\nimport { inject, useTemplateRef, onMounted, onUnmounted } from 'vue';\nimport type { BTHoverCardContext } from './BTHoverCard.vue';\n\nconst ctx = inject<BTHoverCardContext>('bt-hover-card')!;\n\nconst wrapperRef = useTemplateRef<HTMLElement>('wrapper');\n\nonMounted(() => {\n  ctx.triggerEl.value = wrapperRef.value;\n});\n\nonUnmounted(() => {\n  ctx.triggerEl.value = null;\n});\n</script>\n\n<template>\n  <span\n    ref=\"wrapper\"\n    class=\"bt-hover-card-trigger\"\n    @mouseenter=\"ctx.scheduleOpen\"\n    @mouseleave=\"ctx.scheduleClose\"\n  >\n    <slot />\n  </span>\n</template>\n"
     },
     {
+      "path": "index.ts",
+      "target": "@ui/hover-card/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTHoverCard }        from './BTHoverCard.vue';\nexport { default as BTHoverCardTrigger } from './BTHoverCardTrigger.vue';\nexport { default as BTHoverCardContent } from './BTHoverCardContent.vue';\nexport { default as BTHoverCardItem }    from './BTHoverCardItem.vue';\nexport type {\n  BTHoverCardProps,\n  BTHoverCardTriggerProps,\n  BTHoverCardContentProps,\n  BTHoverCardItemProps,\n  BTHoverCardSide,\n  BTHoverCardAlign,\n} from './BTHoverCard.types';\n"
+    },
+    {
       "path": "internal/positionFloating.ts",
       "target": "@ui/hover-card/internal/positionFloating.ts",
       "type": "registry:ui",

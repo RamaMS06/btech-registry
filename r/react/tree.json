@@ -33,6 +33,12 @@
       "target": "@ui/tree/BTTree.types.ts",
       "type": "registry:ui",
       "content": "// BTTree types — Figma node 2481:7383\nimport type { ReactNode } from 'react';\n\n/** Tri-state for tree node checkboxes. */\nexport type BTTreeItemCheckState = 'unchecked' | 'indeterminate' | 'checked';\n\n/**\n * Data model for a single node in the tree.\n *\n * - Provide `children` to make the node expandable (arrow is auto-shown).\n * - Omit `checkState` entirely to hide the checkbox.\n * - Either `label` or `body` (or both) should be provided for row content.\n *   When `body` is present it fills the content area; `label` still shows if\n *   you want both (e.g. label on left + badge on right via `body`).\n */\nexport interface BTTreeNode {\n  /** Optional unique key; falls back to `label` if omitted. */\n  key?: string;\n  /** Row label text — optional when `body` is provided. */\n  label?: string;\n  /**\n   * Custom content rendered in the row body area (replaces the label).\n   * Receives no props — use closures to capture reactive state if needed.\n   */\n  body?: ReactNode;\n  /** Optional 16×16 icon — any ReactNode (SVG, img, icon component). */\n  icon?: ReactNode;\n  /** Whether the node is initially expanded. Defaults to false. */\n  initiallyExpanded?: boolean;\n  /** Render with brand-subtle selected background. */\n  selected?: boolean;\n  /** Disable all interaction (0.45 opacity). */\n  disabled?: boolean;\n  /**\n   * Checkbox tri-state. When `undefined` (not provided), no checkbox is shown.\n   * Clicking `checked` or `indeterminate` always transitions to `unchecked`;\n   * clicking `unchecked` transitions to `checked`.\n   */\n  checkState?: BTTreeItemCheckState;\n  /** Called when the row body is clicked (not the arrow or checkbox). */\n  onPress?: () => void;\n  /**\n   * Called when the checkbox changes. Receives `'checked'` or `'unchecked'`\n   * — never `'indeterminate'`.\n   */\n  onCheck?: (state: 'unchecked' | 'checked') => void;\n  /** Called when the expand/collapse state changes. */\n  onToggle?: (expanded: boolean) => void;\n  /** Child nodes — presence auto-enables the expand/collapse arrow. */\n  children?: BTTreeNode[];\n}\n\nexport interface BTTreeProps {\n  /** Top-level tree nodes. */\n  nodes: BTTreeNode[];\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/tree/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTTree } from './BTTree';\nexport type { BTTreeProps, BTTreeNode, BTTreeItemCheckState } from './BTTree.types';\n"
     }
   ]
 }

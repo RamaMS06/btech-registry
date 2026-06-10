@@ -31,6 +31,12 @@
       "target": "@ui/scrollbar/BTScrollbar.vue",
       "type": "registry:ui",
       "content": "<script setup lang=\"ts\">\n/**\n * BTScrollbar — overflow wrapper with btech token scrollbar styling (Figma 2037:4).\n *\n * Wraps any overflowing content and applies a thin, token-coloured scrollbar.\n * Set an explicit height (or max-height) on the host element for overflow to\n * take effect.\n *\n * @example\n * ```vue\n * // Vertical scroll (default)\n * <BTScrollbar style=\"height: 300px\">\n *   <ul>\n *     <li v-for=\"i in 100\" :key=\"i\">Item {{ i }}</li>\n *   </ul>\n * </BTScrollbar>\n *\n * // Horizontal scroll\n * <BTScrollbar direction=\"x\" style=\"width: 400px\">\n *   <div style=\"white-space: nowrap; width: 800px\">Wide content…</div>\n * </BTScrollbar>\n * ```\n */\nimport './BTScrollbar.css';\nimport { computed } from 'vue';\nimport type { BTScrollbarProps } from './BTScrollbar.types';\n\nconst props = withDefaults(defineProps<BTScrollbarProps>(), {\n  direction: 'y',\n});\n\nconst rootClass = computed(() => [\n  'bt-scrollbar',\n  `bt-scrollbar--${props.direction}`,\n  props.class,\n]);\n</script>\n\n<template>\n  <div :class=\"rootClass\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/scrollbar/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTScrollbar } from './BTScrollbar.vue';\nexport type { BTScrollbarProps, BTScrollbarDirection } from './BTScrollbar.types';\n"
     }
   ]
 }

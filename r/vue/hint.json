@@ -31,6 +31,12 @@
       "target": "@ui/hint/BTHint.vue",
       "type": "registry:ui",
       "content": "<script setup lang=\"ts\">\n/**\n * BTHint — notification indicator atom.\n *\n * Renders as a red dot or a red badge containing a count value.\n * Numbers > 99 are automatically clamped to \"99+\".\n *\n * @example\n * <!-- Dot indicator (no count) -->\n * <BTHint />\n * <BTHint size=\"sm\" />\n *\n * @example\n * <!-- Count badge -->\n * <BTHint :count=\"5\" />\n * <BTHint :count=\"22\" size=\"md\" />\n * <BTHint :count=\"150\" />  <!-- renders \"99+\" -->\n */\nimport { computed } from 'vue';\nimport './BTHint.css';\nimport type { BTHintProps } from './BTHint.types';\n\nconst props = withDefaults(defineProps<BTHintProps>(), {\n  count: undefined,\n  size: 'lg',\n});\n\n/** Resolved display string, or null when rendering as a dot. */\nconst displayText = computed<string | null>(() => {\n  if (props.count === null || props.count === undefined) return null;\n  return props.count > 99 ? '99+' : String(props.count);\n});\n\nconst isDot = computed(() => displayText.value === null);\nconst isOverflow = computed(() => displayText.value === '99+');\nconst isSingle = computed(() =>\n  displayText.value !== null && displayText.value.length === 1,\n);\nconst isMulti = computed(() =>\n  displayText.value !== null && displayText.value.length === 2,\n);\n\nconst classes = computed(() => [\n  'bt-hint',\n  `bt-hint--${props.size}`,\n  isDot.value ? 'bt-hint--dot' : 'bt-hint--count',\n  isOverflow.value && 'bt-hint--overflow',\n  isSingle.value && 'bt-hint--single',\n  isMulti.value && 'bt-hint--multi',\n]);\n</script>\n\n<template>\n  <span :class=\"classes\" role=\"status\" :aria-label=\"displayText ?? 'notification'\">\n    <template v-if=\"!isDot\">{{ displayText }}</template>\n  </span>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/hint/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTHint } from './BTHint.vue';\nexport type { BTHintProps, BTHintSize } from './BTHint.types';\n"
     }
   ]
 }

@@ -35,6 +35,12 @@
       "content": "<script setup lang=\"ts\">\n/**\n * BTTree — recursive data-driven tree component.\n * Figma: node 2481:7383 · Category: Molecules\n *\n * @example\n * ```vue\n * <BTTree :nodes=\"[\n *   {\n *     label: 'Documents',\n *     initiallyExpanded: true,\n *     children: [\n *       { label: 'Reports', children: [\n *         { label: 'Q1 2026.pdf', checkState: 'checked' },\n *       ]},\n *       { label: 'Invoices', selected: true },\n *     ],\n *   },\n *   { label: 'Settings' },\n * ]\" />\n * ```\n */\nimport './BTTree.css';\nimport BTTreeNode from './internal/BTTreeNode.vue';\nimport type { BTTreeProps } from './BTTree.types';\n\ndefineProps<BTTreeProps>();\n</script>\n\n<template>\n  <div class=\"bt-tree\" role=\"tree\">\n    <BTTreeNode\n      v-for=\"node in nodes\"\n      :key=\"node.key ?? node.label\"\n      :node=\"node\"\n      :level=\"1\"\n    />\n  </div>\n</template>\n"
     },
     {
+      "path": "index.ts",
+      "target": "@ui/tree/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTTree } from './BTTree.vue';\nexport type { BTTreeProps, BTTreeNode, BTTreeItemCheckState } from './BTTree.types';\n"
+    },
+    {
       "path": "internal/BTTreeNode.vue",
       "target": "@ui/tree/internal/BTTreeNode.vue",
       "type": "registry:ui",

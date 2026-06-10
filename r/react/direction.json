@@ -34,6 +34,12 @@
       "target": "@ui/direction/BTDirection.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTDirection — form panel organism with header, content slot, and footer.\n * Figma: node 2504-3364.\n *\n * Stateless layout container — no internal state.\n * Caller owns all interaction logic (click handlers, form state).\n */\nexport interface BTDirectionProps {\n  // ── Header ─────────────────────────────────────────────────────────────────\n  /** Bold heading (18px) in the header section. */\n  title: string;\n  /** Supporting text below the title. Hidden when not provided. */\n  subtext?: string;\n\n  // ── Top-right link ─────────────────────────────────────────────────────────\n  /**\n   * Label for the optional link in the top-right corner of the header.\n   * Vue/React: hidden when not provided.\n   * Flutter: hidden when onLinkPressed is null.\n   */\n  linkLabel?: string;\n\n  // ── Footer buttons ──────────────────────────────────────────────────────────\n  /** Label for the primary footer button (brand colour, full-width). */\n  primaryLabel: string;\n  /**\n   * Label for the secondary footer button (neutral, full-width).\n   * Vue/React: hidden when not provided.\n   * Flutter: hidden when onSecondaryPressed is null.\n   */\n  secondaryLabel?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/direction/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTDirection } from './BTDirection.js';\nexport type { BTDirectionProps } from './BTDirection.types.js';\n"
     }
   ]
 }

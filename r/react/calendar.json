@@ -36,6 +36,12 @@
       "content": "export type BTCalendarMode = 'single' | 'range';\n\nexport interface BTCalendarPreset {\n  label: string;\n  getValue: () => [Date, Date?];\n}\n\nexport interface BTCalendarProps {\n  mode?: BTCalendarMode;                            // default: 'single'\n  value?: Date | null;                              // single-mode controlled value\n  onValueChange?: (val: Date | null) => void;\n  rangeValue?: [Date, Date] | null;                 // range-mode controlled value\n  onRangeValueChange?: (val: [Date, Date] | null) => void;\n  presets?: BTCalendarPreset[];                     // sidebar presets (omit = no panel)\n  minDate?: Date;\n  maxDate?: Date;\n  disabledDates?: (date: Date) => boolean;\n  eventDates?: Date[];\n  initialMonth?: Date;\n  locale?: string;                                  // default: 'id-ID'\n  showFooter?: boolean;                             // default: false; shows Apply+Cancel\n  showPreset?: boolean;                             // default: false; shows built-in date preset chips below the grid\n  onApply?: (val: Date | [Date, Date] | null) => void;\n  onCancel?: () => void;\n}\n"
     },
     {
+      "path": "index.ts",
+      "target": "@ui/calendar/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTCalendar } from './BTCalendar';\nexport type { BTCalendarProps, BTCalendarMode, BTCalendarPreset } from './BTCalendar.types';\n"
+    },
+    {
       "path": "internal/BTCalendarGrid.tsx",
       "target": "@ui/calendar/internal/BTCalendarGrid.tsx",
       "type": "registry:ui",

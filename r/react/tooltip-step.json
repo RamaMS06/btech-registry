@@ -34,6 +34,12 @@
       "target": "@ui/tooltip-step/BTTooltipStep.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTTooltipStep — type definitions shared between Vue and React.\n * PaginationStep / pagination-step tooltip balloon.\n * Figma: https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=478-2463\n */\n\n/** Navigation button style inside the step footer. */\nexport type BTTooltipStepVariant = 'button' | 'link' | 'centered';\n\n/** Which side the arrow caret appears on. */\nexport type BTTooltipStepPosition = 'top' | 'bottom' | 'left' | 'right';\n\n/** Arrow offset along its axis (same semantics as BTTooltipArrowPosition). */\nexport type BTTooltipStepArrowPosition =\n  | 'left'\n  | 'left-mid'\n  | 'mid'\n  | 'right-mid'\n  | 'right';\n\nexport interface BTTooltipStepProps {\n  /** Bold title shown at the top of the card. Hidden when omitted. */\n  label?: string;\n  /** Main description text. Required. */\n  description: string;\n  /** Step indicator text, e.g. \"Step 1 of 5\". Hidden when omitted. */\n  stepLabel?: string;\n  /**\n   * Navigation button style.\n   * - `button` (default) — secondary rounded buttons (Prev / Next).\n   * - `link` — text-link buttons (grey Prev / blue Next).\n   * - `centered` — icon-only chevron buttons flanking the step label.\n   */\n  stepVariant?: BTTooltipStepVariant;\n  /**\n   * Show a × close button in the top-right corner.\n   * Clicking it fires `@close` / `onClose`. @default false\n   */\n  hasClose?: boolean;\n  /** Prev button label. @default 'Prev' */\n  prevLabel?: string;\n  /** Next button label. @default 'Next' */\n  nextLabel?: string;\n  /** Which side the arrow caret renders on. @default 'top' */\n  position?: BTTooltipStepPosition;\n  /** Arrow offset along the axis. @default 'mid' */\n  arrowPosition?: BTTooltipStepArrowPosition;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/tooltip-step/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTTooltipStep } from './BTTooltipStep';\nexport type {\n  BTTooltipStepReactProps,\n} from './BTTooltipStep';\nexport type {\n  BTTooltipStepProps,\n  BTTooltipStepVariant,\n  BTTooltipStepPosition,\n  BTTooltipStepArrowPosition,\n} from './BTTooltipStep.types';\n"
     }
   ]
 }

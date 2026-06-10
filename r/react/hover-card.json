@@ -49,6 +49,12 @@
       "target": "@ui/hover-card/BTHoverCardTrigger.tsx",
       "type": "registry:ui",
       "content": "/**\n * BTHoverCardTrigger — hover wrapper (React).\n *\n * Wraps its children in a layout-transparent <span> (display: contents).\n * Registers itself as the trigger element so BTHoverCardContent knows where\n * to position the floating panel.\n *\n * Listens to onMouseEnter / onMouseLeave and delegates to context timers.\n *\n * @example\n * <BTHoverCardTrigger>\n *   <BTButton label=\"Hover me\" />\n * </BTHoverCardTrigger>\n */\nimport type { ReactNode } from 'react';\nimport { useBTHoverCardContext } from './BTHoverCard';\n\ninterface BTHoverCardTriggerProps {\n  children?: ReactNode;\n}\n\nexport function BTHoverCardTrigger({ children }: BTHoverCardTriggerProps) {\n  const ctx = useBTHoverCardContext();\n\n  return (\n    <span\n      ref={ctx.triggerRef as React.MutableRefObject<HTMLSpanElement | null>}\n      className=\"bt-hover-card-trigger\"\n      onMouseEnter={ctx.scheduleOpen}\n      onMouseLeave={ctx.scheduleClose}\n    >\n      {children}\n    </span>\n  );\n}\n\nBTHoverCardTrigger.displayName = 'BTHoverCardTrigger';\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/hover-card/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTHoverCard, BTHoverCardContext, useBTHoverCardContext } from './BTHoverCard';\nexport { BTHoverCardTrigger }                                     from './BTHoverCardTrigger';\nexport { BTHoverCardContent }                                     from './BTHoverCardContent';\nexport { BTHoverCardItem }                                        from './BTHoverCardItem';\nexport type {\n  BTHoverCardProps,\n  BTHoverCardTriggerProps,\n  BTHoverCardContentProps,\n  BTHoverCardItemProps,\n  BTHoverCardSide,\n  BTHoverCardAlign,\n} from './BTHoverCard.types';\n"
     }
   ]
 }

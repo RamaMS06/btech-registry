@@ -31,6 +31,12 @@
       "target": "@ui/hint/BTHint.types.ts",
       "type": "registry:ui",
       "content": "export type BTHintSize = 'lg' | 'md' | 'sm';\n\nexport interface BTHintProps {\n  /**\n   * The count to display. When null or undefined the hint renders as a dot.\n   * Values > 99 are displayed as \"99+\".\n   */\n  count?: number | null;\n  /**\n   * Visual size of the hint.\n   * @default 'lg'\n   */\n  size?: BTHintSize;\n  /** Additional CSS class names. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/hint/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTHint } from './BTHint';\nexport type { BTHintProps, BTHintSize } from './BTHint.types';\n"
     }
   ]
 }

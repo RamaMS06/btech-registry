@@ -39,6 +39,12 @@
       "target": "@ui/carousel/BTCarouselItem.vue",
       "type": "registry:ui",
       "content": "<script setup lang=\"ts\">\n/**\n * BTCarouselItem — individual slide wrapper for BTCarousel.\n *\n * Must be a direct child of BTCarousel. No props needed — wrap any content.\n *\n * @example\n * ```vue\n * <BTCarouselItem>\n *   <img src=\"/photo.jpg\" alt=\"Photo\" style=\"width:100%; height:200px; object-fit:cover\" />\n * </BTCarouselItem>\n * ```\n */\n// Pure slide wrapper — no injection needed.\n// BTCarousel counts visible slides via useSlots() internally.\n</script>\n\n<template>\n  <div class=\"bt-carousel__slide\">\n    <slot />\n  </div>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/carousel/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTCarousel } from './BTCarousel.vue';\nexport { default as BTCarouselItem } from './BTCarouselItem.vue';\nexport type {\n  BTCarouselProps,\n  BTCarouselItemProps,\n  BTCarouselVariant,\n} from './BTCarousel.types';\n"
     }
   ]
 }

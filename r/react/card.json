@@ -33,6 +33,12 @@
       "target": "@ui/card/BTCard.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTCard — type definitions.\n *\n * A flexible card organism with three visual variants:\n * - `default` — full card with title, description, optional body, optional footer.\n * - `small`   — compact card with title + description only (no footer).\n * - `image`   — card with a top image, then same structure as default.\n *\n * Figma: node 93:157 (no D/M prefix — all platforms).\n */\n\n/** Visual variant of the card. */\nexport type BTCardVariant = 'default' | 'small' | 'image';\n\nexport interface BTCardProps {\n  /** Visual variant. @default 'default' */\n  variant?: BTCardVariant;\n  /** Card title — bold at the top. */\n  title: string;\n  /** Supporting description shown below the title. */\n  description?: string;\n  /**\n   * Show the cancel + submit footer.\n   * Defaults to `true` for `default` and `image`, `false` for `small`.\n   */\n  hasFooter?: boolean;\n  /** Label for the cancel button. @default 'Cancel' */\n  cancelLabel?: string;\n  /** Label for the submit button. @default 'Submit' */\n  submitLabel?: string;\n}\n// Image for variant=\"image\" is passed via the `image` ReactNode prop on BTCardReactProps:\n//\n// ```tsx\n// <BTCard\n//   variant=\"image\"\n//   title=\"Title\"\n//   image={<img src=\"/photo.jpg\" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt=\"Photo\" />}\n// />\n// ```\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/card/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTCard } from './BTCard.js';\nexport type { BTCardReactProps } from './BTCard.js';\nexport type { BTCardProps, BTCardVariant } from './BTCard.types.js';\n"
     }
   ]
 }

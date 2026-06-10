@@ -39,6 +39,12 @@
       "content": "<script setup lang=\"ts\">\n/**\n * BTToaster — global toast container.\n *\n * Mount once at the application root. Reads from the imperative `toast`\n * singleton store. 9 positions supported; default = `bottom-right`.\n *\n * @example\n *   <BTToaster position=\"bottom-right\" />\n */\nimport { computed } from 'vue';\nimport { useToast } from './useToast';\nimport type { BTToastPosition } from './BTToast.types';\nimport BTToast from './BTToast.vue';\nimport './BTToast.css';\n\nconst props = withDefaults(\n  defineProps<{ position?: BTToastPosition }>(),\n  { position: 'bottom-right' },\n);\n\nconst { toasts, remove } = useToast();\nconst containerClass = computed(() => `bt-toaster bt-toaster--${props.position}`);\n</script>\n\n<template>\n  <Teleport to=\"body\">\n    <div :class=\"containerClass\" role=\"region\" aria-label=\"Notifications\">\n      <TransitionGroup name=\"bt-toast\">\n        <BTToast\n          v-for=\"t in toasts\"\n          :key=\"t.id\"\n          :item=\"t\"\n          @close=\"remove(t.id)\"\n        />\n      </TransitionGroup>\n    </div>\n  </Teleport>\n</template>\n"
     },
     {
+      "path": "index.ts",
+      "target": "@ui/toast/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTToast } from './BTToast.vue';\nexport { default as BTToaster } from './BTToaster.vue';\nexport { toast, useToast } from './useToast';\nexport type {\n  BTToastItem,\n  BTToastOptions,\n  BTToastPosition,\n  BTToastType,\n} from './BTToast.types';\n"
+    },
+    {
       "path": "useToast.ts",
       "target": "@ui/toast/useToast.ts",
       "type": "registry:ui",

@@ -45,6 +45,12 @@
       "content": "<!--\n  BTPopoverTrigger — transparent click wrapper.\n\n  Wraps its slot in a `display: contents` span so it does not affect the\n  trigger element's layout.  The wrapper ref is stored in the shared\n  popover context so BTPopoverContent can measure the trigger position.\n\n  Usage:\n    <BTPopoverTrigger>\n      <BTButton label=\"Open\" />\n    </BTPopoverTrigger>\n-->\n<script setup lang=\"ts\">\nimport { inject, useTemplateRef, onMounted, onUnmounted } from 'vue';\nimport type { BTPopoverContext } from './BTPopover.vue';\n\nconst ctx = inject<BTPopoverContext>('bt-popover')!;\n\n// The wrapper span element — its first child is the actual trigger element.\n// We store the wrapper so `wrapper.contains(e.target)` works for click-outside\n// detection in BTPopoverContent (display:contents spans still participate\n// in the DOM tree for event containment checks).\nconst wrapperRef = useTemplateRef<HTMLElement>('wrapper');\n\nonMounted(() => {\n  ctx.triggerEl.value = wrapperRef.value;\n});\n\nonUnmounted(() => {\n  ctx.triggerEl.value = null;\n});\n</script>\n\n<template>\n  <span ref=\"wrapper\" class=\"bt-popover-trigger\" @click=\"ctx.toggle\">\n    <slot />\n  </span>\n</template>\n"
     },
     {
+      "path": "index.ts",
+      "target": "@ui/popover/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTPopover }         from './BTPopover.vue';\nexport { default as BTPopoverTrigger }  from './BTPopoverTrigger.vue';\nexport { default as BTPopoverContent }  from './BTPopoverContent.vue';\nexport type {\n  BTPopoverProps,\n  BTPopoverTriggerProps,\n  BTPopoverContentProps,\n  BTPopoverSide,\n  BTPopoverAlign,\n} from './BTPopover.types';\n"
+    },
+    {
       "path": "internal/positionFloating.ts",
       "target": "@ui/popover/internal/positionFloating.ts",
       "type": "registry:ui",

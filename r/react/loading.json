@@ -33,6 +33,12 @@
       "target": "@ui/loading/BTLoading.types.ts",
       "type": "registry:ui",
       "content": "import type { HTMLAttributes } from 'react';\n\n/**\n * Props for BTLoading.\n *\n * @example\n * <BTLoading />\n * <BTLoading type=\"pulse\" />\n * <BTLoading type=\"skeleton\" width={200} />\n * <BTLoading type=\"progressbar\" value={0.6} color=\"#e53e3e\" />\n * <BTLoading type=\"logo\" size={64} />\n */\nexport type BTLoadingType = 'spinner' | 'pulse' | 'skeleton' | 'progressbar' | 'logo';\n\nexport interface BTLoadingProps extends HTMLAttributes<HTMLDivElement> {\n  /**\n   * Which indicator to render.\n   * @default 'spinner'\n   */\n  type?: BTLoadingType;\n  /**\n   * CSS color string applied to progressbar bar + track only.\n   * Has no effect on spinner, pulse, skeleton, or logo.\n   * @default 'var(--color-brand-primary)'\n   */\n  color?: string;\n  /**\n   * Determinate progress for progressbar (0–1).\n   * Omit for indeterminate looping animation.\n   */\n  value?: number;\n  /**\n   * Width × height in px for spinner / pulse / logo.\n   * @default 48\n   */\n  size?: number;\n  /**\n   * Width of skeleton block. Accepts px number or CSS string ('200px', '50%').\n   * @default '100%'\n   */\n  width?: number | string;\n  /**\n   * Height of skeleton block. Accepts px number or CSS string ('80px', '100%').\n   * @default '40px'\n   */\n  height?: number | string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/loading/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTLoading } from './BTLoading.js';\nexport type { BTLoadingProps, BTLoadingType } from './BTLoading.types.js';\n"
     }
   ]
 }

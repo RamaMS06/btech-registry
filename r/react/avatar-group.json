@@ -27,6 +27,12 @@
       "target": "@ui/avatar-group/BTAvatarGroup.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTAvatarGroup — public API types.\n *\n * Sliced from Figma `Avatar Group` (node 504:705). Stacks BTAvatar\n * instances horizontally with negative-margin overlap. Renders an\n * overflow counter (\"+N\") when items.length exceeds `max`.\n */\nimport type {\n  BTAvatarItem,\n  BTAvatarSize,\n} from '../avatar/BTAvatar.types.js';\n\nexport interface BTAvatarGroupProps {\n  /** List of avatars to stack. Order = render order (left to right). */\n  items: BTAvatarItem[];\n  /** Maximum visible avatars before overflow counter appears. Defaults to `3`. */\n  max?: number;\n  /** Override the overflow number display (e.g. show \"+99\"). */\n  customOverflowNumber?: number;\n  /** Size applied uniformly to all avatars + overflow. Defaults to `md`. */\n  size?: BTAvatarSize;\n  /** When true, all positions render as skeleton placeholders. */\n  isLoading?: boolean;\n  /** Pass-through className for layout overrides. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/avatar-group/index.ts",
+      "type": "registry:ui",
+      "content": "// Public barrel for the BTAvatarGroup organism.\nexport { BTAvatarGroup } from './BTAvatarGroup.js';\nexport type { BTAvatarGroupProps } from './BTAvatarGroup.types.js';\n"
     }
   ]
 }

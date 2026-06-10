@@ -37,6 +37,12 @@
       "target": "@ui/kbd/BTKbdGroup.tsx",
       "type": "registry:ui",
       "content": "/**\n * BTKbdGroup — horizontal row of BTKbd badges.\n *\n * @example\n * ```tsx\n * <BTKbdGroup>\n *   <BTKbd>Ctrl</BTKbd>\n *   <BTKbd>Shift</BTKbd>\n *   <BTKbd>K</BTKbd>\n * </BTKbdGroup>\n * ```\n */\nimport './BTKbd.css';\nimport type { BTKbdGroupProps } from './BTKbd.types';\n\nexport function BTKbdGroup({ className, children, ...props }: BTKbdGroupProps) {\n  const cls = ['bt-kbd-group', className].filter(Boolean).join(' ');\n\n  return (\n    <span data-slot=\"kbd-group\" className={cls} {...props}>\n      {children}\n    </span>\n  );\n}\n\nBTKbdGroup.displayName = 'BTKbdGroup';\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/kbd/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTKbd } from './BTKbd';\nexport { BTKbdGroup } from './BTKbdGroup';\nexport type { BTKbdProps, BTKbdGroupProps, BTKbdVariant } from './BTKbd.types';\n"
     }
   ]
 }

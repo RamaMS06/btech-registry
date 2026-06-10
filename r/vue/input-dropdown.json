@@ -48,6 +48,12 @@
       "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z\"/></svg>\n"
     },
     {
+      "path": "index.ts",
+      "target": "@ui/input-dropdown/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTInputDropdown } from './BTInputDropdown.vue';\nexport type { BTInputDropdownProps, BTInputDropdownSize } from './BTInputDropdown.types';\n"
+    },
+    {
       "path": "internal/positionFloating.ts",
       "target": "@ui/input-dropdown/internal/positionFloating.ts",
       "type": "registry:ui",

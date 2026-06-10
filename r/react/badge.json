@@ -31,6 +31,12 @@
       "target": "@ui/badge/BTBadge.types.ts",
       "type": "registry:ui",
       "content": "/**\n * Props for {@link BTBadge}.\n *\n * @example\n * ```tsx\n * <BTBadge label=\"Approved\" variant=\"success\" />\n * <BTBadge label=\"Draft\" variant=\"draft\" reverseColors />\n * <BTBadge label=\"Waiting\" variant=\"waiting\" leftIcon={<ClockIcon />} />\n * ```\n */\nexport interface BTBadgeProps {\n  /** Text displayed inside the badge. @default 'Badge' */\n  label?: string;\n  /**\n   * Color palette variant.\n   * @default 'success'\n   */\n  variant?: 'success' | 'waiting' | 'neutral' | 'draft' | 'reject' | 'custom';\n  /** When `true`: solid background + white text. @default false */\n  reverseColors?: boolean;\n  /** Optional 16×16 node rendered to the left of the label. */\n  leftIcon?: React.ReactNode;\n  /** Optional 16×16 node rendered to the right of the label. */\n  rightIcon?: React.ReactNode;\n  /** Additional CSS class names. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/badge/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTBadge } from './BTBadge.js';\nexport type { BTBadgeProps } from './BTBadge.types.js';\n"
     }
   ]
 }

@@ -31,6 +31,12 @@
       "target": "@ui/toggle/BTToggle.vue",
       "type": "registry:ui",
       "content": "<!-- BTToggle — pressable pill toggle atom.\n     Figma source: node 2855-1224.\n     Caller controls `pressed`; component fires `change(!pressed)` on click.\n     Icons via named slots: #leftIcon and #rightIcon.\n\n     @example Default inactive\n     <BTToggle label=\"Option\" @change=\"onToggle\" />\n\n     @example Controlled active\n     <BTToggle label=\"Bold\" :pressed=\"isBold\" @change=\"v => isBold = v\" />\n\n     @example Outline with left icon\n     <BTToggle label=\"Bold\" variant=\"outline\" :pressed=\"isBold\" @change=\"v => isBold = v\">\n       <template #leftIcon><BoldIcon /></template>\n     </BTToggle>\n\n     @example Disabled\n     <BTToggle label=\"Option\" :disabled=\"true\" />\n-->\n<script setup lang=\"ts\">\nimport { computed } from 'vue';\nimport './BTToggle.css';\nimport type { BTToggleProps } from './BTToggle.types';\n\nconst props = withDefaults(defineProps<BTToggleProps>(), {\n  pressed:  false,\n  variant:  'default',\n  size:     'default',\n  disabled: false,\n});\n\nconst emit = defineEmits<{\n  change: [pressed: boolean];\n}>();\n\nconst cls = computed(() =>\n  [\n    'bt-toggle',\n    `bt-toggle--${props.variant}`,\n    props.pressed  ? 'bt-toggle--active' : '',\n    props.size === 'small' ? 'bt-toggle--small' : '',\n  ]\n    .filter(Boolean)\n    .join(' '),\n);\n\nfunction handleClick() {\n  if (!props.disabled) emit('change', !props.pressed);\n}\n</script>\n\n<template>\n  <button\n    :class=\"cls\"\n    :disabled=\"disabled\"\n    type=\"button\"\n    :aria-pressed=\"pressed\"\n    data-testid=\"bt-toggle\"\n    @click=\"handleClick\"\n  >\n    <span v-if=\"$slots.leftIcon\" class=\"bt-toggle__icon bt-toggle__icon--left\">\n      <slot name=\"leftIcon\" />\n    </span>\n    <span class=\"bt-toggle__label\">{{ label }}</span>\n    <span v-if=\"$slots.rightIcon\" class=\"bt-toggle__icon bt-toggle__icon--right\">\n      <slot name=\"rightIcon\" />\n    </span>\n  </button>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/toggle/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTToggle } from './BTToggle.vue';\nexport type { BTToggleProps, BTToggleVariant, BTToggleSize } from './BTToggle.types';\n"
     }
   ]
 }

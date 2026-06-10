@@ -76,6 +76,12 @@
       "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z\"/></svg>\n"
     },
     {
+      "path": "Date/index.ts",
+      "target": "@ui/input/Date/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputDate } from './BTInputDate.js';\nexport type { BTInputDateHandle, BTInputDateMode, BTInputDateProps, BTInputDateSize } from './BTInputDate.types.js';\n"
+    },
+    {
       "path": "Dropdown/BTInputDropdown.css",
       "target": "@ui/input/Dropdown/BTInputDropdown.css",
       "type": "registry:ui",
@@ -106,6 +112,12 @@
       "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z\"/></svg>\n"
     },
     {
+      "path": "Dropdown/index.ts",
+      "target": "@ui/input/Dropdown/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputDropdown } from './BTInputDropdown.js';\nexport type { BTInputDropdownProps, BTInputDropdownSize } from './BTInputDropdown.types.js';\n"
+    },
+    {
       "path": "FieldUnit/BTInputFieldUnit.css",
       "target": "@ui/input/FieldUnit/BTInputFieldUnit.css",
       "type": "registry:ui",
@@ -122,6 +134,12 @@
       "target": "@ui/input/FieldUnit/BTInputFieldUnit.types.ts",
       "type": "registry:ui",
       "content": "export interface BTInputFieldUnitHandle {\n  validate: () => boolean;\n}\n\nexport interface BTInputFieldUnitOption {\n  /** Display text shown in dropdown (e.g. \"IDR\", \"https://\") */\n  label: string;\n  /** Unique identifier (e.g. \"IDR\", \"+62\") */\n  value: string;\n}\n\nexport interface BTInputFieldUnitProps {\n  // ── Left dropdown ────────────────────────────────────────────────────────\n  /** Available unit options for the left selector panel. Required. */\n  units: BTInputFieldUnitOption[];\n  /** Controlled selected unit. When provided, overrides internal selection. */\n  selectedUnit?: BTInputFieldUnitOption;\n  /** Initial unit in uncontrolled mode. Defaults to units[0]. */\n  initialUnit?: BTInputFieldUnitOption;\n  /** Floating label shown above the selected unit text (e.g. \"Currency\"). */\n  unitLabel?: string;\n  /** Show a search input at the top of the unit dropdown. @default false */\n  hasSearch?: boolean;\n  /**\n   * Custom filter applied when hasSearch is true.\n   * Defaults to case-insensitive label.contains(query).\n   */\n  itemsFilter?: (items: BTInputFieldUnitOption[], query: string) => BTInputFieldUnitOption[];\n  /** Called when a unit option is selected. */\n  onUnitChanged?: (unit: BTInputFieldUnitOption) => void;\n\n  // ── Right text field ─────────────────────────────────────────────────────\n  /** Floating label for the right text field (e.g. \"Amount\"). */\n  label?: string;\n  /** Controlled value — always the sanitized raw value. */\n  value?: string;\n  /** Called when the text value changes. */\n  onChange?: (value: string) => void;\n  /**\n   * Display transformer: receives the raw value and current unit; returns\n   * the string to show in the <input>. Does NOT affect the emitted value.\n   */\n  formatter?: (value: string, unit: BTInputFieldUnitOption | null) => string;\n  /**\n   * Input transformer: called on every input event; returns the raw value\n   * to emit. Use to strip formatting characters. Defaults to identity.\n   */\n  sanitizer?: (value: string, unit: BTInputFieldUnitOption | null) => string;\n  /** HTML input keyboard hint. @default 'text' */\n  keyboardType?: 'text' | 'number' | 'decimal' | 'tel' | 'url';\n  /** Placeholder shown in the right field when empty. */\n  hintText?: string;\n  /**\n   * Show a × clear button when the right field has content and is focused.\n   * @default true\n   */\n  clearable?: boolean;\n\n  // ── Shared ───────────────────────────────────────────────────────────────\n  /**\n   * Validation function called by the exposed `validate()` method.\n   * Return a non-null string for an error, or null to clear.\n   */\n  validator?: (value: string, unit: BTInputFieldUnitOption | null) => string | null;\n  /** External error message (takes precedence over the internal validator). */\n  errorText?: string;\n  /** Helper text shown below when no error. */\n  helperText?: string;\n  /** @default false */\n  disabled?: boolean;\n  /** Appends \" *\" (red) to both labels. @default false */\n  required?: boolean;\n  className?: string;\n}\n"
+    },
+    {
+      "path": "FieldUnit/index.ts",
+      "target": "@ui/input/FieldUnit/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputFieldUnit } from './BTInputFieldUnit.js';\nexport type { BTInputFieldUnitHandle, BTInputFieldUnitProps, BTInputFieldUnitOption } from './BTInputFieldUnit.types.js';\n"
     },
     {
       "path": "MultiOptions/BTInputMultiOptions.css",
@@ -142,6 +160,12 @@
       "content": "/**\n * BTInputMultiOptions — labeled checkbox group types.\n *\n * Figma node 859-2091.\n */\n\n/** A single option in the checkbox group. */\nexport interface BTInputMultiOptionsItem<T = string> {\n  /** Unique value added to / removed from the value array on toggle. */\n  value: T;\n  /** Visible label beside the checkbox. */\n  label?: string;\n  /** Secondary helper text below the label. */\n  subtext?: string;\n  /** Disables only this option while the group remains active. */\n  disabled?: boolean;\n}\n\nexport interface BTInputMultiOptionsProps<T = string> {\n  /** Currently selected values. Defaults to empty array. */\n  value?: T[];\n  /** Called when the user toggles an option. */\n  onChange?: (value: T[]) => void;\n  /** Group label shown above the checkbox list. */\n  label?: string;\n  /** Shows a red `*` after the label when true. */\n  required?: boolean;\n  /** Checkbox options to render. */\n  items: BTInputMultiOptionsItem<T>[];\n  /** Disables the entire group. */\n  disabled?: boolean;\n  /**\n   * External error message. When set, all checkboxes show the error border\n   * and the text is displayed below the group in error colour.\n   * Overrides any internal validator error.\n   */\n  errorText?: string;\n  /** Helper text shown below the group in the default state. */\n  helperText?: string;\n  /**\n   * Validation function called by `validate()` (via ref handle).\n   * Return an error string or null.\n   */\n  validator?: (value: T[]) => string | null;\n  /** Additional CSS class names. */\n  className?: string;\n}\n\nexport interface BTInputMultiOptionsHandle {\n  /** Runs the validator and shows the error message. Returns true when valid. */\n  validate(): boolean;\n}\n"
     },
     {
+      "path": "MultiOptions/index.ts",
+      "target": "@ui/input/MultiOptions/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputMultiOptions } from './BTInputMultiOptions.js';\nexport type {\n  BTInputMultiOptionsHandle,\n  BTInputMultiOptionsItem,\n  BTInputMultiOptionsProps,\n} from './BTInputMultiOptions.types.js';\n"
+    },
+    {
       "path": "MultipleField/BTInputMultipleField.css",
       "target": "@ui/input/MultipleField/BTInputMultipleField.css",
       "type": "registry:ui",
@@ -158,6 +182,12 @@
       "target": "@ui/input/MultipleField/BTInputMultipleField.types.ts",
       "type": "registry:ui",
       "content": "import type { BTTagItem } from '../../tag/BTTag.types.js';\nimport type { BTDropdownItem } from '../../dropdown-list/BTDropdownList.types.js';\n\nexport type BTInputMultipleFieldType = 'wrap' | 'scroll';\n\n/**\n * Props for {@link BTInputMultipleField}.\n *\n * @example\n * ```tsx\n * <BTInputMultipleField\n *   value={selectedTags}\n *   onChange={setSelectedTags}\n *   label=\"Frameworks\"\n *   items={frameworkItems}\n *   hasSearch\n * />\n * ```\n *\n * @example Free-text only (no predefined items)\n * ```tsx\n * <BTInputMultipleField value={tags} onChange={setTags} label=\"Skills\" />\n * ```\n */\nexport interface BTInputMultipleFieldProps {\n  /**\n   * Current list of tags. The component calls onChange with the updated list\n   * on every change.\n   */\n  value?: BTTagItem[];\n  /**\n   * Predefined selectable options shown in a checkbox dropdown.\n   * Each option is toggled into/out of the tag list.\n   */\n  items?: BTDropdownItem<string>[];\n  /**\n   * Floating label — sits centered when empty/idle, floats small on focus\n   * or when the field has content.\n   */\n  label?: string;\n  /**\n   * Tag layout.\n   * - 'wrap'   — tags flow into multiple rows; field height grows.\n   * - 'scroll' — single fixed-height row; tags scroll horizontally.\n   * @default 'wrap'\n   */\n  type?: BTInputMultipleFieldType;\n  /** Appends \" *\" (red) to the label. @default false */\n  required?: boolean;\n  /** Disables all interaction and dims the field. @default false */\n  disabled?: boolean;\n  /** Red border + validation text shown below the field. */\n  errorText?: string;\n  /** Text shown below the field when there is no error. */\n  helperText?: string;\n  /**\n   * Show a search input at the top of the predefined-items dropdown.\n   * @default false\n   */\n  hasSearch?: boolean;\n  /**\n   * Custom filter applied when hasSearch is true and the user types.\n   * Receives the full items list and current query; returns filtered subset.\n   * Defaults to case-insensitive label.includes(query).\n   */\n  itemsFilter?: (\n    items: BTDropdownItem<string>[],\n    query: string,\n  ) => BTDropdownItem<string>[];\n  /**\n   * Text shown beneath the empty-state illustration in the dropdown.\n   * @default 'No result found.'\n   */\n  emptyLabel?: string;\n  /** Called with the updated tag list on every change. */\n  onChange?: (tags: BTTagItem[]) => void;\n  /**\n   * Called on validate(). Return null for valid, or an error string.\n   * The returned string is shown below the field as an error.\n   */\n  validator?: (tags: BTTagItem[]) => string | null;\n}\n\n/**\n * Imperative handle exposed via forwardRef.\n * Access via `ref.current.validate()`.\n */\nexport interface BTInputMultipleFieldHandle {\n  /** Runs the validator; shows the error inline; returns true if valid. */\n  validate: () => boolean;\n}\n"
+    },
+    {
+      "path": "MultipleField/index.ts",
+      "target": "@ui/input/MultipleField/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputMultipleField } from './BTInputMultipleField.js';\nexport type {\n  BTInputMultipleFieldProps,\n  BTInputMultipleFieldType,\n  BTInputMultipleFieldHandle,\n} from './BTInputMultipleField.types.js';\n"
     },
     {
       "path": "RichEditor/BTInputRichEditor.css",
@@ -316,6 +346,12 @@
       "content": "<svg viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <g transform=\"translate(2.9504,2.9504)\">\n    <path d=\"M2.38333 9.71667C2.19444 9.71667 2.03611 9.65278 1.90833 9.525C1.78056 9.39722 1.71667 9.23889 1.71667 9.05C1.71667 8.86111 1.78056 8.70278 1.90833 8.575C2.03611 8.44722 2.19444 8.38333 2.38333 8.38333H6.45C7.15 8.38333 7.75833 8.16111 8.275 7.71667C8.79167 7.27222 9.05 6.71667 9.05 6.05C9.05 5.38333 8.79167 4.82778 8.275 4.38333C7.75833 3.93889 7.15 3.71667 6.45 3.71667H2.25L3.51667 4.98333C3.63889 5.10556 3.7 5.26111 3.7 5.45C3.7 5.63889 3.63889 5.79444 3.51667 5.91667C3.39444 6.03889 3.23889 6.1 3.05 6.1C2.86111 6.1 2.70556 6.03889 2.58333 5.91667L0.183333 3.51667C0.116667 3.45 0.0694444 3.37778 0.0416667 3.3C0.0138889 3.22222 0 3.13889 0 3.05C0 2.96111 0.0138889 2.87778 0.0416667 2.8C0.0694444 2.72222 0.116667 2.65 0.183333 2.58333L2.58333 0.183333C2.70556 0.0611111 2.86111 0 3.05 0C3.23889 0 3.39444 0.0611111 3.51667 0.183333C3.63889 0.305556 3.7 0.461111 3.7 0.65C3.7 0.838889 3.63889 0.994444 3.51667 1.11667L2.25 2.38333H6.45C7.52778 2.38333 8.45278 2.73333 9.225 3.43333C9.99722 4.13333 10.3833 5.00556 10.3833 6.05C10.3833 7.09444 9.99722 7.96667 9.225 8.66667C8.45278 9.36667 7.52778 9.71667 6.45 9.71667H2.38333Z\" fill=\"#333F47\"/>\n  </g>\n</svg>\n"
     },
     {
+      "path": "RichEditor/index.ts",
+      "target": "@ui/input/RichEditor/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputRichEditor } from './BTInputRichEditor.js';\nexport type {\n  BTInputRichEditorHandle,\n  BTInputRichEditorProps,\n} from './BTInputRichEditor.js';\nexport type {\n  BTInputRichEditorContent,\n  BTInputRichEditorToolbar,\n} from './BTInputRichEditor.types.js';\n"
+    },
+    {
       "path": "Search/BTInputSearch.css",
       "target": "@ui/input/Search/BTInputSearch.css",
       "type": "registry:ui",
@@ -340,6 +376,12 @@
       "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24\" viewBox=\"0 -960 960 960\" width=\"24\"><path d=\"M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z\"/></svg>"
     },
     {
+      "path": "Search/index.ts",
+      "target": "@ui/input/Search/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputSearch } from './BTInputSearch.js';\nexport type { BTInputSearchProps, BTInputSearchHandle } from './BTInputSearch.types.js';\n"
+    },
+    {
       "path": "SingleOptions/BTInputSingleOptions.css",
       "target": "@ui/input/SingleOptions/BTInputSingleOptions.css",
       "type": "registry:ui",
@@ -356,6 +398,12 @@
       "target": "@ui/input/SingleOptions/BTInputSingleOptions.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTInputSingleOptions — labeled radio button group types.\n *\n * Figma node 702-3422.\n */\n\n/** A single option in the radio group. */\nexport interface BTInputSingleOptionsItem<T = string> {\n  /** Unique value emitted when this option is selected. */\n  value: T;\n  /** Visible label beside the radio circle. */\n  label?: string;\n  /** Secondary helper text below the label. */\n  subtext?: string;\n  /** Disables only this option while the group remains active. */\n  disabled?: boolean;\n}\n\nexport interface BTInputSingleOptionsProps<T = string> {\n  /** Currently selected value. */\n  value?: T | null;\n  /** Called when the user selects a new option. */\n  onChange?: (value: T | null) => void;\n  /** Group label shown above the radio list. */\n  label?: string;\n  /** Shows a red `*` after the label when true. */\n  required?: boolean;\n  /** Radio options to render. */\n  items: BTInputSingleOptionsItem<T>[];\n  /** Disables the entire group. */\n  disabled?: boolean;\n  /**\n   * External error message. When set, all radio circles show the error border\n   * and the text is displayed below the group in error colour.\n   * Overrides any internal validator error.\n   */\n  errorText?: string;\n  /** Helper text shown below the group in the default state. */\n  helperText?: string;\n  /** Native `name` attribute shared by all radio inputs for form grouping. */\n  name?: string;\n  /**\n   * Validation function called by `validate()` (via ref handle).\n   * Return an error string or null.\n   */\n  validator?: (value: T | null) => string | null;\n  /** Additional CSS class names. */\n  className?: string;\n}\n\nexport interface BTInputSingleOptionsHandle {\n  /** Runs the validator and shows the error message. Returns true when valid. */\n  validate(): boolean;\n}\n"
+    },
+    {
+      "path": "SingleOptions/index.ts",
+      "target": "@ui/input/SingleOptions/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputSingleOptions } from './BTInputSingleOptions.js';\nexport type {\n  BTInputSingleOptionsHandle,\n  BTInputSingleOptionsItem,\n  BTInputSingleOptionsProps,\n} from './BTInputSingleOptions.types.js';\n"
     },
     {
       "path": "TextArea/BTInputTextArea.css",
@@ -380,6 +428,12 @@
       "target": "@ui/input/TextArea/icons/cancel-fill.svg",
       "type": "registry:ui",
       "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n  <path d=\"M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z\"/>\n</svg>\n"
+    },
+    {
+      "path": "TextArea/index.ts",
+      "target": "@ui/input/TextArea/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputTextArea } from './BTInputTextArea.js';\nexport type { BTInputTextAreaProps, BTInputTextAreaHandle } from './BTInputTextArea.types.js';\n"
     },
     {
       "path": "Time/BTInputTime.css",
@@ -412,6 +466,12 @@
       "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"16\" width=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n  <path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z\"/>\n</svg>"
     },
     {
+      "path": "Time/index.ts",
+      "target": "@ui/input/Time/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputTime } from './BTInputTime.js';\nexport type {\n  BTInputTimeFormat,\n  BTInputTimeHandle,\n  BTInputTimeProps,\n  BTInputTimeSize,\n} from './BTInputTime.types.js';\n"
+    },
+    {
       "path": "WithLabel/BTInputWithLabel.css",
       "target": "@ui/input/WithLabel/BTInputWithLabel.css",
       "type": "registry:ui",
@@ -430,6 +490,12 @@
       "content": "/**\n * Props for {@link BTInputWithLabel}.\n *\n * @example Left label (unit prefix like \"kg\", \"IDR\")\n * <BTInputWithLabel leftLabel=\"kg\" label=\"Weight\" value={value} onChange={setValue} />\n *\n * @example Right label\n * <BTInputWithLabel rightLabel=\"m²\" label=\"Area\" value={value} onChange={setValue} />\n *\n * @example Both sides\n * <BTInputWithLabel leftLabel=\"From\" rightLabel=\"IDR\" label=\"Amount\" value={value} onChange={setValue} />\n */\nexport interface BTInputWithLabelProps {\n  /** Current value. */\n  value?: string;\n\n  /** Called with the new string whenever the input changes. */\n  onChange?: (value: string) => void;\n\n  /**\n   * Text shown inside the left label pill.\n   * When omitted no left pill is rendered.\n   */\n  leftLabel?: string;\n\n  /**\n   * Text shown inside the right label pill.\n   * When omitted no right pill is rendered.\n   */\n  rightLabel?: string;\n\n  /**\n   * Floating label inside the input — sits centred when empty/idle,\n   * floats small (12 px) at the top on focus or when the field has a value.\n   */\n  label?: string;\n\n  /** Appends \" *\" (red) to the floating label. @default false */\n  required?: boolean;\n\n  /** Hint text shown inside the input when empty and focused. */\n  placeholder?: string;\n\n  /** Disables all interaction and dims the field. @default false */\n  disabled?: boolean;\n\n  /** Makes the field read-only (shows value, blocks edits). @default false */\n  readOnly?: boolean;\n\n  /** Red border + validation text shown below the field. */\n  errorText?: string;\n\n  /** Text shown below the field when there is no error. */\n  helperText?: string;\n\n  /** HTML id forwarded to the underlying <input>. */\n  id?: string;\n\n  /** HTML name forwarded to the underlying <input>. */\n  name?: string;\n\n  /** Maximum character count; also used by showCharCount. */\n  maxLength?: number;\n\n  /** Show current / max character counter below the field. @default false */\n  showCharCount?: boolean;\n\n  /**\n   * Custom validation function. Called by `validate()` — returns an error\n   * string or null.\n   */\n  validator?: (value: string) => string | null;\n\n  /** Called when the clear (×) button is clicked. */\n  onClear?: () => void;\n\n  /** Called on focus. */\n  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;\n\n  /** Called on blur. */\n  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;\n}\n\n/** Imperative handle exposed via ref. */\nexport interface BTInputWithLabelHandle {\n  /** Runs the validator and shows the error. Returns true if valid. */\n  validate: () => boolean;\n}\n"
     },
     {
+      "path": "WithLabel/index.ts",
+      "target": "@ui/input/WithLabel/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputWithLabel } from './BTInputWithLabel.js';\nexport type { BTInputWithLabelProps, BTInputWithLabelHandle } from './BTInputWithLabel.types.js';\n"
+    },
+    {
       "path": "icons/cancel.svg",
       "target": "@ui/input/icons/cancel.svg",
       "type": "registry:ui",
@@ -446,6 +512,12 @@
       "target": "@ui/input/icons/eye.svg",
       "type": "registry:ui",
       "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24\" viewBox=\"0 -960 960 960\" width=\"24\"><path d=\"M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z\"/></svg>"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/input/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInput } from './BTInput.js';\nexport type { BTInputProps, BTInputType } from './BTInput.types.js';\nexport * from './Date/index.js';\nexport * from './Dropdown/index.js';\nexport * from './FieldUnit/index.js';\nexport * from './MultiOptions/index.js';\nexport * from './Search/index.js';\nexport * from './SingleOptions/index.js';\nexport * from './TextArea/index.js';\nexport * from './RichEditor/index.js';\nexport * from './Time/index.js';\nexport * from './MultipleField/index.js';\nexport * from './WithLabel/index.js';\n"
     },
     {
       "path": "internal/BTInputAnimatedLabel.tsx",

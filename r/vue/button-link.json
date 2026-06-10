@@ -31,6 +31,12 @@
       "target": "@ui/button-link/BTButtonLink.vue",
       "type": "registry:ui",
       "content": "<script setup lang=\"ts\">\n/**\n * BTButtonLink — inline hyperlink-style action atom (Figma 480:3197).\n *\n * @example\n * ```ts\n * // <BTButtonLink label=\"View details\" @click=\"goToDetails\" />\n * // <BTButtonLink label=\"Cancel\" variant=\"secondary\" :disabled=\"loading\" @click=\"handleCancel\" />\n * // <BTButtonLink label=\"Learn more\" variant=\"invert\" @click=\"openUrl\" />\n * ```\n */\nimport './BTButtonLink.css';\nimport type { BTButtonLinkProps } from './BTButtonLink.types';\n\nconst props = withDefaults(defineProps<BTButtonLinkProps>(), {\n  variant: 'primary',\n  disabled: false,\n});\n\nconst emit = defineEmits<{ click: [] }>();\n\nconst onClick = () => {\n  if (!props.disabled) emit('click');\n};\n</script>\n\n<template>\n  <button\n    class=\"bt-button-link\"\n    :class=\"`bt-button-link--${variant}`\"\n    :disabled=\"disabled\"\n    type=\"button\"\n    data-testid=\"bt-button-link\"\n    @click=\"onClick\"\n  >\n    <slot name=\"left-icon\" />\n    <span class=\"bt-button-link__label\">{{ label }}</span>\n    <slot name=\"right-icon\" />\n  </button>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/button-link/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTButtonLink } from './BTButtonLink.vue';\nexport type { BTButtonLinkProps, BTButtonLinkVariant } from './BTButtonLink.types';\n"
     }
   ]
 }

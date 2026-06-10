@@ -33,6 +33,12 @@
       "target": "@ui/drawer/BTDrawer.types.ts",
       "type": "registry:ui",
       "content": "export type BTDrawerSide = 'top' | 'right' | 'bottom' | 'left';\nexport type BTDrawerButtonDirection = 'horizontal' | 'vertical';\n\nexport interface BTDrawerProps {\n  open: boolean;\n  /** Which edge the panel slides in from. @default 'right' */\n  side?: BTDrawerSide;\n  title?: string;\n  subtext?: string;\n  hasCloseIcon?: boolean;\n  hasFooter?: boolean;\n  primaryLabel?: string;\n  hasSecondaryButton?: boolean;\n  secondaryLabel?: string;\n  dismissable?: boolean;\n  /** Footer button layout direction. @default 'horizontal' */\n  buttonDirection?: BTDrawerButtonDirection;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/drawer/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTDrawer } from './BTDrawer';\nexport type { BTDrawerProps, BTDrawerSide, BTDrawerButtonDirection } from './BTDrawer.types';\n"
     }
   ]
 }

@@ -33,6 +33,12 @@
       "target": "@ui/toggle-group/BTToggleGroup.types.ts",
       "type": "registry:ui",
       "content": "import type { BTToggleVariant, BTToggleSize } from '../toggle/BTToggle.types';\n\nexport type { BTToggleVariant, BTToggleSize };\n\nexport interface BTToggleGroupItem<T = string> {\n  /** The value associated with this item — used for selection comparison. */\n  value: T;\n  /** Label shown in the toggle button. */\n  label: string;\n  /** When true, this item is disabled regardless of group disabled state. */\n  disabled?: boolean;\n}\n\nexport interface BTToggleGroupProps<T = string> {\n  /** List of toggle options to render. */\n  items: BTToggleGroupItem<T>[];\n  /** Selection mode. 'single': at most one active. 'multiple': any number. Default: 'single'. */\n  type?: 'single' | 'multiple';\n  /**\n   * Controlled selection value.\n   * - single mode: T | null\n   * - multiple mode: T[]\n   */\n  value?: T | T[] | null;\n  /** Visual style forwarded to all child toggles. Default: 'default'. */\n  variant?: BTToggleVariant;\n  /** Size forwarded to all child toggles. Default: 'default'. */\n  size?: BTToggleSize;\n  /** When true, the entire group is non-interactive. Default: false. */\n  disabled?: boolean;\n  /** Fired when selection changes. */\n  onChange?: (value: T | T[] | null) => void;\n  /** Extra class name. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/toggle-group/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTToggleGroup } from './BTToggleGroup.js';\nexport type { BTToggleGroupProps, BTToggleGroupItem } from './BTToggleGroup.types.js';\n"
     }
   ]
 }

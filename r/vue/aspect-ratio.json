@@ -31,6 +31,12 @@
       "target": "@ui/aspect-ratio/BTAspectRatio.vue",
       "type": "registry:ui",
       "content": "<script setup lang=\"ts\">\n/**\n * BTAspectRatio — layout utility atom (Figma 820:3124).\n *\n * Constrains its children to a fixed aspect ratio with overflow clipping.\n * Use as a wrapper for images, videos, maps, or any content that must\n * maintain a predictable proportion.\n *\n * @example\n * ```vue\n * <BTAspectRatio ratio=\"16:9\">\n *   <img src=\"...\" style=\"width:100%;height:100%;object-fit:cover\" />\n * </BTAspectRatio>\n *\n * <BTAspectRatio ratio=\"1:1\">\n *   <img src=\"...\" style=\"width:100%;height:100%;object-fit:cover\" />\n * </BTAspectRatio>\n * ```\n */\nimport './BTAspectRatio.css';\nimport type { BTAspectRatioProps } from './BTAspectRatio.types';\n\nconst props = withDefaults(defineProps<BTAspectRatioProps>(), {\n  ratio: '16:9',\n});\n\nconst RATIO_CLASS: Record<NonNullable<BTAspectRatioProps['ratio']>, string> = {\n  '16:9': 'bt-aspect-ratio--16-9',\n  '9:16': 'bt-aspect-ratio--9-16',\n  '1:1':  'bt-aspect-ratio--1-1',\n  '4:5':  'bt-aspect-ratio--4-5',\n  '5:4':  'bt-aspect-ratio--5-4',\n};\n</script>\n\n<template>\n  <div\n    class=\"bt-aspect-ratio\"\n    :class=\"[RATIO_CLASS[props.ratio], props.className]\"\n  >\n    <div class=\"bt-aspect-ratio__slot\">\n      <slot />\n    </div>\n  </div>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/aspect-ratio/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTAspectRatio } from './BTAspectRatio.vue';\nexport type { BTAspectRatioProps, BTAspectRatioRatio } from './BTAspectRatio.types';\n"
     }
   ]
 }

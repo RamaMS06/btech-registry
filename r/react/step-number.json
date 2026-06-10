@@ -31,6 +31,12 @@
       "target": "@ui/step-number/BTStepNumber.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTStepNumber — reusable step/page pill component types (React).\n * Mirror of Vue BTStepNumber.types.ts — keep in sync.\n *\n * Figma: node 3007-2442.\n */\nexport interface BTStepNumberProps {\n  /** Page or step number to display. Ignored when `isEllipsis` is true. */\n  page: number;\n  /** Marks this pill as the current active page. @default false */\n  isActive?: boolean;\n  /** Disables interaction. @default false */\n  isDisabled?: boolean;\n  /** Shows the more_horiz (⋯) icon instead of a number. Non-interactive. @default false */\n  isEllipsis?: boolean;\n  /** Called when the pill is clicked. Not fired for disabled or ellipsis. */\n  onClick?: () => void;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/step-number/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTStepNumber } from './BTStepNumber.js';\nexport type { BTStepNumberProps } from './BTStepNumber.types.js';\n"
     }
   ]
 }

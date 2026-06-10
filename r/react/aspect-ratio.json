@@ -31,6 +31,12 @@
       "target": "@ui/aspect-ratio/BTAspectRatio.types.ts",
       "type": "registry:ui",
       "content": "// BTAspectRatio types — Figma source: node 820:3124.\n\n/**\n * Supported aspect ratios.\n * Maps to standard media / photography proportions.\n */\nexport type BTAspectRatioRatio = '16:9' | '9:16' | '1:1' | '4:5' | '5:4';\n\nexport interface BTAspectRatioProps {\n  /**\n   * Aspect ratio constraint applied to the container.\n   * @default '16:9'\n   */\n  ratio?: BTAspectRatioRatio;\n  /** Additional CSS class names. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/aspect-ratio/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTAspectRatio } from './BTAspectRatio';\nexport type { BTAspectRatioProps, BTAspectRatioRatio } from './BTAspectRatio.types';\n"
     }
   ]
 }

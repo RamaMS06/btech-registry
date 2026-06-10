@@ -31,6 +31,12 @@
       "target": "@ui/toggle/BTToggle.types.ts",
       "type": "registry:ui",
       "content": "export type BTToggleVariant = 'default' | 'outline';\nexport type BTToggleSize    = 'default' | 'small';\n\nexport interface BTToggleProps {\n  /** Text shown inside the toggle. */\n  label: string;\n  /** Controlled pressed/active state. Default: false. */\n  pressed?: boolean;\n  /** Visual style. Default: 'default'. */\n  variant?: BTToggleVariant;\n  /** Padding scale. Default: 'default'. */\n  size?: BTToggleSize;\n  /** Disables interaction and applies opacity:0.5. Default: false. */\n  disabled?: boolean;\n  /** Fired when user clicks — receives the new pressed value. */\n  onChange?: (pressed: boolean) => void;\n  /** Icon rendered before the label (React only). */\n  leftIcon?: React.ReactNode;\n  /** Icon rendered after the label (React only). */\n  rightIcon?: React.ReactNode;\n  /** Extra class name (React only). */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/toggle/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTToggle } from './BTToggle.js';\nexport type { BTToggleProps, BTToggleVariant, BTToggleSize } from './BTToggle.types.js';\n"
     }
   ]
 }

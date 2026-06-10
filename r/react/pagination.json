@@ -36,6 +36,12 @@
       "target": "@ui/pagination/BTPagination.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTPagination — data pagination molecule.\n * Figma: node 749-2846.\n *\n * Three variants:\n * - 'number'  Full numbered paging with first/prev/pages/next/last.\n * - 'display' Rows-per-page selector + prev/next.\n * - 'step'    Step N of M + Prev/Next.\n */\nexport type BTPaginationVariant = 'display' | 'step' | 'number';\n\nexport interface BTPaginationProps {\n  /** Which pagination pattern to render. @default 'number' */\n  variant?: BTPaginationVariant;\n\n  // ── number + display ─────────────────────────────────────────────────────\n  /** Current active page (1-indexed). */\n  currentPage?: number;\n  /** Total number of pages. Required for 'number' variant. */\n  totalPages?: number;\n\n  // ── display ──────────────────────────────────────────────────────────────\n  /** Total item count — used in range label display. */\n  totalCount?: number;\n  /** Items shown per page. @default 10 */\n  rowsPerPage?: number;\n  /** Rows-per-page dropdown options. @default [10, 20, 50] */\n  rowsPerPageOptions?: number[];\n\n  // ── step ─────────────────────────────────────────────────────────────────\n  /** Current step (1-indexed). Required for 'step' variant. */\n  currentStep?: number;\n  /** Total steps. Required for 'step' variant. */\n  totalSteps?: number;\n\n  /** Accessible label for the nav wrapper. @default 'Pagination' */\n  ariaLabel?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/pagination/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTPagination } from './BTPagination.js';\nexport type { BTPaginationReactProps } from './BTPagination.js';\nexport type { BTPaginationProps, BTPaginationVariant } from './BTPagination.types.js';\n"
     }
   ]
 }

@@ -31,6 +31,12 @@
       "target": "@ui/separator/BTSeparator.types.ts",
       "type": "registry:ui",
       "content": "// BTSeparator types — Figma source: node 194:756.\n\n/** Orientation of the separator line. */\nexport type BTSeparatorOrientation = 'horizontal' | 'vertical';\n\nexport interface BTSeparatorProps {\n  /**\n   * Direction of the divider line.\n   * @default 'horizontal'\n   */\n  orientation?: BTSeparatorOrientation;\n  /** Additional CSS class names. */\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/separator/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTSeparator } from './BTSeparator';\nexport type { BTSeparatorProps, BTSeparatorOrientation } from './BTSeparator.types';\n"
     }
   ]
 }

@@ -33,6 +33,12 @@
       "target": "@ui/input-multi-options/BTInputMultiOptions.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTInputMultiOptions — labeled checkbox group types.\n *\n * Figma node 859-2091.\n */\n\n/** A single option in the checkbox group. */\nexport interface BTInputMultiOptionsItem<T = string> {\n  /** Unique value added to / removed from the value array on toggle. */\n  value: T;\n  /** Visible label beside the checkbox. */\n  label?: string;\n  /** Secondary helper text below the label. */\n  subtext?: string;\n  /** Disables only this option while the group remains active. */\n  disabled?: boolean;\n}\n\nexport interface BTInputMultiOptionsProps<T = string> {\n  /** Currently selected values. Defaults to empty array. */\n  value?: T[];\n  /** Called when the user toggles an option. */\n  onChange?: (value: T[]) => void;\n  /** Group label shown above the checkbox list. */\n  label?: string;\n  /** Shows a red `*` after the label when true. */\n  required?: boolean;\n  /** Checkbox options to render. */\n  items: BTInputMultiOptionsItem<T>[];\n  /** Disables the entire group. */\n  disabled?: boolean;\n  /**\n   * External error message. When set, all checkboxes show the error border\n   * and the text is displayed below the group in error colour.\n   * Overrides any internal validator error.\n   */\n  errorText?: string;\n  /** Helper text shown below the group in the default state. */\n  helperText?: string;\n  /**\n   * Validation function called by `validate()` (via ref handle).\n   * Return an error string or null.\n   */\n  validator?: (value: T[]) => string | null;\n  /** Additional CSS class names. */\n  className?: string;\n}\n\nexport interface BTInputMultiOptionsHandle {\n  /** Runs the validator and shows the error message. Returns true when valid. */\n  validate(): boolean;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/input-multi-options/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTInputMultiOptions } from './BTInputMultiOptions.js';\nexport type {\n  BTInputMultiOptionsHandle,\n  BTInputMultiOptionsItem,\n  BTInputMultiOptionsProps,\n} from './BTInputMultiOptions.types.js';\n"
     }
   ]
 }

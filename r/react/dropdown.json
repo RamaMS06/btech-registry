@@ -34,6 +34,12 @@
       "target": "@ui/dropdown/BTDropdown.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTDropdown — composable dropdown molecule types (React).\n * Mirror of Vue BTDropdown.types.ts — keep in sync.\n */\nimport type { BTDropdownItem, BTDropdownListVariant } from '../dropdown-list/BTDropdownList.types';\n\nexport interface BTDropdownProps<T = string> {\n  /** Items to display in the dropdown list. */\n  items: BTDropdownItem<T>[];\n  /**\n   * Label shown on the default trigger button.\n   * @default 'Select'\n   */\n  label?: string;\n  /** Optional custom trigger element. Receives toggle + isOpen. */\n  trigger?: (toggle: () => void, isOpen: boolean) => React.ReactNode;\n  /**\n   * Visual layout of the dropdown list.\n   * @default 'list'\n   */\n  variant?: BTDropdownListVariant;\n  /** Controlled value for single-select variants. */\n  value?: T;\n  /** Controlled values for the checkbox multi-select variant. */\n  values?: T[];\n  /** Show a search input at the top. @default false */\n  searchable?: boolean;\n  /** Text shown in the empty state. @default 'No result found.' */\n  emptyLabel?: string;\n  /** Called when an item is selected (all variants). */\n  onSelect?: (value: T) => void;\n  /** Called with the updated list after a checkbox toggle. */\n  onMultiSelect?: (values: T[]) => void;\n  /** Called when the dropdown opens. */\n  onOpen?: () => void;\n  /** Called when the dropdown closes. */\n  onClose?: () => void;\n  className?: string;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/dropdown/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTDropdown } from './BTDropdown';\nexport type { BTDropdownProps } from './BTDropdown.types';\n"
     }
   ]
 }

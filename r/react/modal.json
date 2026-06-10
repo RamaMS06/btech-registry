@@ -33,6 +33,12 @@
       "target": "@ui/modal/BTModal.types.ts",
       "type": "registry:ui",
       "content": "/**\n * BTModal — type definitions.\n *\n * A centred modal dialog with a header (title + optional subtext + optional\n * close button), an optional content slot, and an optional footer with\n * checkbox + secondary/primary actions. Backdrop overlay with click-to-\n * dismiss when [dismissable] is true.\n */\n\n/** Width preset — sm = 500 px, md = 720 px, lg = 1042 px. */\nexport type BTModalSize = 'sm' | 'md' | 'lg';\n\nexport interface BTModalProps {\n  /** Whether the modal is visible. */\n  open: boolean;\n  /** Bold title shown at the top of the header. */\n  title: string;\n  /** Optional supporting text shown below the title. */\n  subtext?: string;\n  /** Width preset. @default 'sm' */\n  size?: BTModalSize;\n  /** Show the X button in the top-right of the header. @default true */\n  hasClose?: boolean;\n  /** Show the footer section. @default true */\n  hasFooter?: boolean;\n  /** Label for the right-most primary action button. @default 'Confirm' */\n  primaryLabel?: string;\n  /** Show the secondary (cancel) button next to the primary one. @default true */\n  hasSecondaryButton?: boolean;\n  /** Label for the secondary action button. @default 'Cancel' */\n  secondaryLabel?: string;\n  /** Show a checkbox at the left of the footer. @default false */\n  hasCheckbox?: boolean;\n  /** Label rendered next to the footer checkbox. @default \"Don't show again\" */\n  checkboxLabel?: string;\n  /** Click on backdrop closes the modal. @default true */\n  dismissable?: boolean;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/modal/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTModal } from './BTModal';\nexport type { BTModalProps, BTModalSize } from './BTModal.types';\n"
     }
   ]
 }

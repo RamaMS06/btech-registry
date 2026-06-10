@@ -31,6 +31,12 @@
       "target": "@ui/button-link/BTButtonLink.types.ts",
       "type": "registry:ui",
       "content": "// BTButtonLink types — Figma source: node 480:3197.\n\n/** Visual style of BTButtonLink. */\nexport type BTButtonLinkVariant =\n  | 'primary'    // brand.primary — default interactive link\n  | 'secondary'  // text.secondary — subdued\n  | 'tertiary'   // text.primary — standard text colour\n  | 'invert'     // text.inverse — for dark / coloured surfaces\n  | 'custom';    // brand.secondary — amber\n\nexport interface BTButtonLinkProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  /** Text shown in the link. */\n  label: string;\n  /** Visual style. @default 'primary' */\n  variant?: BTButtonLinkVariant;\n  /** 16px icon rendered before the label. */\n  leftIcon?: React.ReactNode;\n  /** 16px icon rendered after the label. */\n  rightIcon?: React.ReactNode;\n}\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/button-link/index.ts",
+      "type": "registry:ui",
+      "content": "export { BTButtonLink } from './BTButtonLink';\nexport type { BTButtonLinkProps, BTButtonLinkVariant } from './BTButtonLink.types';\n"
     }
   ]
 }

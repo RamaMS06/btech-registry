@@ -45,6 +45,12 @@
       "content": "<script setup lang=\"ts\">\n/**\n * BTAlertContainer — renders the programmatic alert queue from useAlert().\n *\n * Mount once at the app root (outside router-view):\n * ```vue\n * <template>\n *   <RouterView />\n *   <BTAlertContainer />\n * </template>\n * ```\n */\nimport './BTAlert.css';\nimport './BTAlertContainer.css';\nimport { useAlert } from './useAlert';\nimport BTAlert from './BTAlert.vue';\n\nconst { alerts, dismiss } = useAlert();\n</script>\n\n<template>\n  <Teleport to=\"body\">\n    <div class=\"bt-alert-container\" aria-live=\"polite\" aria-atomic=\"false\">\n      <TransitionGroup name=\"bt-alert-slide\" tag=\"div\" class=\"bt-alert-container__inner\">\n        <BTAlert\n          v-for=\"alert in alerts\"\n          :key=\"alert.id\"\n          :variant=\"alert.variant\"\n          :label=\"alert.label\"\n          :description=\"alert.description\"\n          :link-label=\"alert.linkLabel\"\n          :action-label=\"alert.actionLabel\"\n          :dismissible=\"alert.dismissible ?? true\"\n          @action=\"alert.onAction?.()\"\n          @link=\"alert.onLink?.()\"\n          @dismiss=\"dismiss(alert.id)\"\n        />\n      </TransitionGroup>\n    </div>\n  </Teleport>\n</template>\n"
     },
     {
+      "path": "index.ts",
+      "target": "@ui/alert/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTAlert } from './BTAlert.vue';\nexport { default as BTAlertContainer } from './BTAlertContainer.vue';\nexport { useAlert } from './useAlert';\nexport type { BTAlertProps, BTAlertVariant } from './BTAlert.types';\nexport type { ShowAlertOptions, ActiveAlert } from './useAlert';\n"
+    },
+    {
       "path": "useAlert.ts",
       "target": "@ui/alert/useAlert.ts",
       "type": "registry:ui",

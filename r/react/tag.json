@@ -37,6 +37,12 @@
       "target": "@ui/tag/BTTagGroup.tsx",
       "type": "registry:ui",
       "content": "/**\n * BTTagGroup — layout wrapper for a list of BTTag items.\n * Figma source: node 3050-6644.\n *\n * ## Usage:\n * ```tsx\n * const [tags, setTags] = useState([\n *   { id: '1', label: 'Flutter' },\n *   { id: '2', label: 'React' },\n * ]);\n *\n * <BTTagGroup\n *   items={tags}\n *   type=\"wrap\"\n *   spacing=\"loose\"\n *   onRemove={(item, index) =>\n *     setTags(t => t.filter((_, i) => i !== index))\n *   }\n * />\n * ```\n */\nimport * as React from 'react';\nimport type { BTTagGroupProps } from './BTTag.types.js';\nimport { BTTag } from './BTTag.js';\n\nexport const BTTagGroup = React.forwardRef<HTMLDivElement, BTTagGroupProps>(\n  (\n    {\n      items,\n      variant = 'default',\n      spacing = 'default',\n      type = 'scroll',\n      onRemove,\n      className,\n      ...rest\n    },\n    ref,\n  ) => {\n    const classes = [\n      'bt-tag-group',\n      `bt-tag-group--${type}`,\n      `bt-tag-group--gap-${spacing}`,\n      className ?? '',\n    ]\n      .filter(Boolean)\n      .join(' ');\n\n    return (\n      <div ref={ref} className={classes} data-testid=\"bt-tag-group\" {...rest}>\n        {items.map((item, index) => (\n          <BTTag\n            key={item.id ?? item.label}\n            label={item.label}\n            variant={variant}\n            onRemove={onRemove ? () => onRemove(item, index) : undefined}\n          />\n        ))}\n      </div>\n    );\n  },\n);\n\nBTTagGroup.displayName = 'BTTagGroup';\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/tag/index.ts",
+      "type": "registry:ui",
+      "content": "export * from './BTTag.types.js';\nexport { BTTag } from './BTTag.js';\nexport { BTTagGroup } from './BTTagGroup.js';\n"
     }
   ]
 }

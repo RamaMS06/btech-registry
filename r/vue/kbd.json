@@ -37,6 +37,12 @@
       "target": "@ui/kbd/BTKbdGroup.vue",
       "type": "registry:ui",
       "content": "<!--\n  BTKbdGroup — horizontal row of BTKbd badges.\n\n  ## Usage:\n  ```vue\n  <BTKbdGroup>\n    <BTKbd>Ctrl</BTKbd>\n    <BTKbd>Shift</BTKbd>\n    <BTKbd>K</BTKbd>\n  </BTKbdGroup>\n  ```\n-->\n<script setup lang=\"ts\">\nimport './BTKbd.css';\n</script>\n\n<template>\n  <span data-slot=\"kbd-group\" class=\"bt-kbd-group\">\n    <slot />\n  </span>\n</template>\n"
+    },
+    {
+      "path": "index.ts",
+      "target": "@ui/kbd/index.ts",
+      "type": "registry:ui",
+      "content": "export { default as BTKbd } from './BTKbd.vue';\nexport { default as BTKbdGroup } from './BTKbdGroup.vue';\nexport type { BTKbdProps, BTKbdGroupProps, BTKbdVariant } from './BTKbd.types';\n"
     }
   ]
 }
