@@ -460,6 +460,14 @@
       "url": "/r/react/drawer.json"
     },
     {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "category": "organisms",
+      "title": "BTEmptyState",
+      "description": "Empty/error state organism with 7 variants. Error variants (400/401/404/500/under-maintenance) show a large illustration, title, subtext, error message, and an optional action button. Simple variants (no-data/no-result) show a small illustration and a single label line.",
+      "url": "/r/react/empty-state.json"
+    },
+    {
       "name": "modal",
       "type": "registry:ui",
       "category": "organisms",
