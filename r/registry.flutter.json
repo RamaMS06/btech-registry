@@ -380,14 +380,6 @@
       "url": "/r/flutter/modal.json"
     },
     {
-      "name": "pagination-step",
-      "type": "registry:ui",
-      "category": "organisms",
-      "title": "BTPaginationStep",
-      "description": "Guided tour organism — a step-by-step tooltip balloon sequence anchored to target widgets via GlobalKey. BTPaginationStep describes one step; BTPaginationStepController manages the full tour sequence.",
-      "url": "/r/flutter/pagination-step.json"
-    },
-    {
       "name": "sidebar",
       "type": "registry:ui",
       "category": "organisms",

@@ -484,14 +484,6 @@
       "url": "/r/vue/navigation-menu.json"
     },
     {
-      "name": "pagination-step",
-      "type": "registry:ui",
-      "category": "organisms",
-      "title": "BTPaginationStep",
-      "description": "Guided tour organism (BTPaginationStepTour). Renders a darkened backdrop with a spotlight cutout around the active step's target and a positioned BTTooltipStep balloon. Drive the active index with v-model:step.",
-      "url": "/r/vue/pagination-step.json"
-    },
-    {
       "name": "sidebar",
       "type": "registry:ui",
       "category": "organisms",
