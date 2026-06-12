@@ -276,12 +276,12 @@
       "url": "/r/flutter/tabs.json"
     },
     {
-      "name": "tooltip-step",
+      "name": "tooltip-pagination-step",
       "type": "registry:ui",
       "category": "molecules",
-      "title": "BTTooltipStep",
+      "title": "BTTooltipPaginationStep",
       "description": "PaginationStep / onboarding step balloon with navigation buttons. Standalone and presentational — positioning relative to the target element is the caller's responsibility (Flutter: Positioned + Stack; web: absolute/fixed container).",
-      "url": "/r/flutter/tooltip-step.json"
+      "url": "/r/flutter/tooltip-pagination-step.json"
     },
     {
       "name": "tree",

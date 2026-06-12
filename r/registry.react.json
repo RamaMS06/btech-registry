@@ -380,12 +380,12 @@
       "url": "/r/react/tabs.json"
     },
     {
-      "name": "tooltip-step",
+      "name": "tooltip-pagination-step",
       "type": "registry:ui",
       "category": "molecules",
-      "title": "BTTooltipStep",
+      "title": "BTTooltipPaginationStep",
       "description": "PaginationStep / onboarding step balloon with navigation buttons. Standalone and presentational — positioning is the caller's responsibility.",
-      "url": "/r/react/tooltip-step.json"
+      "url": "/r/react/tooltip-pagination-step.json"
     },
     {
       "name": "tree",

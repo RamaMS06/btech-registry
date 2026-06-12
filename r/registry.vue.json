@@ -380,12 +380,12 @@
       "url": "/r/vue/tabs.json"
     },
     {
-      "name": "tooltip-step",
+      "name": "tooltip-pagination-step",
       "type": "registry:ui",
       "category": "molecules",
-      "title": "BTTooltipStep",
+      "title": "BTTooltipPaginationStep",
       "description": "PaginationStep / onboarding step balloon with navigation buttons. Standalone and presentational — positioning is the caller's responsibility.",
-      "url": "/r/vue/tooltip-step.json"
+      "url": "/r/vue/tooltip-pagination-step.json"
     },
     {
       "name": "tree",
