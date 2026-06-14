@@ -498,6 +498,14 @@
       "title": "BTToast",
       "description": "Toast notification system with imperative API. BTToaster is mounted once at the app root; BTToast renders individual cards. 6 types (default, success, error, warning, info, description) and 9 positions.",
       "url": "/r/vue/toast.json"
+    },
+    {
+      "name": "form-field",
+      "type": "registry:ui",
+      "category": "utilities",
+      "title": "BTFormField",
+      "description": "Utility wrapper that provides a linked <label>, helper/error text display, and aria wiring (aria-invalid, aria-required, aria-describedby) for any slotted BT input component. Provides 'bt-form-field-id' via inject so slotted inputs can link their id to the label's htmlFor. No validation logic.",
+      "url": "/r/vue/form-field.json"
     }
   ]
 }
