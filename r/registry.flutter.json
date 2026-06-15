@@ -112,7 +112,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTSlider",
-      "description": "Interactive range slider atom. Supports three layout types (defaults, range, vertical) and three color variants (primary, secondary, destructive). Uses Flutter's native Slider/RangeSlider with SliderTheme overrides.",
+      "description": "Interactive range slider atom (Figma 434:7617). Supports three layout types (defaults, range, vertical) and two color variants (defaults, error). Thumb has hover/press halo (Figma 434:7227). disabled toggles interaction. Uses Flutter's native Slider/RangeSlider with SliderTheme overrides.",
       "url": "/r/flutter/slider.json"
     },
     {

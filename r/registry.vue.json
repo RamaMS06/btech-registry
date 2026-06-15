@@ -112,7 +112,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTSlider",
-      "description": "Interactive range slider atom. Supports three layout types (default, range, vertical) and three color variants (primary, secondary, destructive). Single-thumb and dual-thumb (range) modes supported.",
+      "description": "Interactive range slider atom (Figma 434:7617). Supports three layout types (default, range, vertical) and two color variants (primary, destructive). Thumb has hover/press halo (Figma 434:7227). disabled toggles interaction.",
       "url": "/r/vue/slider.json"
     },
     {
