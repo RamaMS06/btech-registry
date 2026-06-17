@@ -12,7 +12,9 @@
     "btech_tokens"
   ],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "separator"
+  ],
   "files": [
     {
       "path": "accordion.dart",

@@ -3,10 +3,10 @@
   "name": "button",
   "type": "registry:ui",
   "title": "BTButton",
-  "description": "Interactive action button with 5 variants and 2 sizes. Supports left/right icon slots and icon-only mode.",
+  "description": "Interactive action button with 6 variants and 2 sizes. Supports left/right icon slots and icon-only mode.",
   "framework": "vue",
   "category": "atoms",
-  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=114-2645",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=114-2645",
   "figmaNodeId": "114:2645",
   "dependencies": [
     "@btech/tokens"

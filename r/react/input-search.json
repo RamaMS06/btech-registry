@@ -12,7 +12,9 @@
     "@btech/tokens"
   ],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "input"
+  ],
   "files": [
     {
       "path": "BTInputSearch.css",

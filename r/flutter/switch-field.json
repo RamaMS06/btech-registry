@@ -3,7 +3,7 @@
   "name": "switch-field",
   "type": "registry:ui",
   "title": "BTSwitchField",
-  "description": "A toggle switch atom with animated track + thumb. Supports on/off, disabled, and error states. Labels and subtext can appear on the left side, right side, or both simultaneously. An inner text variant shows a short label inside the pill track.",
+  "description": "Toggle switch atom with animated track + thumb. Supports on/off, disabled, and error states. Labels and subtext can appear on left, right, or both sides. An inner text variant shows a short label inside the pill track.",
   "framework": "flutter",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?m=dev&node-id=504-8352",

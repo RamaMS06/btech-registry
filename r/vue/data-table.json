@@ -13,6 +13,7 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
+    "badge",
     "button",
     "button-link",
     "checkbox",
@@ -26,6 +27,7 @@
     "scrollbar",
     "switch-field",
     "tag",
+    "toggle",
     "tree"
   ],
   "files": [

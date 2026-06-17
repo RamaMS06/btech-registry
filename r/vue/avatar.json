@@ -3,7 +3,7 @@
   "name": "avatar",
   "type": "registry:ui",
   "title": "BTAvatar",
-  "description": "Circular badge displaying a user's profile image or auto-derived initials. Supports skeleton loading state. Used standalone or inside BTAvatarGroup (organism) for stacked group displays.",
+  "description": "Circular badge displaying a user's profile image or auto-derived initials. Supports skeleton loading state and explicit error state. Used standalone or inside BTAvatarGroup for stacked group displays.",
   "framework": "vue",
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=497-979",

@@ -13,6 +13,7 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
+    "badge",
     "button",
     "button-link",
     "checkbox",

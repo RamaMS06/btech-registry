@@ -3,7 +3,7 @@
   "name": "command",
   "type": "registry:ui",
   "title": "BTCommand",
-  "description": "Command palette / search menu (web only). Compound component: BTCommand · BTCommandInput · BTCommandList · BTCommandEmpty · BTCommandGroup · BTCommandItem · BTCommandSeparator · BTCommandShortcut · BTCommandDialog.",
+  "description": "Command palette / search menu (web only). Compound component system: BTCommand · BTCommandInput · BTCommandList · BTCommandEmpty · BTCommandGroup · BTCommandItem · BTCommandSeparator · BTCommandShortcut · BTCommandDialog.",
   "framework": "vue",
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2461-2206",

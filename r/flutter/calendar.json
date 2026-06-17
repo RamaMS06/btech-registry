@@ -14,7 +14,8 @@
   "devDependencies": [],
   "registryDependencies": [
     "button",
-    "drawer"
+    "drawer",
+    "input-search"
   ],
   "files": [
     {

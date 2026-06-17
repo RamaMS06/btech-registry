@@ -3,7 +3,7 @@
   "name": "input",
   "type": "registry:ui",
   "title": "BTInput",
-  "description": "Material M3 outlined-style text input. The foundation of the btech input family — all composites (date, time, dropdown, multi-field, unit) wrap this atom internally.",
+  "description": "Material M3 outlined-style text input with floating label. Foundation of the btech input family. Supports label chips (leftLabel/rightLabel), all text types, password toggle, multiline, char count, prefix/suffix, clearable, and Flutter Form validator integration.",
   "framework": "flutter",
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=85-2484",

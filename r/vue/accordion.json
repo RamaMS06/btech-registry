@@ -6,7 +6,7 @@
   "description": "Three-component accordion system. BTAccordion is the group wrapper that manages open state (type=single/multiple). BTAccordionItem is the individual collapsible panel (separator-based, no card chrome). BTAccordionCard is a self-contained expandable card with its own header (title + subtext + chevron).",
   "framework": "vue",
   "category": "molecules",
-  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=2473-2493",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2473-2493",
   "figmaNodeId": "2473:2493",
   "dependencies": [
     "@btech/tokens"

@@ -6,14 +6,15 @@
   "description": "Centred modal dialog with header (title + optional subtext + optional close button), optional content slot, and optional footer with checkbox plus secondary/primary action buttons. Backdrop click dismisses when `dismissable` is true. Three width presets: sm (500px), md (720px), lg (1042px).",
   "framework": "vue",
   "category": "organisms",
-  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=2123-1992",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2123-1992",
   "figmaNodeId": "2123:1992",
   "dependencies": [
     "@btech/tokens"
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "button"
+    "button",
+    "checkbox"
   ],
   "files": [
     {

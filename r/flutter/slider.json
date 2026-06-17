@@ -3,10 +3,10 @@
   "name": "slider",
   "type": "registry:ui",
   "title": "BTSlider",
-  "description": "Interactive range slider atom (Figma 434:7617). Supports three layout types (defaults, range, vertical) and two color variants (defaults, error). Thumb has hover/press halo (Figma 434:7227). disabled toggles interaction. Uses Flutter's native Slider/RangeSlider with SliderTheme overrides.",
+  "description": "Interactive range slider atom. Supports three layout types (defaults, range, vertical) and two color variants (defaults, error). Uses Flutter's native Slider/RangeSlider with SliderTheme overrides. Custom 24px thumb with 2.5px white border, dark pill tooltip.",
   "framework": "flutter",
   "category": "atoms",
-  "figmaUrl": "https://www.figma.com/design/btech/?node-id=434-7617",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=434-7617",
   "figmaNodeId": "434:7617",
   "dependencies": [
     "btech_tokens"

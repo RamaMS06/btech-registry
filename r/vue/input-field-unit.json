@@ -6,13 +6,14 @@
   "description": "Split input combining a unit selector dropdown (left, dynamic width) with a floating-label text field (right). Each panel has an independent border that activates on interaction — left activates on dropdown open, right activates on field focus. Supports sanitizer (raw value), formatter (display-only), clearable button, hasSearch in unit dropdown, error, and disabled states.",
   "framework": "vue",
   "category": "molecules",
-  "figmaUrl": "https://www.figma.com/design/btech-ds?node-id=702-3937",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=702-3937",
   "figmaNodeId": "702-3937",
   "dependencies": [
     "@btech/tokens"
   ],
   "devDependencies": [],
   "registryDependencies": [
+    "dropdown-list",
     "input"
   ],
   "files": [

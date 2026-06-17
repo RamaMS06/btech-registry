@@ -3,7 +3,7 @@
   "name": "popover",
   "type": "registry:ui",
   "title": "BTPopover",
-  "description": "Floating content panel triggered by any element. Composes three sub-components — BTPopover (root), BTPopoverTrigger (click target), BTPopoverContent (panel) — mirroring the shadcn/Radix composition pattern. Supports align start/center/end and side top/bottom/left/right. Portal-rendered via Vue Teleport.",
+  "description": "Floating content panel triggered by any element. Composes three sub-components — BTPopover (root), BTPopoverTrigger (click target), BTPopoverContent (panel). Supports align start/center/end and side top/bottom/left/right. Portal-rendered via Vue Teleport.",
   "framework": "vue",
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2057-3539",

@@ -6,7 +6,7 @@
   "description": "Collapsible navigation sidebar for desktop layouts. Supports two widths (258 px expanded / 64 px collapsed), a four-level item hierarchy (Main → Submenu → Sub Submenu, Sub Title, Divider), header branding, search input, and a footer user profile. Web-only (D-prefix Figma frame).",
   "framework": "vue",
   "category": "organisms",
-  "figmaUrl": "https://www.figma.com/design/xxx?node-id=2346-3623",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2346-3623",
   "figmaNodeId": "2346-3623",
   "dependencies": [
     "@btech/tokens"
@@ -16,6 +16,7 @@
     "avatar",
     "button",
     "input-search",
+    "scrollbar",
     "tooltip"
   ],
   "files": [

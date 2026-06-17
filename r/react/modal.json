@@ -13,7 +13,8 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
-    "button"
+    "button",
+    "checkbox"
   ],
   "files": [
     {

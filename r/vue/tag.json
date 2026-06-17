@@ -3,7 +3,7 @@
   "name": "tag",
   "type": "registry:ui",
   "title": "BTTag",
-  "description": "Removable pill label atom. Supports default and outline variants, optional left icon slot, and close button for removal.",
+  "description": "Removable pill label atom. Supports default and outline variants, optional left icon slot, and close × button when onRemove is provided.",
   "framework": "vue",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3050-6361",

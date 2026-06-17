@@ -12,7 +12,9 @@
     "btech_tokens"
   ],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
       "path": "internal/toast_icons.dart",

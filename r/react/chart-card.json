@@ -12,7 +12,11 @@
     "@btech/tokens"
   ],
   "devDependencies": [],
-  "registryDependencies": [],
+  "registryDependencies": [
+    "bar-chart",
+    "circle-chart",
+    "line-chart"
+  ],
   "files": [
     {
       "path": "BTChartCard.css",

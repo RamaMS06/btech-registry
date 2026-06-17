@@ -13,6 +13,7 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
+    "dropdown-list",
     "input"
   ],
   "files": [

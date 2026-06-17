@@ -13,6 +13,7 @@
   ],
   "devDependencies": [],
   "registryDependencies": [
+    "input",
     "scrollbar"
   ],
   "files": [

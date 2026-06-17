@@ -3,7 +3,7 @@
   "name": "scrollbar",
   "type": "registry:ui",
   "title": "BTScrollbar",
-  "description": "A token-styled scrollbar wrapper using RawScrollbar. Thumb: bg.subtlest (neutral-300), Track: bg.subtle (neutral-50), 5dp thick.",
+  "description": "Token-styled scrollbar wrapper using RawScrollbar. Thumb: bg.subtlest (neutral-300), Track: bg.subtle (neutral-50), 5dp thick, radius 8dp.",
   "framework": "flutter",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2037-4",

@@ -6,7 +6,7 @@
   "description": "PaginationStep / onboarding step balloon with navigation buttons. Standalone and presentational — positioning is the caller's responsibility.",
   "framework": "vue",
   "category": "molecules",
-  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=478-2463",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=478-2463",
   "figmaNodeId": "478-2463",
   "dependencies": [
     "@btech/tokens"

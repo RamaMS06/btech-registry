@@ -6,7 +6,7 @@
   "description": "Right-side sliding panel (D-Drawer). Teleports to <body> via Vue Teleport. 400 px wide, full viewport height, rounded left corners, shadow cast leftward. Footer has two equal-width buttons (secondary left, primary right).",
   "framework": "vue",
   "category": "organisms",
-  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=2616-12959",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2616-12959",
   "figmaNodeId": "2616:12959",
   "dependencies": [
     "@btech/tokens"

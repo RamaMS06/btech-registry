@@ -3,7 +3,7 @@
   "name": "loading",
   "type": "registry:ui",
   "title": "BTLoading",
-  "description": "Multi-type loading indicator. Five named constructors: spinner (Lottie rotating rings), pulse (Lottie pulsing dots), skeleton (shimmer block via BTLoadingSkeleton), progressbar (LinearProgressIndicator with brand colors), logo (Lottie btech brand animation).",
+  "description": "Multi-type loading indicator. Six named constructors: spinner (Lottie rotating rings), pulse (Lottie pulsing dots), skeleton (shimmer via Skeletonizer), skeletonLeaf (single Skeleton.leaf), progressbar (LinearProgressIndicator), logo (Lottie btech brand animation).",
   "framework": "flutter",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=3227-400",

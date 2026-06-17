@@ -6,7 +6,7 @@
   "description": "Recursive data-driven tree component. Pass a list of BTTreeNode objects — nesting depth is inferred from children arrays, expand/collapse state is managed internally with a CSS grid-template-rows animation, and level-based background tinting is applied automatically.",
   "framework": "vue",
   "category": "molecules",
-  "figmaUrl": "https://www.figma.com/design/placeholder/?node-id=2481-7383",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2481-7383",
   "figmaNodeId": "2481:7383",
   "dependencies": [
     "@btech/tokens"

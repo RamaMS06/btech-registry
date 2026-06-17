@@ -3,7 +3,7 @@
   "name": "hover-card",
   "type": "registry:ui",
   "title": "BTHoverCard",
-  "description": "Hover-triggered floating card that appears after a configurable delay when the user hovers over a trigger element. Supports four-direction positioning (top/bottom/left/right) with auto-flip and alignment control. Web only (Vue + React).",
+  "description": "Hover-triggered floating card that appears after a configurable delay when the user hovers over a trigger element. Supports four-direction positioning (top/bottom/left/right) with auto-flip and alignment control. Web only (Vue + React). Compose BTHoverCard > BTHoverCardTrigger + BTHoverCardContent > BTHoverCardItem.",
   "framework": "vue",
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?m=auto&node-id=2065-2405",

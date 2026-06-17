@@ -8,7 +8,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTAspectRatio",
-      "description": "Layout utility atom that constrains its children to a fixed aspect ratio with overflow clipping and rounded corners. Use as a wrapper for images, videos, or any content that must maintain a predictable proportion.",
+      "description": "Layout utility atom that constrains its children to a fixed aspect ratio with overflow clipping. Use as a wrapper for images, videos, or any content that must maintain a predictable proportion.",
       "url": "/r/vue/aspect-ratio.json"
     },
     {
@@ -24,7 +24,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTButton",
-      "description": "Interactive action button with 5 variants and 2 sizes. Supports left/right icon slots and icon-only mode.",
+      "description": "Interactive action button with 6 variants and 2 sizes. Supports left/right icon slots and icon-only mode.",
       "url": "/r/vue/button.json"
     },
     {
@@ -128,7 +128,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTTag",
-      "description": "Removable pill label atom. Supports default and outline variants, optional left icon slot, and close button for removal.",
+      "description": "Removable pill label atom. Supports default and outline variants, optional left icon slot, and close × button when onRemove is provided.",
       "url": "/r/vue/tag.json"
     },
     {
@@ -184,7 +184,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTAvatar",
-      "description": "Circular badge displaying a user's profile image or auto-derived initials. Supports skeleton loading state. Used standalone or inside BTAvatarGroup (organism) for stacked group displays.",
+      "description": "Circular badge displaying a user's profile image or auto-derived initials. Supports skeleton loading state and explicit error state. Used standalone or inside BTAvatarGroup for stacked group displays.",
       "url": "/r/vue/avatar.json"
     },
     {
@@ -208,7 +208,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTCircleChart",
-      "description": "Pie / donut / donut-rounded chart molecule wrapping ApexCharts. Renders coloured sections with external badge labels showing the section letter and percentage. Three visual variants selectable via the `variant` prop.",
+      "description": "Pie / donut / donut-rounded chart molecule rendered as custom SVG. Renders coloured sections with external badge labels showing the section letter and percentage. Hovering or tapping a section pops it outward and shows a floating BTTooltip, with a radial leader line from each section to its badge. Three visual variants selectable via the `variant` prop.",
       "url": "/r/vue/circle-chart.json"
     },
     {
@@ -216,7 +216,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTCommand",
-      "description": "Command palette / search menu (web only). Compound component: BTCommand · BTCommandInput · BTCommandList · BTCommandEmpty · BTCommandGroup · BTCommandItem · BTCommandSeparator · BTCommandShortcut · BTCommandDialog.",
+      "description": "Command palette / search menu (web only). Compound component system: BTCommand · BTCommandInput · BTCommandList · BTCommandEmpty · BTCommandGroup · BTCommandItem · BTCommandSeparator · BTCommandShortcut · BTCommandDialog.",
       "url": "/r/vue/command.json"
     },
     {
@@ -240,7 +240,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTHoverCard",
-      "description": "Hover-triggered floating card that appears after a configurable delay when the user hovers over a trigger element. Supports four-direction positioning (top/bottom/left/right) with auto-flip and alignment control. Web only (Vue + React).",
+      "description": "Hover-triggered floating card that appears after a configurable delay when the user hovers over a trigger element. Supports four-direction positioning (top/bottom/left/right) with auto-flip and alignment control. Web only (Vue + React). Compose BTHoverCard > BTHoverCardTrigger + BTHoverCardContent > BTHoverCardItem.",
       "url": "/r/vue/hover-card.json"
     },
     {
@@ -360,7 +360,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTPopover",
-      "description": "Floating content panel triggered by any element. Composes three sub-components — BTPopover (root), BTPopoverTrigger (click target), BTPopoverContent (panel) — mirroring the shadcn/Radix composition pattern. Supports align start/center/end and side top/bottom/left/right. Portal-rendered via Vue Teleport.",
+      "description": "Floating content panel triggered by any element. Composes three sub-components — BTPopover (root), BTPopoverTrigger (click target), BTPopoverContent (panel). Supports align start/center/end and side top/bottom/left/right. Portal-rendered via Vue Teleport.",
       "url": "/r/vue/popover.json"
     },
     {

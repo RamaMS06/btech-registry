@@ -6,7 +6,7 @@
   "description": "Form panel organism with a white header (title + optional subtext + optional top-right link), a flexible content slot, and a grey footer with a primary action button and optional secondary button. Stateless — caller owns all interaction logic.",
   "framework": "vue",
   "category": "organisms",
-  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=2504-3364",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2504-3364",
   "figmaNodeId": "2504-3364",
   "dependencies": [
     "@btech/tokens"

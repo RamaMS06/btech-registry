@@ -3,7 +3,7 @@
   "name": "alert-dialog",
   "type": "registry:ui",
   "title": "BTAlertDialog",
-  "description": "Modal confirmation/information dialog. Mobile (M) design — 296px wide, vertical button stack.",
+  "description": "Modal confirmation/information dialog. Mobile (M) design — 296px wide, vertical button stack (Confirm on top, Cancel below). Use BTAlertDialog.show() for a centred overlay via showDialog.",
   "framework": "flutter",
   "category": "molecules",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=2519-2209",

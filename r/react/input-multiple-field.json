@@ -15,6 +15,7 @@
   "registryDependencies": [
     "dropdown-list",
     "input",
+    "input-search",
     "tag"
   ],
   "files": [

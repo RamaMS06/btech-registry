@@ -3,7 +3,7 @@
   "name": "checkbox",
   "type": "registry:ui",
   "title": "BTCheckbox",
-  "description": "Checkbox atom with 7 states: uncheck, check, indeterminate, disable-uncheck, disable-check, disable-indeterminate, and error. Supports optional label and subtext. The widget is stateless — callers own checked/indeterminate values.",
+  "description": "Checkbox atom with 7 states: uncheck, check, indeterminate, disable-uncheck, disable-check, disable-indeterminate, and error. Supports optional label and subtext. Stateless — callers own checked/indeterminate values.",
   "framework": "flutter",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=504-4181",

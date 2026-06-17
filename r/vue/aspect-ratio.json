@@ -3,7 +3,7 @@
   "name": "aspect-ratio",
   "type": "registry:ui",
   "title": "BTAspectRatio",
-  "description": "Layout utility atom that constrains its children to a fixed aspect ratio with overflow clipping and rounded corners. Use as a wrapper for images, videos, or any content that must maintain a predictable proportion.",
+  "description": "Layout utility atom that constrains its children to a fixed aspect ratio with overflow clipping. Use as a wrapper for images, videos, or any content that must maintain a predictable proportion.",
   "framework": "vue",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?m=dev&node-id=820-3124",

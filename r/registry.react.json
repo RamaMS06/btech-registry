@@ -208,7 +208,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTCircleChart",
-      "description": "Pie / donut / donut-rounded chart molecule wrapping ApexCharts. Renders coloured sections with external badge labels showing the section letter and percentage. Three visual variants selectable via the `variant` prop.",
+      "description": "Pie / donut / donut-rounded chart molecule rendered as custom SVG. Renders coloured sections with external badge labels showing the section letter and percentage. Hovering or tapping a section pops it outward and shows a floating BTTooltip, with a radial leader line from each section to its badge. Three visual variants selectable via the `variant` prop.",
       "url": "/r/react/circle-chart.json"
     },
     {
@@ -360,7 +360,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTPopover",
-      "description": "Floating content panel triggered by any element. Composes three sub-components — BTPopover (root), BTPopoverTrigger (click target), BTPopoverContent (panel) — mirroring the shadcn/Radix composition pattern. Supports align start/center/end and side top/bottom/left/right. Portal-rendered via Vue Teleport.",
+      "description": "Floating content panel triggered by any element. Composes three sub-components — BTPopover (root), BTPopoverTrigger (click target), BTPopoverContent (panel) — mirroring the shadcn/Radix composition pattern. Supports align start/center/end and side top/bottom/left/right. Portal-rendered.",
       "url": "/r/react/popover.json"
     },
     {

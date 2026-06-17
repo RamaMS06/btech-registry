@@ -6,7 +6,7 @@
   "description": "Empty/error state organism with 7 variants. Error variants (400/401/404/500/under-maintenance) show a large illustration, title, subtext, error message, and an optional action button. Simple variants (no-data/no-result) show a small illustration and a single label line.",
   "framework": "vue",
   "category": "organisms",
-  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=3688-2647",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3688-2647",
   "figmaNodeId": "3688:2647",
   "dependencies": [
     "@btech/assets@0.1.0-rc.1",

@@ -6,7 +6,7 @@
   "description": "Multi-value tag input. Supports free-text tags (Enter to commit) and predefined items via checkbox dropdown. Wrap and scroll layout types.",
   "framework": "vue",
   "category": "molecules",
-  "figmaUrl": "https://www.figma.com/design/placeholder/BTInputMultipleField",
+  "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=555-4109",
   "figmaNodeId": "555-4109",
   "dependencies": [
     "@btech/tokens"

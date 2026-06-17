@@ -3,7 +3,7 @@
   "name": "tooltip",
   "type": "registry:ui",
   "title": "BTTooltip",
-  "description": "Hover / tap tooltip that wraps a trigger widget and displays a dark-background floating balloon with a rounded-tip arrow caret. Supports plain text or rich widget content via the content/children slot.",
+  "description": "Hover / tap tooltip wrapping a trigger widget. Shows a dark-background floating balloon with a rounded-tip arrow caret. Supports plain text or rich widget content. Mobile: tap to toggle; desktop: hover.",
   "framework": "flutter",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=479-2624",

@@ -24,7 +24,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTButton",
-      "description": "Interactive action button with 5 variants and 2 sizes. Supports left/right icon slots and icon-only mode.",
+      "description": "Interactive action button with 6 variants and 3 sizes. Supports left/right icon slots and a BTButton.iconOnly named constructor for icon-only square mode. Pass onPressed: null to disable.",
       "url": "/r/flutter/button.json"
     },
     {
@@ -32,7 +32,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTButtonGroup",
-      "description": "Horizontal group of related action buttons sharing borders. Supports 1–9+ items, 5 variants (default-light, default-white, primary, destructive, warning), 2 sizes, and per-item variant mixing.",
+      "description": "Horizontal group of related action buttons sharing borders, appearing as one unified control. Supports 5 variants, 2 sizes, and per-item variant mixing via BTButtonGroupItemDef.variant override.",
       "url": "/r/flutter/button-group.json"
     },
     {
@@ -48,7 +48,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTCheckbox",
-      "description": "Checkbox atom with 7 states: uncheck, check, indeterminate, disable-uncheck, disable-check, disable-indeterminate, and error. Supports optional label and subtext. The widget is stateless — callers own checked/indeterminate values.",
+      "description": "Checkbox atom with 7 states: uncheck, check, indeterminate, disable-uncheck, disable-check, disable-indeterminate, and error. Supports optional label and subtext. Stateless — callers own checked/indeterminate values.",
       "url": "/r/flutter/checkbox.json"
     },
     {
@@ -56,7 +56,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTDropdownList",
-      "description": "Floating option list atom — purely presentational; caller handles positioning, filtering, and toggling visibility. Supports list, combobox, checkbox, and radio variants.",
+      "description": "Floating option list atom — purely presentational; caller handles positioning, filtering, and toggling visibility. Supports list, combobox (with avatars), checkbox, and radio variants. Empty items trigger a built-in empty-state illustration.",
       "url": "/r/flutter/dropdown-list.json"
     },
     {
@@ -72,7 +72,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTKbd",
-      "description": "Keyboard key badge for displaying shortcut keys or hotkey combinations.",
+      "description": "Keyboard key badge for displaying shortcut keys or hotkey combinations. Use BTKbdGroup to render a horizontal shortcut combo (e.g. ⌘ + K).",
       "url": "/r/flutter/kbd.json"
     },
     {
@@ -80,7 +80,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTLoading",
-      "description": "Multi-type loading indicator. Five named constructors: spinner (Lottie rotating rings), pulse (Lottie pulsing dots), skeleton (shimmer block via BTLoadingSkeleton), progressbar (LinearProgressIndicator with brand colors), logo (Lottie btech brand animation).",
+      "description": "Multi-type loading indicator. Six named constructors: spinner (Lottie rotating rings), pulse (Lottie pulsing dots), skeleton (shimmer via Skeletonizer), skeletonLeaf (single Skeleton.leaf), progressbar (LinearProgressIndicator), logo (Lottie btech brand animation).",
       "url": "/r/flutter/loading.json"
     },
     {
@@ -96,7 +96,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTScrollbar",
-      "description": "A token-styled scrollbar wrapper using RawScrollbar. Thumb: bg.subtlest (neutral-300), Track: bg.subtle (neutral-50), 5dp thick.",
+      "description": "Token-styled scrollbar wrapper using RawScrollbar. Thumb: bg.subtlest (neutral-300), Track: bg.subtle (neutral-50), 5dp thick, radius 8dp.",
       "url": "/r/flutter/scrollbar.json"
     },
     {
@@ -112,7 +112,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTSlider",
-      "description": "Interactive range slider atom (Figma 434:7617). Supports three layout types (defaults, range, vertical) and two color variants (defaults, error). Thumb has hover/press halo (Figma 434:7227). disabled toggles interaction. Uses Flutter's native Slider/RangeSlider with SliderTheme overrides.",
+      "description": "Interactive range slider atom. Supports three layout types (defaults, range, vertical) and two color variants (defaults, error). Uses Flutter's native Slider/RangeSlider with SliderTheme overrides. Custom 24px thumb with 2.5px white border, dark pill tooltip.",
       "url": "/r/flutter/slider.json"
     },
     {
@@ -120,7 +120,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTSwitchField",
-      "description": "A toggle switch atom with animated track + thumb. Supports on/off, disabled, and error states. Labels and subtext can appear on the left side, right side, or both simultaneously. An inner text variant shows a short label inside the pill track.",
+      "description": "Toggle switch atom with animated track + thumb. Supports on/off, disabled, and error states. Labels and subtext can appear on left, right, or both sides. An inner text variant shows a short label inside the pill track.",
       "url": "/r/flutter/switch-field.json"
     },
     {
@@ -152,7 +152,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTTooltip",
-      "description": "Hover / tap tooltip that wraps a trigger widget and displays a dark-background floating balloon with a rounded-tip arrow caret. Supports plain text or rich widget content via the content/children slot.",
+      "description": "Hover / tap tooltip wrapping a trigger widget. Shows a dark-background floating balloon with a rounded-tip arrow caret. Supports plain text or rich widget content. Mobile: tap to toggle; desktop: hover.",
       "url": "/r/flutter/tooltip.json"
     },
     {
@@ -160,7 +160,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTAlert",
-      "description": "Contextual feedback banner with icon, label, optional description, optional action button/link, and optional dismiss button.",
+      "description": "Contextual feedback banner with icon, label, optional description, optional action button/link, and optional dismiss button. BTAlert.show() provides a programmatic toast-style overlay API.",
       "url": "/r/flutter/alert.json"
     },
     {
@@ -168,7 +168,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTAlertDialog",
-      "description": "Modal confirmation/information dialog. Mobile (M) design — 296px wide, vertical button stack.",
+      "description": "Modal confirmation/information dialog. Mobile (M) design — 296px wide, vertical button stack (Confirm on top, Cancel below). Use BTAlertDialog.show() for a centred overlay via showDialog.",
       "url": "/r/flutter/alert-dialog.json"
     },
     {
@@ -208,7 +208,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTDropdownMenu",
-      "description": "Action menu that opens a floating panel of labelled items, group headers, separators, and optional keyboard shortcuts. Trigger via builder function; items via flat BTDropdownMenuEntry<T>[] list.",
+      "description": "Action menu molecule that opens a floating panel of labelled items, group headers, separators, and optional keyboard shortcuts. Trigger via builder function; items via flat BTDropdownMenuEntry<T> list.",
       "url": "/r/flutter/dropdown-menu.json"
     },
     {
@@ -216,7 +216,7 @@
       "type": "registry:ui",
       "category": "molecules",
       "title": "BTInput",
-      "description": "Material M3 outlined-style text input. The foundation of the btech input family — all composites (date, time, dropdown, multi-field, unit) wrap this atom internally.",
+      "description": "Material M3 outlined-style text input with floating label. Foundation of the btech input family. Supports label chips (leftLabel/rightLabel), all text types, password toggle, multiline, char count, prefix/suffix, clearable, and Flutter Form validator integration.",
       "url": "/r/flutter/input.json"
     },
     {
