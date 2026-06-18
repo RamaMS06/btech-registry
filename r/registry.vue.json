@@ -500,12 +500,12 @@
       "url": "/r/vue/toast.json"
     },
     {
-      "name": "form-field",
+      "name": "form",
       "type": "registry:ui",
       "category": "utilities",
-      "title": "BTFormField",
-      "description": "Utility wrapper that provides a linked <label>, helper/error text display, and aria wiring (aria-invalid, aria-required, aria-describedby) for any slotted BT input component. Provides 'bt-form-field-id' via inject so slotted inputs can link their id to the label's htmlFor. No validation logic.",
-      "url": "/r/vue/form-field.json"
+      "title": "BTForm",
+      "description": "Top-level form coordinator. Wraps a native <form> with a single `validation` prop (function form or per-field map) and provide keys (bt-form-values, bt-form-errors, bt-form-touched, bt-form-submitted, bt-form-set-field, bt-form-touch, bt-form-error-for, bt-form-state) that BT inputs subscribe to via their `name` prop — value, change handlers, blur, and error wire automatically. Errors gate on touched OR submitted; `submit` only fires when the form is valid; `invalid` fires with the full error map otherwise.",
+      "url": "/r/vue/form.json"
     }
   ]
 }

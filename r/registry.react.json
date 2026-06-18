@@ -500,12 +500,12 @@
       "url": "/r/react/toast.json"
     },
     {
-      "name": "form-field",
+      "name": "form",
       "type": "registry:ui",
       "category": "utilities",
-      "title": "BTFormField",
-      "description": "Utility wrapper that provides a linked <label>, helper/error text display, and aria wiring (aria-invalid, aria-required, aria-describedby) for any child BT input component. Provides BTFormFieldContext so child inputs can link their id to the label's htmlFor. No validation logic.",
-      "url": "/r/react/form-field.json"
+      "title": "BTForm",
+      "description": "Top-level form coordinator. Wraps a native <form> with a single `validation` prop (function form or per-field map) and a React context that BT inputs subscribe to via their `name` prop — value, onChange, onBlur, and error wire automatically. Errors gate on touched OR submitted; `onSubmit` only fires when the form is valid; `onInvalid` fires with the full error map otherwise. Children can be JSX nodes or a render-prop `(form) => ReactNode` that receives the full `BTFormState`.",
+      "url": "/r/react/form.json"
     }
   ]
 }
