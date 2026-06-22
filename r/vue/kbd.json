@@ -18,31 +18,31 @@
       "path": "BTKbd.css",
       "target": "@ui/kbd/BTKbd.css",
       "type": "registry:ui",
-      "content": "/* BTKbd — keyboard key badge.\n   Figma: D-Kbd node 2637:2613 (web only — no Flutter equivalent).\n   Shared between @btech/ui-vue and @btech/ui-react — keep these files identical. */\n\n.bt-kbd {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 16px;\n  min-width: 16px;\n  border-radius: var(--radius-xs);\n  background: var(--bg-subtle);\n  padding: 0 var(--space-2xs);\n  pointer-events: none;\n  user-select: none;\n  vertical-align: middle;\n  font-family: var(--typography-font-family-sans);\n  font-size: var(--typography-font-size-2xs);\n  font-weight: 700;\n  line-height: var(--typography-line-height-xs);\n  letter-spacing: 0;\n  color: var(--text-secondary);\n  white-space: nowrap;\n}\n\n/* Icon variant — equal padding on all sides */\n.bt-kbd--icon {\n  padding: var(--space-2xs);\n}\n\n/* Dark variant — neutral/700 */\n.bt-kbd--dark {\n  background: var(--color-neutral-700);\n  color: var(--text-tertiary);\n}\n\n/* Group — horizontal row of kbd badges */\n.bt-kbd-group {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--space-2xs);\n}\n"
+      "content": "/* BTKbd — keyboard key badge.\r\n   Figma: D-Kbd node 2637:2613 (web only — no Flutter equivalent).\r\n   Shared between @btech/ui-vue and @btech/ui-react — keep these files identical. */\r\n\r\n.bt-kbd {\r\n  display: inline-flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  min-height: 16px;\r\n  min-width: 16px;\r\n  border-radius: var(--radius-xs);\r\n  background: var(--bg-subtle);\r\n  padding: 0 var(--space-2xs);\r\n  pointer-events: none;\r\n  user-select: none;\r\n  vertical-align: middle;\r\n  font-family: var(--typography-font-family-sans);\r\n  font-size: var(--typography-font-size-2xs);\r\n  font-weight: 700;\r\n  line-height: var(--typography-line-height-xs);\r\n  letter-spacing: 0;\r\n  color: var(--text-secondary);\r\n  white-space: nowrap;\r\n}\r\n\r\n/* Icon variant — equal padding on all sides */\r\n.bt-kbd--icon {\r\n  padding: var(--space-2xs);\r\n}\r\n\r\n/* Dark variant — neutral/700 */\r\n.bt-kbd--dark {\r\n  background: var(--color-neutral-700);\r\n  color: var(--text-tertiary);\r\n}\r\n\r\n/* Group — horizontal row of kbd badges */\r\n.bt-kbd-group {\r\n  display: inline-flex;\r\n  align-items: center;\r\n  gap: var(--space-2xs);\r\n}\r\n"
     },
     {
       "path": "BTKbd.types.ts",
       "target": "@ui/kbd/BTKbd.types.ts",
       "type": "registry:ui",
-      "content": "export type BTKbdVariant = 'text' | 'icon';\n\nexport interface BTKbdProps {\n  variant?: BTKbdVariant;\n  dark?: boolean;\n}\n\nexport interface BTKbdGroupProps {\n  // intentionally empty — group is a layout-only wrapper\n}\n"
+      "content": "export type BTKbdVariant = 'text' | 'icon';\r\n\r\nexport interface BTKbdProps {\r\n  variant?: BTKbdVariant;\r\n  dark?: boolean;\r\n}\r\n\r\nexport interface BTKbdGroupProps {\r\n  // intentionally empty — group is a layout-only wrapper\r\n}\r\n"
     },
     {
       "path": "BTKbd.vue",
       "target": "@ui/kbd/BTKbd.vue",
       "type": "registry:ui",
-      "content": "<!--\n  BTKbd — keyboard key badge.\n\n  ## Usage:\n  ```vue\n  <BTKbd>⌘</BTKbd>\n  <BTKbd dark>K</BTKbd>\n  <BTKbdGroup>\n    <BTKbd>Ctrl</BTKbd>\n    <BTKbd>K</BTKbd>\n  </BTKbdGroup>\n  ```\n-->\n<script setup lang=\"ts\">\nimport './BTKbd.css';\nimport type { BTKbdProps } from './BTKbd.types';\n\nconst props = withDefaults(defineProps<BTKbdProps>(), {\n  variant: 'text',\n  dark: false,\n});\n</script>\n\n<template>\n  <kbd\n    data-slot=\"kbd\"\n    :class=\"[\n      'bt-kbd',\n      props.variant === 'icon' && 'bt-kbd--icon',\n      props.dark && 'bt-kbd--dark',\n    ]\"\n  >\n    <slot />\n  </kbd>\n</template>\n"
+      "content": "<!--\r\n  BTKbd — keyboard key badge.\r\n\r\n  ## Usage:\r\n  ```vue\r\n  <BTKbd>⌘</BTKbd>\r\n  <BTKbd dark>K</BTKbd>\r\n  <BTKbdGroup>\r\n    <BTKbd>Ctrl</BTKbd>\r\n    <BTKbd>K</BTKbd>\r\n  </BTKbdGroup>\r\n  ```\r\n-->\r\n<script setup lang=\"ts\">\r\nimport './BTKbd.css';\r\nimport type { BTKbdProps } from './BTKbd.types';\r\n\r\nconst props = withDefaults(defineProps<BTKbdProps>(), {\r\n  variant: 'text',\r\n  dark: false,\r\n});\r\n</script>\r\n\r\n<template>\r\n  <kbd\r\n    data-slot=\"kbd\"\r\n    :class=\"[\r\n      'bt-kbd',\r\n      props.variant === 'icon' && 'bt-kbd--icon',\r\n      props.dark && 'bt-kbd--dark',\r\n    ]\"\r\n  >\r\n    <slot />\r\n  </kbd>\r\n</template>\r\n"
     },
     {
       "path": "BTKbdGroup.vue",
       "target": "@ui/kbd/BTKbdGroup.vue",
       "type": "registry:ui",
-      "content": "<!--\n  BTKbdGroup — horizontal row of BTKbd badges.\n\n  ## Usage:\n  ```vue\n  <BTKbdGroup>\n    <BTKbd>Ctrl</BTKbd>\n    <BTKbd>Shift</BTKbd>\n    <BTKbd>K</BTKbd>\n  </BTKbdGroup>\n  ```\n-->\n<script setup lang=\"ts\">\nimport './BTKbd.css';\n</script>\n\n<template>\n  <span data-slot=\"kbd-group\" class=\"bt-kbd-group\">\n    <slot />\n  </span>\n</template>\n"
+      "content": "<!--\r\n  BTKbdGroup — horizontal row of BTKbd badges.\r\n\r\n  ## Usage:\r\n  ```vue\r\n  <BTKbdGroup>\r\n    <BTKbd>Ctrl</BTKbd>\r\n    <BTKbd>Shift</BTKbd>\r\n    <BTKbd>K</BTKbd>\r\n  </BTKbdGroup>\r\n  ```\r\n-->\r\n<script setup lang=\"ts\">\r\nimport './BTKbd.css';\r\n</script>\r\n\r\n<template>\r\n  <span data-slot=\"kbd-group\" class=\"bt-kbd-group\">\r\n    <slot />\r\n  </span>\r\n</template>\r\n"
     },
     {
       "path": "index.ts",
       "target": "@ui/kbd/index.ts",
       "type": "registry:ui",
-      "content": "export { default as BTKbd } from './BTKbd.vue';\nexport { default as BTKbdGroup } from './BTKbdGroup.vue';\nexport type { BTKbdProps, BTKbdGroupProps, BTKbdVariant } from './BTKbd.types';\n"
+      "content": "export { default as BTKbd } from './BTKbd.vue';\r\nexport { default as BTKbdGroup } from './BTKbdGroup.vue';\r\nexport type { BTKbdProps, BTKbdGroupProps, BTKbdVariant } from './BTKbd.types';\r\n"
     }
   ]
 }

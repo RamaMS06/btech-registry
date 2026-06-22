@@ -18,19 +18,19 @@
       "path": "separator.dart",
       "target": "@flutterBase/separator/separator.dart",
       "type": "registry:ui",
-      "content": "export 'separator.types.dart';\nexport 'separator.widget.dart';\n"
+      "content": "export 'separator.types.dart';\r\nexport 'separator.widget.dart';\r\n"
     },
     {
       "path": "separator.types.dart",
       "target": "@flutterBase/separator/separator.types.dart",
       "type": "registry:ui",
-      "content": "/// Orientation of the [BTSeparator] line.\nenum BTSeparatorOrientation {\n  /// Full-width 1px horizontal line (default).\n  horizontal,\n\n  /// Full-height 1px vertical line.\n  vertical,\n}\n"
+      "content": "/// Orientation of the [BTSeparator] line.\r\nenum BTSeparatorOrientation {\r\n  /// Full-width 1px horizontal line (default).\r\n  horizontal,\r\n\r\n  /// Full-height 1px vertical line.\r\n  vertical,\r\n}\r\n"
     },
     {
       "path": "separator.widget.dart",
       "target": "@flutterBase/separator/separator.widget.dart",
       "type": "registry:ui",
-      "content": "import 'package:btech_tokens/btech_tokens.dart';\nimport 'package:btech_ui/src/components/atoms/separator/separator.types.dart';\nimport 'package:flutter/material.dart';\n\n/// BTSeparator — visual divider atom (Figma 194:756).\n///\n/// Renders a 1px line using [context.btColor.border.primary].\n/// Place inside a flex container — stretches to fill the cross axis.\n///\n/// Example:\n/// ```dart\n/// // Horizontal (default) — inside a Column\n/// Column(\n///   children: [\n///     SomeWidget(),\n///     const BTSeparator(),\n///     AnotherWidget(),\n///   ],\n/// )\n///\n/// // Vertical — inside a Row with bounded height\n/// SizedBox(\n///   height: 24,\n///   child: Row(\n///     children: [\n///       LabelA(),\n///       const BTSeparator(orientation: BTSeparatorOrientation.vertical),\n///       LabelB(),\n///     ],\n///   ),\n/// )\n/// ```\nclass BTSeparator extends StatelessWidget {\n  const BTSeparator({\n    this.orientation = BTSeparatorOrientation.horizontal,\n    super.key,\n  });\n\n  /// Direction of the divider line.\n  final BTSeparatorOrientation orientation;\n\n  @override\n  Widget build(BuildContext context) {\n    final color = context.btColor.border.primary;\n    final isHorizontal = orientation == BTSeparatorOrientation.horizontal;\n\n    return Container(\n      width: isHorizontal ? double.infinity : 1,\n      height: isHorizontal ? 1 : double.infinity,\n      color: color,\n    );\n  }\n}\n"
+      "content": "import 'package:btech_tokens/btech_tokens.dart';\r\nimport 'package:btech_ui/src/components/atoms/separator/separator.types.dart';\r\nimport 'package:flutter/material.dart';\r\n\r\n/// BTSeparator — visual divider atom (Figma 194:756).\r\n///\r\n/// Renders a 1px line using [context.btColor.border.primary].\r\n/// Place inside a flex container — stretches to fill the cross axis.\r\n///\r\n/// Example:\r\n/// ```dart\r\n/// // Horizontal (default) — inside a Column\r\n/// Column(\r\n///   children: [\r\n///     SomeWidget(),\r\n///     const BTSeparator(),\r\n///     AnotherWidget(),\r\n///   ],\r\n/// )\r\n///\r\n/// // Vertical — inside a Row with bounded height\r\n/// SizedBox(\r\n///   height: 24,\r\n///   child: Row(\r\n///     children: [\r\n///       LabelA(),\r\n///       const BTSeparator(orientation: BTSeparatorOrientation.vertical),\r\n///       LabelB(),\r\n///     ],\r\n///   ),\r\n/// )\r\n/// ```\r\nclass BTSeparator extends StatelessWidget {\r\n  const BTSeparator({\r\n    this.orientation = BTSeparatorOrientation.horizontal,\r\n    super.key,\r\n  });\r\n\r\n  /// Direction of the divider line.\r\n  final BTSeparatorOrientation orientation;\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    final color = context.btColor.border.primary;\r\n    final isHorizontal = orientation == BTSeparatorOrientation.horizontal;\r\n\r\n    return Container(\r\n      width: isHorizontal ? double.infinity : 1,\r\n      height: isHorizontal ? 1 : double.infinity,\r\n      color: color,\r\n    );\r\n  }\r\n}\r\n"
     }
   ]
 }
