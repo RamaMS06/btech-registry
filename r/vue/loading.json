@@ -9,7 +9,7 @@
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=3227-400",
   "figmaNodeId": "3227:400",
   "dependencies": [
-    "@btech/assets@0.1.0-rc.1",
+    "@btech/assets@0.1.0-rc.2",
     "@btech/tokens",
     "vue3-lottie@^3.2.0"
   ],
