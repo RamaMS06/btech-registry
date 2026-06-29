@@ -3,7 +3,7 @@
   "name": "card",
   "type": "registry:ui",
   "title": "BTCard",
-  "description": "Flexible card organism with three visual variants: default (full card with optional body + Cancel/Submit footer), small (compact, no footer), and image (top image + default structure). Footer uses BTButton atoms.",
+  "description": "A card groups related content and actions into a single contained surface — a title, description, optional media, a body slot, and footer buttons.",
   "framework": "flutter",
   "category": "organisms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/?node-id=93-157",

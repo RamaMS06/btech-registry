@@ -32,7 +32,7 @@
       "type": "registry:ui",
       "category": "atoms",
       "title": "BTButtonGroup",
-      "description": "Horizontal group of related action buttons sharing borders. Supports 1–9+ items, 5 variants (default-light, default-white, primary, destructive, warning), 2 sizes, and per-item variant mixing.",
+      "description": "A button group joins related buttons into a single segmented control. This variant renders a connected row of numbered buttons (2–9, with a 9+ overflow) for compact pagination.",
       "url": "/r/vue/button-group.json"
     },
     {
@@ -416,7 +416,7 @@
       "type": "registry:ui",
       "category": "organisms",
       "title": "BTCard",
-      "description": "Flexible card organism with three visual variants: default (full card with optional body + Cancel/Submit footer), small (compact, no footer), and image (top image + default structure). Footer uses BTButton atoms.",
+      "description": "A card groups related content and actions into a single contained surface — a title, description, optional media, a body slot, and footer buttons.",
       "url": "/r/vue/card.json"
     },
     {

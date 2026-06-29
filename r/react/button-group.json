@@ -3,7 +3,7 @@
   "name": "button-group",
   "type": "registry:ui",
   "title": "BTButtonGroup",
-  "description": "Horizontal group of related action buttons sharing borders. Supports 1–9+ items, 5 variants (default-light, default-white, primary, destructive, warning), 2 sizes, and per-item variant mixing.",
+  "description": "A button group joins related buttons into a single segmented control. This variant renders a connected row of numbered buttons (2–9, with a 9+ overflow) for compact pagination.",
   "framework": "react",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=749-4513",

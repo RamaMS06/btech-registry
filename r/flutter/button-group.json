@@ -3,7 +3,7 @@
   "name": "button-group",
   "type": "registry:ui",
   "title": "BTButtonGroup",
-  "description": "Horizontal group of related action buttons sharing borders, appearing as one unified control. Supports 5 variants, 2 sizes, and per-item variant mixing via BTButtonGroupItemDef.variant override.",
+  "description": "A button group joins related buttons into a single segmented control. This variant renders a connected row of numbered buttons (2–9, with a 9+ overflow) for compact pagination.",
   "framework": "flutter",
   "category": "atoms",
   "figmaUrl": "https://www.figma.com/design/WANr9drWYNYbMPuT2sMeHi/Btech---Design-System?node-id=749-4513",
