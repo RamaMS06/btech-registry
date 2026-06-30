@@ -480,7 +480,7 @@
       "type": "registry:ui",
       "category": "organisms",
       "title": "BTNavigationMenu",
-      "description": "Horizontal top navigation bar for desktop layouts. Two types: menu (logo + text nav items + search + profile) and tab-style (logo + BTTabs or segmented pills + optional search). Web only — no Flutter implementation.",
+      "description": "Horizontal top navigation bar for desktop layouts (Figma Navigation Menu - Desktop). Two types: menu (logo + TabMenubar items + search + profile) and tab-style (logo + BTTabs or segmented TabMenubar + optional search). TabMenubar supports text-only, icon+text, and icon-only item shapes. Web only — no Flutter implementation.",
       "url": "/r/vue/navigation-menu.json"
     },
     {

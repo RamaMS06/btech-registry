@@ -480,7 +480,7 @@
       "type": "registry:ui",
       "category": "organisms",
       "title": "BTNavigationMenu",
-      "description": "Horizontal top navigation bar for desktop layouts. Two variants: menu (logo + text nav items + search + profile) and tab-style (logo + BTTabs line + search). Web only — no Flutter implementation.",
+      "description": "Horizontal top navigation bar for desktop layouts (Figma Navigation Menu - Desktop). Two variants: menu (logo + TabMenubar items + search + profile) and tab-style (logo + BTTabs line or segmented TabMenubar + search). TabMenubar supports text-only, icon+text, and icon-only item shapes. Web only — no Flutter implementation.",
       "url": "/r/react/navigation-menu.json"
     },
     {
